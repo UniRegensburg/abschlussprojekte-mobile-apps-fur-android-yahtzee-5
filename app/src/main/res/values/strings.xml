@@ -3,4 +3,11 @@
     <string name="button_2players">2 Spieler</string>
     <string name="button_3players">3 Spieler</string>
     <string name="button_4players">4 Spieler</string>
+    <string name="insert_player_names_here">Namen des ersten Spielers hier eingeben.</string>
+    <string name="edit_text_for_players_names_filler">#Player1</string>
+    <string name="button_accept_player_name">Bestätigen</string>
+    <string name="game_over">Spiel beendet</string>
+    <string name="game_over_names_filler">\"Spieler 1\" : XXX</string>
+    <string name="button_scoreboard">Scoreboard</string>
+    <string name="button_main_menu">Main Menu</string>
 </resources>
