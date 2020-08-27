@@ -3,6 +3,7 @@
     <string name="button_2players">2 Spieler</string>
     <string name="button_3players">3 Spieler</string>
     <string name="button_4players">4 Spieler</string>
+
     <string name="insert_player_names_here">Namen des ersten Spielers hier eingeben.</string>
     <string name="edit_text_for_players_names_filler">#Player1</string>
     <string name="button_accept_player_name">Bestätigen</string>
@@ -10,4 +11,28 @@
     <string name="game_over_names_filler">\"Spieler 1\" : XXX</string>
     <string name="button_scoreboard">Scoreboard</string>
     <string name="button_main_menu">Main Menu</string>
+    <string name="dice_button">Würfeln</string>
+    <string name="submit_button">Eintragen</string>
+    <string name="cross_out_button">Streichen</string>
+    <string name="toss">Wurf</string>
+    <string name="player1">Spieler 1</string>
+    <string name="player2">Spieler 2</string>
+    <string name="player3">Spieler 3</string>
+    <string name="player4">Spieler 4</string>
+    <string name="toss_one">1er</string>
+    <string name="toss_two">2er</string>
+    <string name="toss_three">3er</string>
+    <string name="toss_four">4er</string>
+    <string name="toss_five">5er</string>
+    <string name="toss_six">6er</string>
+    <string name="toss_summary">Gesamt</string>
+    <string name="toss_bonus">Bonus</string>
+    <string name="toss_three_doubles">Dreier-\nPasch</string>
+    <string name="toss_four_doubles">Vierer-\nPasch</string>
+    <string name="toss_full_house">Full-\nHouse</string>
+    <string name="toss_little_street">Kleine\nStraße</string>
+    <string name="toss_large_street">Große\nStraße</string>
+    <string name="toss_kniffel">Kniffel</string>
+    <string name="toss_chance">Chance</string>
+    <string name="toss_end_summary">End-\nsumme</string>
 </resources>
