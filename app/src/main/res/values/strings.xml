@@ -3,4 +3,11 @@
     <string name="button_2players">2 Spieler</string>
     <string name="button_3players">3 Spieler</string>
     <string name="button_4players">4 Spieler</string>
+    <string name="button_scoreboard">SCOREBOARD</string>
+    <string name="text_roll_the_dice">Es würfelt Spieler 1:</string>
+    <string name="highscore_text">HIGHSCORES</string>
+    <string name="name">\"Name\"</string>
+    <string name="highscore_score">\"Score\"</string>
+    <string name="highscore_date">Date</string>
+    <string name="countdown_rolling_the_dice">x</string>
 </resources>

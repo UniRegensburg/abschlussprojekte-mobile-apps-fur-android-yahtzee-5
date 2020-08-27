@@ -6,19 +6,19 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/kniffel_textart"
+        android:text="@string/app_name"
+        android:textColor="@android:color/black"
+        android:textSize="100sp"
         app:layout_constraintBottom_toTopOf="@+id/button_2players"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:text="@string/app_name"
-        android:fontFamily="@font/kniffel_textart"
-        android:textColor="@android:color/black"
-        android:textSize="100sp"/>
-
-
+        app:layout_constraintVertical_bias="0.515" />
 
     <Button
         android:id="@+id/button_2players"
