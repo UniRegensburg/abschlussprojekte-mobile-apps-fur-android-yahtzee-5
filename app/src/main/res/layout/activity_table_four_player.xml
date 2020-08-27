@@ -572,7 +572,7 @@
                 android:layout_height="wrap_content"
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
-                android:background="#FFFFFFFF"
+                android:background="@color/white"
                 android:padding="3dp"
                 android:text=""
                 android:textAlignment="center" />
@@ -583,7 +583,7 @@
                 android:layout_height="wrap_content"
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
-                android:background="#FFFFFFFF"
+                android:background="@color/white"
                 android:padding="3dp"
                 android:text=""
                 android:textAlignment="center" />
@@ -606,7 +606,7 @@
                 android:layout_height="wrap_content"
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
-                android:background="#FFFFFFFF"
+                android:background="@color/white"
                 android:padding="3dp"
                 android:text=""
                 android:textAlignment="center" />
@@ -617,7 +617,7 @@
                 android:layout_height="wrap_content"
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
-                android:background="#FFFFFFFF"
+                android:background="@color/white"
                 android:padding="3dp"
                 android:text=""
                 android:textAlignment="center" />
@@ -628,7 +628,7 @@
                 android:layout_height="wrap_content"
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
-                android:background="#FFFFFFFF"
+                android:background="@color/white"
                 android:padding="3dp"
                 android:text=""
                 android:textAlignment="center" />
@@ -639,7 +639,7 @@
                 android:layout_height="wrap_content"
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
-                android:background="#FFFFFFFF"
+                android:background="@color/white"
                 android:padding="3dp"
                 android:text=""
                 android:textAlignment="center" />
@@ -650,7 +650,7 @@
                 android:layout_height="wrap_content"
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
-                android:background="#FFFFFFFF"
+                android:background="@color/white"
                 android:padding="3dp"
                 android:text="@string/toss_full_house"
                 android:textAlignment="center"
@@ -662,7 +662,7 @@
                 android:layout_height="wrap_content"
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
-                android:background="#FFFFFFFF"
+                android:background="@color/white"
                 android:padding="3dp"
                 android:text=""
                 android:textAlignment="center" />
@@ -673,7 +673,7 @@
                 android:layout_height="wrap_content"
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
-                android:background="#FFFFFFFF"
+                android:background="@color/white"
                 android:padding="3dp"
                 android:text=""
                 android:textAlignment="center" />
@@ -684,7 +684,7 @@
                 android:layout_height="wrap_content"
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
-                android:background="#FFFFFFFF"
+                android:background="@color/white"
                 android:padding="3dp"
                 android:text=""
                 android:textAlignment="center" />
@@ -695,7 +695,7 @@
                 android:layout_height="wrap_content"
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
-                android:background="#FFFFFFFF"
+                android:background="@color/white"
                 android:padding="3dp"
                 android:text=""
                 android:textAlignment="center" />
@@ -706,7 +706,7 @@
                 android:layout_height="wrap_content"
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
-                android:background="#FFFFFFFF"
+                android:background="@color/white"
                 android:padding="3dp"
                 android:text="@string/toss_little_street"
                 android:textAlignment="center"
@@ -718,7 +718,7 @@
                 android:layout_height="wrap_content"
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
-                android:background="#FFFFFFFF"
+                android:background="@color/white"
                 android:padding="3dp"
                 android:text=""
                 android:textAlignment="center" />
@@ -729,7 +729,7 @@
                 android:layout_height="wrap_content"
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
-                android:background="#FFFFFFFF"
+                android:background="@color/white"
                 android:padding="3dp"
                 android:text=""
                 android:textAlignment="center" />
@@ -740,7 +740,7 @@
                 android:layout_height="wrap_content"
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
-                android:background="#FFFFFFFF"
+                android:background="@color/white"
                 android:padding="3dp"
                 android:text=""
                 android:textAlignment="center" />
@@ -751,7 +751,7 @@
                 android:layout_height="wrap_content"
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
-                android:background="#FFFFFFFF"
+                android:background="@color/white"
                 android:padding="3dp"
                 android:text=""
                 android:textAlignment="center" />
@@ -762,7 +762,7 @@
                 android:layout_height="wrap_content"
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
-                android:background="#FFFFFFFF"
+                android:background="@color/white"
                 android:padding="3dp"
                 android:text="@string/toss_large_street"
                 android:textAlignment="center"
@@ -774,7 +774,7 @@
                 android:layout_height="wrap_content"
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
-                android:background="#FFFFFFFF"
+                android:background="@color/white"
                 android:padding="3dp"
                 android:text=""
                 android:textAlignment="center" />
@@ -785,7 +785,7 @@
                 android:layout_height="wrap_content"
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
-                android:background="#FFFFFFFF"
+                android:background="@color/white"
                 android:padding="3dp"
                 android:text=""
                 android:textAlignment="center" />
@@ -796,7 +796,7 @@
                 android:layout_height="wrap_content"
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
-                android:background="#FFFFFFFF"
+                android:background="@color/white"
                 android:padding="3dp"
                 android:text=""
                 android:textAlignment="center" />
@@ -807,7 +807,7 @@
                 android:layout_height="wrap_content"
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
-                android:background="#FFFFFFFF"
+                android:background="@color/white"
                 android:padding="3dp"
                 android:text=""
                 android:textAlignment="center" />
@@ -818,7 +818,7 @@
                 android:layout_height="wrap_content"
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
-                android:background="#FFFFFFFF"
+                android:background="@color/white"
                 android:padding="3dp"
                 android:text="@string/toss_kniffel"
                 android:textAlignment="center"
@@ -830,7 +830,7 @@
                 android:layout_height="wrap_content"
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
-                android:background="#FFFFFFFF"
+                android:background="@color/white"
                 android:padding="3dp"
                 android:text=""
                 android:textAlignment="center" />
@@ -841,7 +841,7 @@
                 android:layout_height="wrap_content"
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
-                android:background="#FFFFFFFF"
+                android:background="@color/white"
                 android:padding="3dp"
                 android:text=""
                 android:textAlignment="center" />
@@ -852,7 +852,7 @@
                 android:layout_height="wrap_content"
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
-                android:background="#FFFFFFFF"
+                android:background="@color/white"
                 android:padding="3dp"
                 android:text=""
                 android:textAlignment="center" />
@@ -863,7 +863,7 @@
                 android:layout_height="wrap_content"
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
-                android:background="#FFFFFFFF"
+                android:background="@color/white"
                 android:padding="3dp"
                 android:text=""
                 android:textAlignment="center" />
@@ -874,7 +874,7 @@
                 android:layout_height="0dp"
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
-                android:background="#FFFFFFFF"
+                android:background="@color/white"
                 android:padding="3dp"
                 android:text="@string/toss_chance"
                 android:textAlignment="center"
@@ -886,7 +886,7 @@
                 android:layout_height="0dp"
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
-                android:background="#FFFFFFFF"
+                android:background="@color/white"
                 android:padding="3dp"
                 android:text=""
                 android:textAlignment="center" />
@@ -897,7 +897,7 @@
                 android:layout_height="wrap_content"
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
-                android:background="#FFFFFFFF"
+                android:background="@color/white"
                 android:padding="3dp"
                 android:text=""
                 android:textAlignment="center" />
@@ -908,7 +908,7 @@
                 android:layout_height="wrap_content"
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
-                android:background="#FFFFFFFF"
+                android:background="@color/white"
                 android:padding="3dp"
                 android:text=""
                 android:textAlignment="center" />
@@ -919,7 +919,7 @@
                 android:layout_height="wrap_content"
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
-                android:background="#FFFFFFFF"
+                android:background="@color/white"
                 android:padding="3dp"
                 android:text=""
                 android:textAlignment="center" />
@@ -927,13 +927,13 @@
             <!-- total summary row-->
             <TextView
                 android:layout_width="0dp"
-                android:layout_height="0dp"
+                android:layout_height="wrap_content"
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
+                android:background="@drawable/custom_button3"
                 android:padding="3dp"
                 android:text="@string/toss_end_summary"
-                android:textColor="#FFffffff"
-                android:background="@color/colorAccent"
+                android:textColor="@color/colorPrimaryDark"
                 android:textAlignment="center"
                 android:textStyle="bold" />
 
@@ -943,8 +943,8 @@
                 android:layout_height="0dp"
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
-                android:textColor="#FFffffff"
-                android:background="@color/colorAccent"
+                android:textColor="@color/white"
+                android:background="@drawable/custom_button3"
                 android:padding="3dp"
                 android:text=""
                 android:textAlignment="center" />
@@ -955,8 +955,8 @@
                 android:layout_height="wrap_content"
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
-                android:textColor="#FFffffff"
-                android:background="@color/colorAccent"
+                android:textColor="@color/white"
+                android:background="@drawable/custom_button3"
                 android:padding="3dp"
                 android:text=""
                 android:textAlignment="center" />
@@ -967,8 +967,8 @@
                 android:layout_height="wrap_content"
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
-                android:textColor="#FFffffff"
-                android:background="@color/colorAccent"
+                android:textColor="@color/white"
+                android:background="@drawable/custom_button3"
                 android:padding="3dp"
                 android:text=""
                 android:textAlignment="center" />
@@ -979,8 +979,8 @@
                 android:layout_height="wrap_content"
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
-                android:textColor="#FFffffff"
-                android:background="@color/colorAccent"
+                android:textColor="@color/white"
+                android:background="@drawable/custom_button3"
                 android:padding="3dp"
                 android:text=""
                 android:textAlignment="center" />
