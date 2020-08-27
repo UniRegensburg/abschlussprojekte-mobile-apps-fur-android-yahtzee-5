@@ -19,11 +19,11 @@
     <string name="toss_six">6er</string>
     <string name="toss_summary">Gesamt</string>
     <string name="toss_bonus">Bonus</string>
-    <string name="toss_three_doubles">Dreier- \nPasch</string>
-    <string name="toss_four_doubles">Vierer- \nPasch</string>
-    <string name="toss_full_house">Full- \nHouse</string>
-    <string name="toss_little_street">Kleine \nStraße</string>
-    <string name="toss_large_street">Große \nStraße</string>
+    <string name="toss_three_doubles">Dreier-\nPasch</string>
+    <string name="toss_four_doubles">Vierer-\nPasch</string>
+    <string name="toss_full_house">Full-\nHouse</string>
+    <string name="toss_little_street">Kleine\nStraße</string>
+    <string name="toss_large_street">Große\nStraße</string>
     <string name="toss_kniffel">Kniffel</string>
     <string name="toss_chance">Chance</string>
     <string name="toss_end_summary">End-\nsumme</string>
