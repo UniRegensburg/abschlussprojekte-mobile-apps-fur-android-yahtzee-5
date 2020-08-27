@@ -1,13 +1,17 @@
+
 <resources>
+
     <string name="app_name">Kniffel</string>
     <string name="button_2players">2 Spieler</string>
     <string name="button_3players">3 Spieler</string>
     <string name="button_4players">4 Spieler</string>
-
     <string name="insert_player_names_here">Namen des ersten Spielers hier eingeben.</string>
     <string name="edit_text_for_players_names_filler">#Player1</string>
     <string name="button_accept_player_name">Bestätigen</string>
     <string name="game_over">Spiel beendet</string>
+    <string name="highscore_score">Score</string>
+    <string name="highscore_date">Date</string>
+    <string name="highscore_text">HIGHSCORES</string>
     <string name="game_over_names_filler">\"Spieler 1\" : XXX</string>
     <string name="button_scoreboard">Scoreboard</string>
     <string name="button_main_menu">Main Menu</string>
@@ -35,4 +39,9 @@
     <string name="toss_kniffel">Kniffel</string>
     <string name="toss_chance">Chance</string>
     <string name="toss_end_summary">End-\nsumme</string>
+    <string name="name">Name</string>
+    <string name="text_roll_the_dice">Es würfelt Spieler 1:</string>
+    <string name="countdown_rolling_the_dice">x</string>
 </resources>
+
+
