@@ -42,6 +42,7 @@
     <string name="name">Name</string>
     <string name="text_roll_the_dice">Es würfelt Spieler 1:</string>
     <string name="countdown_rolling_the_dice">x</string>
+    <string name="rules_text">RULES</string>
 </resources>
 
 
