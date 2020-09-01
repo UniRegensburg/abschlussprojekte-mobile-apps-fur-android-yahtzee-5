@@ -39,7 +39,7 @@
     <string name="toss_chance">Chance</string>
     <string name="toss_end_summary">End-\nsumme</string>
     <string name="name">Name</string>
-    <string name="text_roll_the_dice">Es würfelt Spieler 1:</string>
+    <string name="text_roll_the_dice">Es würfelt</string>
     <string name="countdown_rolling_the_dice">x</string>
     <string name="rules_text">RULES</string>
     <string name="heading_roll_the_dice">Würfeln</string>
@@ -48,6 +48,7 @@
     <string name="dice_three">Würfel 3</string>
     <string name="dice_four">Würfel 4</string>
     <string name="dice_five">Würfel 5</string>
+    <string name="player_name_roll_the_dice">Spieler 1:</string>
 </resources>
 
 
