@@ -40,7 +40,7 @@
     <string name="toss_end_summary">End-\nsumme</string>
     <string name="name">Name</string>
     <string name="text_roll_the_dice">Es würfelt</string>
-    <string name="countdown_rolling_the_dice">x</string>
+    <string name="countdown_rolling_the_dice">3</string>
     <string name="rules_text">RULES</string>
     <string name="heading_roll_the_dice">Würfeln</string>
     <string name="dice_one">Würfel 1</string>
