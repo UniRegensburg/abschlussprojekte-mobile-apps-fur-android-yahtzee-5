@@ -1,6 +1,5 @@
-
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-
     <string name="app_name">Kniffel</string>
     <string name="button_2players">2 Spieler</string>
     <string name="button_3players">3 Spieler</string>
@@ -43,6 +42,12 @@
     <string name="text_roll_the_dice">Es würfelt Spieler 1:</string>
     <string name="countdown_rolling_the_dice">x</string>
     <string name="rules_text">RULES</string>
+    <string name="heading_roll_the_dice">Würfeln</string>
+    <string name="dice_one">Würfel 1</string>
+    <string name="dice_two">Würfel 2</string>
+    <string name="dice_three">Würfel 3</string>
+    <string name="dice_four">Würfel 4</string>
+    <string name="dice_five">Würfel 5</string>
 </resources>
 
 

@@ -1,4 +1,8 @@
 package com.example.kniffel.RollTheDice;
 
-public class RollTheDiceActivity {
+import androidx.appcompat.app.AppCompatActivity;
+
+public class RollTheDiceActivity extends AppCompatActivity {
+
+
 }
