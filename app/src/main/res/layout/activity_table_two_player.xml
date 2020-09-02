@@ -79,9 +79,12 @@
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:background="@color/white"
+                android:clickable="true"
+                android:focusableInTouchMode="true"
                 android:padding="3dp"
                 android:text=""
-                android:textAlignment="center" />
+                android:textAlignment="center"
+                android:focusable="true" />
 
             <TextView
                 android:id="@+id/player_2_toss_one"
@@ -90,9 +93,12 @@
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:background="@color/white"
+                android:clickable="true"
+                android:focusableInTouchMode="true"
                 android:padding="3dp"
                 android:text=""
-                android:textAlignment="center" />
+                android:textAlignment="center"
+                android:focusable="true" />
 
 
             <!--second row -->
@@ -114,9 +120,12 @@
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:background="@color/white"
+                android:clickable="true"
+                android:focusableInTouchMode="true"
                 android:padding="3dp"
                 android:text=""
-                android:textAlignment="center" />
+                android:textAlignment="center"
+                android:focusable="true" />
 
             <TextView
                 android:id="@+id/player_2_toss_two"
@@ -125,9 +134,12 @@
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:background="@color/white"
+                android:clickable="true"
+                android:focusableInTouchMode="true"
                 android:padding="3dp"
                 android:text=""
-                android:textAlignment="center" />
+                android:textAlignment="center"
+                android:focusable="true" />
 
             <!--third row -->
             <TextView
@@ -148,9 +160,12 @@
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:background="@color/white"
+                android:clickable="true"
+                android:focusableInTouchMode="true"
                 android:padding="3dp"
                 android:text=""
-                android:textAlignment="center" />
+                android:textAlignment="center"
+                android:focusable="true" />
 
             <TextView
                 android:id="@+id/player_2_toss_three"
@@ -159,9 +174,12 @@
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:background="@color/white"
+                android:clickable="true"
+                android:focusableInTouchMode="true"
                 android:padding="3dp"
                 android:text=""
-                android:textAlignment="center" />
+                android:textAlignment="center"
+                android:focusable="true" />
 
             <!--fourth row -->
             <TextView
@@ -182,9 +200,12 @@
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:background="@color/white"
+                android:clickable="true"
+                android:focusableInTouchMode="true"
                 android:padding="3dp"
                 android:text=""
-                android:textAlignment="center" />
+                android:textAlignment="center"
+                android:focusable="true" />
 
             <TextView
                 android:id="@+id/player_2_toss_four"
@@ -193,9 +214,12 @@
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:background="@color/white"
+                android:clickable="true"
+                android:focusableInTouchMode="true"
                 android:padding="3dp"
                 android:text=""
-                android:textAlignment="center" />
+                android:textAlignment="center"
+                android:focusable="true" />
 
 
             <!--fifth row -->
@@ -217,9 +241,12 @@
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:background="@color/white"
+                android:clickable="true"
+                android:focusableInTouchMode="true"
                 android:padding="3dp"
                 android:text=""
-                android:textAlignment="center" />
+                android:textAlignment="center"
+                android:focusable="true" />
 
             <TextView
                 android:id="@+id/player_2_toss_five"
@@ -228,9 +255,12 @@
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:background="@color/white"
+                android:clickable="true"
+                android:focusableInTouchMode="true"
                 android:padding="3dp"
                 android:text=""
-                android:textAlignment="center" />
+                android:textAlignment="center"
+                android:focusable="true" />
 
 
             <!--sixth row -->
@@ -252,9 +282,12 @@
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:background="@color/white"
+                android:clickable="true"
+                android:focusableInTouchMode="true"
                 android:padding="3dp"
                 android:text=""
-                android:textAlignment="center" />
+                android:textAlignment="center"
+                android:focusable="true" />
 
             <TextView
                 android:id="@+id/player_2_toss_six"
@@ -263,9 +296,12 @@
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:background="@color/white"
+                android:clickable="true"
+                android:focusableInTouchMode="true"
                 android:padding="3dp"
                 android:text=""
-                android:textAlignment="center" />
+                android:textAlignment="center"
+                android:focusable="true" />
 
 
             <!--top summary row -->
@@ -355,6 +391,8 @@
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:background="@color/white"
+                android:clickable="true"
+                android:focusable="true"
                 android:padding="3dp"
                 android:text=""
                 android:textAlignment="center" />
@@ -366,6 +404,8 @@
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:background="@color/white"
+                android:clickable="true"
+                android:focusable="true"
                 android:padding="3dp"
                 android:text=""
                 android:textAlignment="center" />
@@ -389,6 +429,8 @@
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:background="@color/white"
+                android:clickable="true"
+                android:focusable="true"
                 android:padding="3dp"
                 android:text=""
                 android:textAlignment="center" />
@@ -400,6 +442,8 @@
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:background="@color/white"
+                android:clickable="true"
+                android:focusable="true"
                 android:padding="3dp"
                 android:text=""
                 android:textAlignment="center" />
@@ -424,6 +468,8 @@
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:background="@color/white"
+                android:clickable="true"
+                android:focusable="true"
                 android:padding="3dp"
                 android:text=""
                 android:textAlignment="center" />
@@ -435,6 +481,8 @@
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:background="@color/white"
+                android:clickable="true"
+                android:focusable="true"
                 android:padding="3dp"
                 android:text=""
                 android:textAlignment="center" />
@@ -458,6 +506,8 @@
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:background="@color/white"
+                android:clickable="true"
+                android:focusable="true"
                 android:padding="3dp"
                 android:text=""
                 android:textAlignment="center" />
@@ -469,6 +519,8 @@
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:background="@color/white"
+                android:clickable="true"
+                android:focusable="true"
                 android:padding="3dp"
                 android:text=""
                 android:textAlignment="center" />
@@ -493,6 +545,8 @@
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:background="@color/white"
+                android:clickable="true"
+                android:focusable="true"
                 android:padding="3dp"
                 android:text=""
                 android:textAlignment="center" />
@@ -504,6 +558,8 @@
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:background="@color/white"
+                android:clickable="true"
+                android:focusable="true"
                 android:padding="3dp"
                 android:text=""
                 android:textAlignment="center" />
@@ -527,6 +583,8 @@
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:background="@color/white"
+                android:clickable="true"
+                android:focusable="true"
                 android:padding="3dp"
                 android:text=""
                 android:textAlignment="center" />
@@ -538,6 +596,8 @@
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:background="@color/white"
+                android:clickable="true"
+                android:focusable="true"
                 android:padding="3dp"
                 android:text=""
                 android:textAlignment="center" />
@@ -562,6 +622,8 @@
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:background="@color/white"
+                android:clickable="true"
+                android:focusable="true"
                 android:padding="3dp"
                 android:text=""
                 android:textAlignment="center" />
@@ -573,6 +635,8 @@
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:background="@color/white"
+                android:clickable="true"
+                android:focusable="true"
                 android:padding="3dp"
                 android:text=""
                 android:textAlignment="center" />

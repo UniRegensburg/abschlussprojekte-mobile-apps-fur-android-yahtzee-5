@@ -49,6 +49,7 @@
     <string name="dice_four">Würfel 4</string>
     <string name="dice_five">Würfel 5</string>
     <string name="player_name_roll_the_dice">Spieler 1:</string>
+    <string name="button_clear_selected_dices">Würfel zurücklegen</string>
 </resources>
 
 

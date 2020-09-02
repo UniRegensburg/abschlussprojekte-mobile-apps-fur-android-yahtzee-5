@@ -30,7 +30,7 @@ public class RollTheDiceActivity extends AppCompatActivity implements ShakeSenso
     private ShakeSensor shakeSensor;
     private TextView countdownDiceThrows;
     private int[] diceDrawablePath;
-    private Button scoreboardButton;
+    private Button scoreboardButton, clearSelectedDices;
     private int[] diceEyeNumber;
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -110,6 +110,13 @@ public class RollTheDiceActivity extends AppCompatActivity implements ShakeSenso
                 startActivity(intent);
             }
         });
+        clearSelectedDices = findViewById(R.id.button_clear_selected_dices);
+        clearSelectedDices.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                unlockDices();
+            }
+        });
     }
 
 
@@ -152,12 +159,13 @@ public class RollTheDiceActivity extends AppCompatActivity implements ShakeSenso
         diceOne.setClickable(true);
         diceOne.setBackgroundColor(Color.TRANSPARENT);
         diceTwo.setClickable(true);
-        diceOne.setBackgroundColor(Color.TRANSPARENT);
+        diceTwo.setBackgroundColor(Color.TRANSPARENT);
         diceThree.setClickable(true);
-        diceOne.setBackgroundColor(Color.TRANSPARENT);
+        diceThree.setBackgroundColor(Color.TRANSPARENT);
         diceFour.setClickable(true);
-        diceOne.setBackgroundColor(Color.TRANSPARENT);
+        diceFour.setBackgroundColor(Color.TRANSPARENT);
         diceFive.setClickable(true);
+        diceFive.setBackgroundColor(Color.TRANSPARENT);
     }
 
 
