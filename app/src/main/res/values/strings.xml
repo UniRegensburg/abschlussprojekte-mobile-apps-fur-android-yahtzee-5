@@ -12,7 +12,7 @@
     <string name="highscore_date">Date</string>
     <string name="highscore_text">HIGHSCORES</string>
     <string name="game_over_names_filler">\"Spieler 1\" : XXX</string>
-    <string name="button_scoreboard">Scoreboard</string>
+    <string name="button_scoreboard">Eintragen</string>
     <string name="button_main_menu">Main Menu</string>
     <string name="dice_button">Würfeln</string>
     <string name="submit_button">Eintragen</string>
