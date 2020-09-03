@@ -37,11 +37,11 @@
         />
 
     <TextView
-        android:id="@+id/getting_ready_to_play_titel"
+        android:id="@+id/getting_ready_to_play_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
-        android:text="@string/getting_ready_to_play_titel"
+        android:text="@string/getting_ready_to_play_title"
         android:fontFamily="@font/kniffel_textart"
         android:textColor="@android:color/black"
         android:textSize="30sp"
@@ -58,15 +58,15 @@
         android:text="@string/getting_ready_to_play_text"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/getting_ready_to_play_titel"
+        app:layout_constraintTop_toBottomOf="@id/getting_ready_to_play_title"
         />
 
     <TextView
-        android:id="@+id/goal_of_the_game_titel"
+        android:id="@+id/goal_of_the_game_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
-        android:text="@string/goal_of_the_game_titel"
+        android:text="@string/goal_of_the_game_title"
         android:fontFamily="@font/kniffel_textart"
         android:textColor="@android:color/black"
         android:textSize="30sp"
@@ -83,11 +83,11 @@
         android:text="@string/goal_of_the_game_text"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/goal_of_the_game_titel"
+        app:layout_constraintTop_toBottomOf="@id/goal_of_the_game_title"
         />
 
     <TextView
-        android:id="@+id/how_to_proceed_titel"
+        android:id="@+id/how_to_proceed_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
@@ -108,11 +108,11 @@
         android:text="@string/how_to_proceed_text"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/how_to_proceed_titel"
+        app:layout_constraintTop_toBottomOf="@id/how_to_proceed_title"
         />
 
     <TextView
-        android:id="@+id/roll_the_dice_titel"
+        android:id="@+id/roll_the_dice_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
@@ -133,15 +133,15 @@
         android:text="@string/roll_the_dice_text"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/roll_the_dice_titel"
+        app:layout_constraintTop_toBottomOf="@id/roll_the_dice_title"
         />
 
     <TextView
-        android:id="@+id/points_titel"
+        android:id="@+id/points_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
-        android:text="@string/points_titel"
+        android:text="@string/points_title"
         android:fontFamily="@font/kniffel_textart"
         android:textColor="@android:color/black"
         android:textSize="30sp"
@@ -150,17 +150,17 @@
         app:layout_constraintTop_toBottomOf="@id/roll_the_dice_text"
         />
     <TextView
-        android:id="@+id/points_in_upper_part_titel"
+        android:id="@+id/points_in_upper_part_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
-        android:text="@string/points_in_upper_part_titel"
+        android:text="@string/points_in_upper_part_title"
         android:fontFamily="@font/kniffel_textart"
         android:textColor="@android:color/black"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/points_titel"
+        app:layout_constraintTop_toBottomOf="@id/points_title"
         />
 
     <TextView
@@ -171,11 +171,11 @@
         android:text="@string/points_in_upper_part_text"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/points_in_upper_part_titel"
+        app:layout_constraintTop_toBottomOf="@id/points_in_upper_part_title"
         />
 
     <TextView
-        android:id="@+id/bonus_titel"
+        android:id="@+id/bonus_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
@@ -196,15 +196,15 @@
         android:text="@string/bonus_text"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/bonus_titel"
+        app:layout_constraintTop_toBottomOf="@id/bonus_title"
         />
 
     <TextView
-        android:id="@+id/points_in_lower_part_titel"
+        android:id="@+id/points_in_lower_part_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
-        android:text="@string/points_in_lower_part_titel"
+        android:text="@string/points_in_lower_part_title"
         android:fontFamily="@font/kniffel_textart"
         android:textColor="@android:color/black"
         android:textSize="20sp"
@@ -221,15 +221,15 @@
         android:text="@string/points_in_lower_part_text"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/points_in_lower_part_titel"
+        app:layout_constraintTop_toBottomOf="@id/points_in_lower_part_title"
         />
 
     <TextView
-        android:id="@+id/end_of_the_game_titel"
+        android:id="@+id/end_of_the_game_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
-        android:text="@string/end_of_the_game_titel"
+        android:text="@string/end_of_the_game_title"
         android:fontFamily="@font/kniffel_textart"
         android:textColor="@android:color/black"
         android:textSize="30sp"
@@ -246,15 +246,15 @@
         android:text="@string/end_of_the_game_text"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/end_of_the_game_titel"
+        app:layout_constraintTop_toBottomOf="@id/end_of_the_game_title"
         />
 
     <TextView
-        android:id="@+id/scource_titel"
+        android:id="@+id/scource_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
-        android:text="@string/scource_titel"
+        android:text="@string/scource_title"
         android:fontFamily="@font/kniffel_textart"
         android:textColor="@android:color/black"
         android:textSize="30sp"
@@ -271,7 +271,7 @@
         android:text="@string/scource_text"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/scource_titel"
+        app:layout_constraintTop_toBottomOf="@id/scource_title"
         />
 
 
