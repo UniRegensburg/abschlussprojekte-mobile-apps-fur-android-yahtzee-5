@@ -4,67 +4,45 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/gifImageView"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/buttonStartGameWith2Players"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:src="@drawable/dice_animation"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        android:text="@string/app_name"
+    <TextView
+        android:id="@+id/logo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:fontFamily="@font/kniffel_textart"
+        android:text="@string/app_name"
         android:textColor="@android:color/black"
-        android:textSize="100sp"/>
-
-
-
-    <Button
-        android:id="@+id/buttonStartGameWith2Players"
-        android:layout_width="250dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textAlignment="center"
+        android:textSize="70sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/gifImageView" />
 
-        android:text="@string/button_2players"
-        android:textAllCaps="false"
-        android:textSize="20sp"
-        android:textColor="#FFFFFF"
-        android:background="@drawable/custom_button4" />
-
-    <Button
-        android:id="@+id/buttonStartGameWith3Players"
-        android:layout_width="250dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="16dp"
+    <TextView
+        android:id="@+id/slogan"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/kniffel_textart"
+        android:text="@string/slogan"
+        android:textColor="@android:color/black"
+        android:textAlignment="center"
+        android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonStartGameWith2Players"
-
-        android:text="@string/button_3players"
-        android:textAllCaps="false"
-        android:textSize="20sp"
-        android:textColor="#FFFFFF"
-        android:background="@drawable/custom_button4" />
-
-    <Button
-        android:id="@+id/buttonStartGameWith4Players"
-        android:layout_width="250dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonStartGameWith3Players"
-
-        android:text="@string/button_4players"
-        android:textAllCaps="false"
-        android:textSize="20sp"
-        android:textColor="#FFFFFF"
-        android:background="@drawable/custom_button4"/>
+        app:layout_constraintTop_toBottomOf="@+id/logo" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

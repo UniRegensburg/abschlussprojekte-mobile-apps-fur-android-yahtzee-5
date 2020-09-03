@@ -9,6 +9,7 @@ import android.widget.EditText;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.kniffel.InsertNumberOfPlayers.InsertNumberOfPlayers;
 import com.example.kniffel.MainActivity;
 import com.example.kniffel.R;
 import com.example.kniffel.RollTheDice.RollTheDiceActivity;
@@ -39,7 +40,7 @@ public class InsertNameActivity extends AppCompatActivity {
      */
     private void getExtrasFromIntent() {
         Bundle extras = getIntent().getExtras();
-        int numberOfPlayers = extras.getInt(MainActivity.EXTRA_KEY_NUMBER_OF_PLAYERS);
+        int numberOfPlayers = extras.getInt(InsertNumberOfPlayers.EXTRA_KEY_NUMBER_OF_PLAYERS);
         playerNames = new String[numberOfPlayers];
     }
 

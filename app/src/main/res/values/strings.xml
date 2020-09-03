@@ -70,6 +70,7 @@
     <string name="end_of_the_game_text">Das Spiel endet, sobald das letzte Kästchen beim letzten Spieler ausgefüllt ist. Nun werden alle Punkte automatisch zusammengerechnet. Der Spieler mit den meisten Punkten ist der Sieger.</string>
     <string name="scource_title">Quelle</string>
     <string name="scource_text">Schmidt Spiele GmbH Lahnstr. 21 D-12055 Berlin  1972,\n Kniffel registered trademark \n www.schmidtspiele.de \nwww.schmidtspiele-shop.de</string>
+    <string name="slogan">Der knifflige Würfelspaß</string>
 </resources>
 
 
