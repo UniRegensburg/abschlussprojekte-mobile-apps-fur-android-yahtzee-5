@@ -42,7 +42,8 @@
     <string name="name">Name</string>
     <string name="text_roll_the_dice">Es würfelt Spieler 1:</string>
     <string name="countdown_rolling_the_dice">x</string>
-    <string name="rules_text">RULES</string>
+
+    //Regeln Layout
     <string name="introduction_text">Für jeden Spieler ist in der Kniffel-Tabelle eine Spalte vorgesehen, in der seine Ergebnisse eingetragen werden. In jeder Runde muss jeder Mitspieler in einem der 13 Kästchen eine Eintragung machen. Dies sollte möglichst die Summe der gewürfelten Augen sein, aber – wenn’s knifflig wird – ist leider auch mal eine Null dabei...</string>
     <string name="getting_ready_to_play_titel">Spielvorbereitung</string>
     <string name="getting_ready_to_play_text">Ein Spieler wird bestimmt, der die Anzahl der Spieler und die Namen aller Spieler in der App einträgt. Es wird reihum gewürfelt und der jüngste Spieler beginnt. Nachdem die Namen der Mitspielereingetragen wurden, kann das Spiel auch schon losgehen.</string>
@@ -62,7 +63,8 @@
     <string name="end_of_the_game_titel">Spielende</string>
     <string name="end_of_the_game_text">Das Spiel endet, sobald das letzte Kästchen beim letzten Spieler ausgefüllt ist. Nun werden alle Punkte automatisch zusammengerechnet. Der Spieler mit den meisten Punkten ist der Sieger.</string>
     <string name="scource_titel">Quelle</string>
-    <string name="scource_text">"Schmidt Spiele GmbH Lahnstr. 21 D-12055 Berlin  1972, Kniffel registered trademark  www.schmidtspiele.de www.schmidtspiele-shop.de  "</string>
+    <string name="scource_text">"Schmidt Spiele GmbH Lahnstr. 21 D-12055 Berlin  1972,\n Kniffel registered trademark \n www.schmidtspiele.de \nwww.schmidtspiele-shop.de"</string>
+    <string name="rules_text">Regeln</string>
 </resources>
 
 
