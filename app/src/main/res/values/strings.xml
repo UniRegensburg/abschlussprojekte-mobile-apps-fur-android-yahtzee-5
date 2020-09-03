@@ -42,6 +42,7 @@
     <string name="name">Name</string>
     <string name="text_roll_the_dice">Es würfelt Spieler 1:</string>
     <string name="countdown_rolling_the_dice">x</string>
+    <string name="rules_text">RULES</string>
 
     //Regeln Layout
     <string name="introduction_text">Für jeden Spieler ist in der Kniffel-Tabelle eine Spalte vorgesehen, in der seine Ergebnisse eingetragen werden. In jeder Runde muss jeder Mitspieler in einem der 13 Kästchen eine Eintragung machen. Dies sollte möglichst die Summe der gewürfelten Augen sein, aber – wenn’s knifflig wird – ist leider auch mal eine Null dabei...</string>
