@@ -16,8 +16,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".InsertName.InsertNameActivity"/>
         <activity android:name=".RollTheDice.RollTheDiceActivity"/>
         <activity android:name=".InsertResults.TableActivity"/>
+        <activity android:name=".Highscore.HighscoreActivity"/>
     </application>
 
 </manifest>

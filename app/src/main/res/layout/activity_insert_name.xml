@@ -44,7 +44,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
 
-        android:text="@string/edit_text_for_players_names_filler"/>
+        android:hint="@string/edit_text_for_players_names_filler"/>
 
     <Button
         android:id="@+id/buttonAcceptPlayerName"

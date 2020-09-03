@@ -69,6 +69,7 @@ public class MainActivity extends AppCompatActivity {
     private void startInsertNameActivity(int i) {
         numberOfPlayers = i;
 
+
         Intent intentToStartInsertNameActivity = new Intent(this, InsertNameActivity.class);
         intentToStartInsertNameActivity.putExtra(EXTRA_KEY_NUMBER_OF_PLAYERS, numberOfPlayers);
         startActivity(intentToStartInsertNameActivity);

@@ -3,7 +3,6 @@ package com.example.kniffel.RollTheDice;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -11,7 +10,9 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.kniffel.InsertName.InsertNameActivity;
 import com.example.kniffel.InsertResults.TableActivity;
+import com.example.kniffel.MainActivity;
 import com.example.kniffel.R;
 import com.example.kniffel.RollTheDice.ShakeSensor.ShakeSensor;
 import com.example.kniffel.RollTheDice.ShakeSensor.ShakeSensorListener;
@@ -29,38 +30,55 @@ public class RollTheDiceActivity extends AppCompatActivity implements ShakeSenso
     private ImageView diceFive;
     /** ShakeSensor für die Bewegungserkennung*/
     private ShakeSensor shakeSensor;
-    private TextView countdownDiceThrows;
+    private TextView countdownDiceThrows, playerNameView;
     /** Array, dass die Speicheradressen der Würfle-Images enthält*/
     private int[] diceDrawablePath;
     /** Array, dass die Augenzahl der aktuell angezeigten Würfel speichert*/
     private int[] diceEyeNumber;
     /** Buttons*/
-    private Button scoreboardButton, clearSelectedDices;
+    private Button scoreboardButton, clearSelectedDicesButton;
+    /** Array in dem die SpielerNamen stehen */
+    private String[] playerNames;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getExtrasFromIntent();
         initUi();
         initSensor();
         setupDices();
+    }
+
+    private void getExtrasFromIntent() {
+        Bundle extras = getIntent().getExtras();
+        playerNames = extras.getStringArray(InsertNameActivity.EXTRA_KEY_PLAYER_NAMES_ARRAY);
     }
 
 
     private void setupDices() {
         /** Array mit Speicheradresse der Würfel*/
         diceDrawablePath = new int[]{R.drawable.dice_throw_1, R.drawable.dice_throw_2, R.drawable.dice_throw_3, R.drawable.dice_throw_4, R.drawable.dice_throw_5, R.drawable.dice_throw_6};
-        /** Array mit den aktuellen Würfelzahlen*/
+        /** Array mit den aktuellen Würfelzahlen (macht es Sinn hier new int[5] zu machen? -Q)*/
         diceEyeNumber = new int[]{1, 2, 3, 4, 5};
         lockDices();
     }
 
-    /** Würfel werden umrandet und deaktiviert und pink umrandet, sodass sie sich beim nächsten Schütteln nicht mitverändern*/
+    /** Würfel werden umrandet und deaktiviert und pink umrandet, sodass sie sich beim nächsten Schütteln nicht mitverändern */
     private void lockDices() {
 
         diceOne.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                diceOne.setClickable(false);
-                diceOne.setBackgroundResource(R.drawable.custom_button3);
+                if(diceOne.isClickable()) {
+                    diceOne.setClickable(false);
+                    diceOne.setBackgroundResource(R.drawable.custom_button3);
+                    //damit kann der Würfel zurücklegen Button entfernt werden und ich finde es intuitiver
+                    //funktioniert aber natürlich nicht weil er ja nicht mehr Clickable ist und so onClick nicht aufgerufen
+                    //werden kann. Problem kann mit fünf boolean Variablen für die fünf Würfel gelöst werden
+                    // z.B. boolean rollableDice1 = true
+                } else {
+                    diceOne.setClickable(true);
+                    diceOne.setBackgroundColor(Color.TRANSPARENT);
+                }
             }
         });
         diceTwo.setOnClickListener(new View.OnClickListener() {
@@ -108,6 +126,13 @@ public class RollTheDiceActivity extends AppCompatActivity implements ShakeSenso
         diceFour = findViewById(R.id.dice_4);
         diceFive = findViewById(R.id.dice_5);
         countdownDiceThrows = findViewById(R.id.countdown_rolling_the_dice);
+
+        // cooler Trick wenn es so funktioniert wie ich mir das vorstelle ohne viele Abfragen: das playerName Array wird
+        // der tableActivity mit übergeben und sobald eine Zahl eingetragen ist, also quasi der nächste Spieler dran ist,
+        // wird das playerNames Array durchrotiert, sodass der aktuelle Spieler immer an der ersten Stelle steht -Q
+        playerNameView = findViewById(R.id.player_name_roll_the_dice);
+        playerNameView.setText(playerNames[0]);
+
         scoreboardButton = findViewById(R.id.button_scoreboard);
         /** "Eintragen" ermöglicht den Wechsel zur TableActivity*/
         scoreboardButton.setOnClickListener(new View.OnClickListener() {
@@ -117,9 +142,9 @@ public class RollTheDiceActivity extends AppCompatActivity implements ShakeSenso
                 startActivity(intent);
             }
         });
-        clearSelectedDices = findViewById(R.id.button_clear_selected_dices);
+        clearSelectedDicesButton = findViewById(R.id.button_clear_selected_dices);
         /** Ausgewählte bzw. gesperrte Würfel werden wieder entsperrt, soddass sie beim nächsten Schütteln mit verändert werden*/
-        clearSelectedDices.setOnClickListener(new View.OnClickListener() {
+        clearSelectedDicesButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 unlockDices();
@@ -143,7 +168,7 @@ public class RollTheDiceActivity extends AppCompatActivity implements ShakeSenso
         if (diceOne.isClickable()) {
             /** randomIndex() berechnet einen Zufalleswert zwischen 0 und 5 der dann aus dem diceDrawablePath das entsprechende Bild hervorholt*/
             diceOne.setImageResource(diceDrawablePath[diceEyeNumber[0] = randomIndex()]);
-            /** speichert die aktuelle Augenzahl der angezeigten Würfel*/
+            /** speichert die aktuelle Augenzahl der angezeigten Würfel ++ weil der 0te Würfel die Augenzahl 1 hat usw...*/
             diceEyeNumber[0]++;
         }
         if (diceTwo.isClickable()) {
