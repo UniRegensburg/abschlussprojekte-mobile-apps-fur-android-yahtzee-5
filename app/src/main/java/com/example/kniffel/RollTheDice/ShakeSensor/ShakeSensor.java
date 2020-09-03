@@ -7,12 +7,12 @@ import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 
 public class ShakeSensor implements SensorEventListener {
-    
-    // Zielwert für zeitliche Abstände zwischen Sensor-Updates
-    private static final int SLOW_SENSOR_DELAY = 1000000; // Mikrosekunden!
-    // Minimale Beschleunigung auf der y-Achse (m/s^2) um Bewegung als Schütteln zu erkennen
+
+    /**zeitliche Abstände zwischen den Sensor-Updates*/
+    private static final int SLOW_SENSOR_DELAY = 1000000;
+    /** Minimale benötigte Beschleunigung auf der y-Achse um Bewegung als Schütteln zu erkennen*/
     private static final float SENSOR_SPEED_THRESHOLD = 2f;
-    // Minimaler zeitlicher Abstand zwischen zwei Aufrufen der Listener-Methoden (
+    /** Minimaler zeitlicher Abstand zwischen zwei Aufrufen der Listener-Methoden*/
     private static final long LISTENER_UPDATE_THRESHOLD_IN_MS = 5000;
 
     private ShakeSensorListener listener;
@@ -27,9 +27,8 @@ public class ShakeSensor implements SensorEventListener {
     }
 
     /**
-     * Registrieren des Listeners für den Beschleunigungssensor beim SensorManager . Als Zielwert für
-     * den zeitlichen Abstand zwischen zwei Updates wird ein relativ hoher Wert (hier 1 Sekunde)
-     * angegeben, da eine höhere Auflösung für diesen Anwendungsfall nicht notwendig ist.
+     * Listener für den Beschleunigungssensor beim SensorManager registrieren.
+     * Zeitliche Abstände zwischen zwei Updates ist eine Sekunde, kann aber verkürzt werden, wenn Zeit zu lang ist.
      */
     public void start() {
         SensorManager sensorManager = (SensorManager) context.getSystemService(Context.SENSOR_SERVICE);
@@ -40,7 +39,7 @@ public class ShakeSensor implements SensorEventListener {
     }
 
     /**
-     * Deregistrieren des Listeners für den Beschleunigungssensor beim SensorManger.
+     * Listeners für den Beschleunigungssensor beim SensorManger deregistrieren.
      */
     public void stop() {
         SensorManager sensorManager = (SensorManager) context.getSystemService(Context.SENSOR_SERVICE);
@@ -49,17 +48,14 @@ public class ShakeSensor implements SensorEventListener {
 
     @Override
     public void onSensorChanged(SensorEvent event) {
-        // Um die Bewegungsgeschwindigkeit einschätzen zu können, benötigen wir ein Wertepaar, dessen
-        // Differenz die absolute Geschwindigkeitsveränderung zwischen den beiden Messpunkten darstellt.
-        // Der erste Sensorwert, der im Callback eingeht, wird verwendet, um inital einen Vergleichswert
-        // zu speichern. Erst beim zweiten Aufruf der Methode (also beim zweiten Sensorwert den wir
-        // vom SensorManager erhalten) beginnen wir mit der Berechnung des Delta-Werts (Geschwindigkeits-
-        // veränderung).
+
         if (initialSensorChangeReceived == false) {
-            // Der Beschleunigungssensor liefert die aktuellen Werte für die Beschleunigung auf der
-            // x-, y- und z-Achse. Wir interessieren uns nur für die y-Achse, da wahrscheinlich ist,
-            // das die meisten NutzerInnen das Gerät entlang dieser Achse "schütteln" werden. Der Wert
-            // für die y-Achse findet sich im Array an zweiter Stelle.
+
+            /**
+             * Für uns sind nur die y-Achsen-Werte des Beschleunigungssensors wichtig, da die meisten Anwender das Gerät entlang dieser Achse schütteln.
+             * Dieser Wert befindt sich im Array an zweiter Stelle.
+             * Die Differenz von lastSensorValue und LastListenerUpdate ist die absolute Geschwindigkeitsveränderung.
+             */
             lastSensorValue = event.values[1];
             lastListenerUpdate = 0;
             initialSensorChangeReceived = true;
@@ -68,13 +64,14 @@ public class ShakeSensor implements SensorEventListener {
         float currentSensorValue = event.values[1];
         float speedDelta = Math.abs(lastSensorValue - currentSensorValue);
         lastSensorValue = currentSensorValue;
-        // Überschreitet der berechnete Geschwindigkeitswert den angegebene Schwellwert, prüfen wir, ob
-        // eine Benarchitigung des ShakeSensorListeners notwendig ist
+        /**
+         * Überschreitet die absolute Geschwindigkeitsveränderung den angegebenen Schwellwert, wird geprüft, ob eine Benachrichtigung an den ShakeSensorListener notwendig ist
+         */
         if (speedDelta > SENSOR_SPEED_THRESHOLD) {
-            // Wir berechnen die Zeit, die seit dem letzten Update des ShakeSensorListeners vergangen ist.
+            /** Zeit seit dem letzten Update des ShakeSensorListeners .*/
             long now = System.currentTimeMillis();
             long listenerUpdateDelta = System.currentTimeMillis() - lastListenerUpdate;
-            // Wenn der berechnete Wert den angegebenen Schwellwert überschreitet, informieren wir den listener
+            /** Überprüfen, ob der berechnete Wert den Schwellwert übersteig .*/
             if (listenerUpdateDelta > LISTENER_UPDATE_THRESHOLD_IN_MS) {
                 listener.onShakingDetected();
                 lastListenerUpdate = now;

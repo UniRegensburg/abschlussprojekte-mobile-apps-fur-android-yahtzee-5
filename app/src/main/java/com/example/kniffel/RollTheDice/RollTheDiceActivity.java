@@ -21,17 +21,21 @@ import java.util.Random;
 public class RollTheDiceActivity extends AppCompatActivity implements ShakeSensorListener {
 
     private static final int MAX_DICE_DIGIT = 6;
-
+    /** ImageViews mit den Würfeln*/
     private ImageView diceOne;
     private ImageView diceTwo;
     private ImageView diceThree;
     private ImageView diceFour;
     private ImageView diceFive;
+    /** ShakeSensor für die Bewegungserkennung*/
     private ShakeSensor shakeSensor;
     private TextView countdownDiceThrows;
+    /** Array, dass die Speicheradressen der Würfle-Images enthält*/
     private int[] diceDrawablePath;
-    private Button scoreboardButton, clearSelectedDices;
+    /** Array, dass die Augenzahl der aktuell angezeigten Würfel speichert*/
     private int[] diceEyeNumber;
+    /** Buttons*/
+    private Button scoreboardButton, clearSelectedDices;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,12 +46,14 @@ public class RollTheDiceActivity extends AppCompatActivity implements ShakeSenso
 
 
     private void setupDices() {
+        /** Array mit Speicheradresse der Würfel*/
         diceDrawablePath = new int[]{R.drawable.dice_throw_1, R.drawable.dice_throw_2, R.drawable.dice_throw_3, R.drawable.dice_throw_4, R.drawable.dice_throw_5, R.drawable.dice_throw_6};
+        /** Array mit den aktuellen Würfelzahlen*/
         diceEyeNumber = new int[]{1, 2, 3, 4, 5};
         lockDices();
     }
 
-    // locks the dices --> numbers aren´t changing, when dice is locked
+    /** Würfel werden umrandet und deaktiviert und pink umrandet, sodass sie sich beim nächsten Schütteln nicht mitverändern*/
     private void lockDices() {
 
         diceOne.setOnClickListener(new View.OnClickListener() {
@@ -103,6 +109,7 @@ public class RollTheDiceActivity extends AppCompatActivity implements ShakeSenso
         diceFive = findViewById(R.id.dice_5);
         countdownDiceThrows = findViewById(R.id.countdown_rolling_the_dice);
         scoreboardButton = findViewById(R.id.button_scoreboard);
+        /** "Eintragen" ermöglicht den Wechsel zur TableActivity*/
         scoreboardButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -111,6 +118,7 @@ public class RollTheDiceActivity extends AppCompatActivity implements ShakeSenso
             }
         });
         clearSelectedDices = findViewById(R.id.button_clear_selected_dices);
+        /** Ausgewählte bzw. gesperrte Würfel werden wieder entsperrt, soddass sie beim nächsten Schütteln mit verändert werden*/
         clearSelectedDices.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -119,7 +127,9 @@ public class RollTheDiceActivity extends AppCompatActivity implements ShakeSenso
         });
     }
 
-
+    /** zählt die Anzahl der noch übrigen Würfe herunter (bei counterThrows = 0 verändern sich die Würfel nicht mehr)
+     * Würfel werden geworfen und den ImageViews werden neue Würfel zufällig zugewiesen
+     * */
     private void throwDices() {
         int counterThrows = Integer.parseInt(countdownDiceThrows.getText().toString());
         if (counterThrows > 0) {
@@ -127,12 +137,13 @@ public class RollTheDiceActivity extends AppCompatActivity implements ShakeSenso
             countdownDiceThrows.setText(Integer.toString(counterThrows));
             shakeDices();
         }
-        Log.d("DiceEyeNumber", Integer.toString(diceEyeNumber[0]));
     }
-
+    /** Wird das Handy geschüttelt, werden den ImageViews der Würfel neue WürfelBilder zugeordnet*/
     private void shakeDices() {
         if (diceOne.isClickable()) {
+            /** randomIndex() berechnet einen Zufalleswert zwischen 0 und 5 der dann aus dem diceDrawablePath das entsprechende Bild hervorholt*/
             diceOne.setImageResource(diceDrawablePath[diceEyeNumber[0] = randomIndex()]);
+            /** speichert die aktuelle Augenzahl der angezeigten Würfel*/
             diceEyeNumber[0]++;
         }
         if (diceTwo.isClickable()) {
@@ -151,10 +162,11 @@ public class RollTheDiceActivity extends AppCompatActivity implements ShakeSenso
             diceFive.setImageResource(diceDrawablePath[diceEyeNumber[4] = randomIndex()]);
             diceEyeNumber[4]++;
         }
+        /** Nach dem Schütteln werden die gesperrten Würfel automatisch wieder entsperrt*/
         unlockDices();
 
     }
-
+    /** ImageViews werden wieder clickable gestetzt sowie der Hintergrund transparent*/
     private void unlockDices() {
         diceOne.setClickable(true);
         diceOne.setBackgroundColor(Color.TRANSPARENT);
@@ -168,12 +180,13 @@ public class RollTheDiceActivity extends AppCompatActivity implements ShakeSenso
         diceFive.setBackgroundColor(Color.TRANSPARENT);
     }
 
-
+    /** berechnet eine Zufallszahl zwischen 0 und 5*/
     private int randomIndex() {
         Random random = new Random();
         return random.nextInt(MAX_DICE_DIGIT);
     }
 
+    /** Wurde das Gerät ausreichend geschüttelt, wird die Methode throwDices() aktiviert*/
     @Override
     public void onShakingDetected() {
         throwDices();
