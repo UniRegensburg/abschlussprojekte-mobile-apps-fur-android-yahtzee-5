@@ -16,12 +16,18 @@ import java.util.concurrent.Executors;
  * und den übrigen Teilen unserer Anwendung.
  */
 public class HighscoreDatabaseHelper {
+    /**
+     * Name der Datenbank
+     */
     private static final String DATABASE_NAME = "highscore-db";
     private HighscoreDatabase db;
 
     private final Activity activityContext;
 
     public HighscoreDatabaseHelper(Activity activityContext) {
+        /**
+         * Erstellen der Datenbank bzw. falls Datenbank schon vorhanden ist, wird bereits vorhandene Datenbank geladen
+         */
         this.activityContext = activityContext;
         initDatabase();
     }
