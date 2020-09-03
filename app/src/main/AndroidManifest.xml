@@ -16,6 +16,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".RollTheDice.RollTheDiceActivity"/>
+        <activity android:name=".InsertResults.TableActivity"/>
     </application>
 
 </manifest>
