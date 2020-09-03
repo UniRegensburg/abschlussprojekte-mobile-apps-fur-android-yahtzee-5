@@ -1,42 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior">
+    android:layout_height="match_parent">
 
+    <TextView
+        android:id="@+id/heading_roll_the_dice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:fontFamily="@font/kniffel_textart"
+        android:text="@string/heading_roll_the_dice"
+        android:textColor="@android:color/black"
+        android:textSize="70sp" />
 
     <TextView
         android:id="@+id/text_roll_the_dice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
         android:text="@string/text_roll_the_dice"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.221"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/heading_roll_the_dice" />
+
+    <TextView
+        android:id="@+id/player_name_roll_the_dice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="@string/player_name_roll_the_dice"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@id/text_roll_the_dice"
+        app:layout_constraintTop_toBottomOf="@id/heading_roll_the_dice" />
 
     <TextView
         android:id="@+id/countdown_rolling_the_dice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
         android:text="@string/countdown_rolling_the_dice"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/text_roll_the_dice"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toEndOf="@+id/player_name_roll_the_dice"
+        app:layout_constraintTop_toBottomOf="@id/heading_roll_the_dice" />
 
     <ImageView
         android:id="@+id/dice_1"
@@ -45,9 +65,13 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
+        android:contentDescription="@string/dice_one"
+        android:clickable="true"
+        android:focusable="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/countdown_rolling_the_dice" />
+        app:layout_constraintTop_toBottomOf="@+id/countdown_rolling_the_dice"
+        android:src="@drawable/dice_throw_1"/>
 
     <ImageView
         android:id="@+id/dice_2"
@@ -56,9 +80,13 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
+        android:contentDescription="@string/dice_two"
+        android:clickable="true"
+        android:focusable="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dice_1" />
+        app:layout_constraintTop_toBottomOf="@+id/dice_1"
+        android:src="@drawable/dice_throw_2"/>
 
     <ImageView
         android:id="@+id/dice_3"
@@ -67,9 +95,13 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
+        android:contentDescription="@string/dice_three"
+        android:clickable="true"
+        android:focusable="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dice_2" />
+        app:layout_constraintTop_toBottomOf="@+id/dice_2"
+        android:src="@drawable/dice_throw_3" />
 
     <ImageView
         android:id="@+id/dice_4"
@@ -78,9 +110,13 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
+        android:contentDescription="@string/dice_four"
+        android:clickable="true"
+        android:focusable="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dice_3" />
+        app:layout_constraintTop_toBottomOf="@+id/dice_3"
+        android:src="@drawable/dice_throw_4"/>
 
     <ImageView
         android:id="@+id/dice_5"
@@ -89,26 +125,47 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
+        android:contentDescription="@string/dice_five"
+        android:clickable="true"
+        android:focusable="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dice_4" />
+        app:layout_constraintTop_toBottomOf="@+id/dice_4"
+        android:src="@drawable/dice_throw_5"/>
 
 
     <Button
-        android:id="@+id/button_4players"
-        android:layout_width="250dp"
+        android:id="@+id/button_scoreboard"
+        android:layout_width="160dp"
         android:layout_height="60dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
         android:background="@drawable/custom_button4"
         android:text="@string/button_scoreboard"
         android:textAllCaps="false"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/button_clear_selected_dices"
+        app:layout_constraintHorizontal_bias="0.075"
+        app:layout_constraintHorizontal_weight="2"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dice_5" />
+        app:layout_constraintTop_toBottomOf="@+id/dice_5"
+        app:layout_constraintVertical_bias="0.503" />
+
+    <Button
+        android:id="@+id/button_clear_selected_dices"
+        android:layout_width="170dp"
+        android:layout_height="60dp"
+        android:background="@drawable/custom_button4"
+        android:text="@string/button_clear_selected_dices"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        app:layout_constraintHorizontal_weight="2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/button_scoreboard"
+        app:layout_constraintTop_toBottomOf="@+id/dice_5"
+        app:layout_constraintHorizontal_bias="0.075"
+        app:layout_constraintVertical_bias="0.503"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

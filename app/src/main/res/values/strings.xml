@@ -1,6 +1,5 @@
-
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-
     <string name="app_name">Kniffel</string>
     <string name="button_2players">2 Spieler</string>
     <string name="button_3players">3 Spieler</string>
@@ -13,7 +12,7 @@
     <string name="highscore_date">Date</string>
     <string name="highscore_text">HIGHSCORES</string>
     <string name="game_over_names_filler">\"Spieler 1\" : XXX</string>
-    <string name="button_scoreboard">Scoreboard</string>
+    <string name="button_scoreboard">Eintragen</string>
     <string name="button_main_menu">Main Menu</string>
     <string name="dice_button">Würfeln</string>
     <string name="submit_button">Eintragen</string>
@@ -40,32 +39,17 @@
     <string name="toss_chance">Chance</string>
     <string name="toss_end_summary">End-\nsumme</string>
     <string name="name">Name</string>
-    <string name="text_roll_the_dice">Es würfelt Spieler 1:</string>
-    <string name="countdown_rolling_the_dice">x</string>
+    <string name="text_roll_the_dice">Es würfelt</string>
+    <string name="countdown_rolling_the_dice">3</string>
     <string name="rules_text">RULES</string>
-
-    //Regeln Layout
-    <string name="introduction_text">Für jeden Spieler ist in der Kniffel-Tabelle eine Spalte vorgesehen, in der seine Ergebnisse eingetragen werden. In jeder Runde muss jeder Mitspieler in einem der 13 Kästchen eine Eintragung machen. Dies sollte möglichst die Summe der gewürfelten Augen sein, aber – wenn’s knifflig wird – ist leider auch mal eine Null dabei...</string>
-    <string name="getting_ready_to_play_titel">Spielvorbereitung</string>
-    <string name="getting_ready_to_play_text">Ein Spieler wird bestimmt, der die Anzahl der Spieler und die Namen aller Spieler in der App einträgt. Es wird reihum gewürfelt und der jüngste Spieler beginnt. Nachdem die Namen der Mitspielereingetragen wurden, kann das Spiel auch schon losgehen.</string>
-    <string name="goal_of_the_game_titel">Spielziel</string>
-    <string name="goal_of_the_game_text">Clever würfeln und am Ende die meisten Punkte in der Kniffel-Tabelle erreichen.</string>
-    <string name="how_to_proceed_titel">Spielverlauf</string>
-    <string name="how_to_proceed_text">"Die Spieler sind reihum einmal pro Runde mit dem Würfeln an der Reihe.Dabei können sie bis zu  dreimal würfeln. Der erste Wurf erfolgt mit allen fünf Würfeln.  Danach kann der Spieler sich entscheiden,mit wie vielen Würfeln er beim 2. und 3. Versuch würfeln möchte. Dabei klickt er die Würfel, die er behalten möchte, an, und würfelt somit nur mit denen, dieihm „nicht gefallen“. So kann er versuchen, sein Ergebnis mit dem 2. und 3.  Versuch zu verbessern. Er kann aber auch auf einen oder beide Zusatzwürfe verzichten.Spätestens nach dem dritten Wurf muss der Spieler sein Wurfergebnis in der Kniffel-Tabelle eintragen. Erfüllt der Wurf keine der Bedingungen für die Kästchen,wird ein beliebiges Kästchen „gestrichen“ (= eine Null wird eingetragen).\nBeispiel:\nMelanie hat drei Fünfen und zwei Dreien gewürfelt. \nSie hat nun vier Möglichkeiten:\n•\t15 Punkte. Im oberen Teil in ihrem Kästchen für die Fünfen (Die Würfel, die andere Zahlen zeigen, werden nicht gezählt.)\n•\t6 Punkte. Im oberen Teil in ihrem Kästchen für die Dreien\n•\t21 Punkte. Im unteren Teil in ihrem Kästchen für „Dreierpasch“\n•\t25 Punkte. Im unteren Teil in ihrem Kästchen für „Full House“  "</string>
-    <string name="roll_the_dice_titel">Würfeln</string>
-    <string name="roll_the_dice_text">Der Spieler, der an der Reihe ist, schüttelt das Handy vertikal, dadurch werden die Würfel geschüttelt und der Spieler würfelt.</string>
-    <string name="points_titel">Punkte</string>
-    <string name="points_in_upper_part_titel">Der obere Teil</string>
-    <string name="points_in_upper_part_text">Die Kniffel-Tabelle ist unterteilt in einen oberen und einen unteren Teil. Im oberen Teil sind die Kästchen für Einsen, Zweien, Dreien, Vieren, Fünfen und Sechsen. Entschließt sich ein Spieler, sein Würfelergebnis hier einzutragen, zählt er alle gewürfelten gleichen Zahlen zusammen und trägt das Ergebnis in das entsprechende Kästchen ein.</string>
-    <string name="bonus_titel">Bonus</string>
-    <string name="bonus_text">Um den Bonus von 35 Punkten zu bekommen, müssen die Spieler mindestens 63 Punkte im gesamten oberen Teil zusammenaddiert erreichen.</string>
-    <string name="points_in_lower_part_titel">Der untere Teil</string>
-    <string name="points_in_lower_part_text">"Im unteren Teil sind die Kästchen für die Sonderwürfe:  \n\nDreierpasch:  \nMindestens drei gleiche Zahlen. Alle Augen des Wurfes (nicht nur die der gleichen Zah- len) werden zusammengezählt.  \n6  6  6  3  1  = 22 Punkte \n\nViererpasch:  \nMindestens vier gleiche Zahlen. Auch hier werden alle Augen des Wurfes zusammengezählt. \n3  3  3  3  5  = 17 Punkte   \n\nFull-House:  \nDrei gleiche und zwei gleiche, andere Zahlen (z.B. drei Vieren und zwei Einsen). Für ein Full-House gibt es pauschal 25 Punkte.  \n4  4  4  3  3  = 25 PUnkte  \n\nKleine Straße:  \nEine Folge von vier aufeinander folgenden Würfeln. Der fünfte Würfel kann eine beliebige Zahl zeigen (z. B. 1, 2, 3, 4, 2). Eine kleine Straße bringt pauschal 30 Punkte.  \n1  2  3  4  3 = 30 Punkte  \n\nGroße Straße \nEine Folge von fünf aufeinander folgenden Würfeln (z. B. 2, 3, 4, 5, 6). Eine große Straße bringt pauschal 40 Punkte. \n 2  3  4  5  6 = 40 Punkte  \n\nKniffel®:  \n5gleicheZahlen. EinKniffel® bringt 50 Punkte.  \n5  5  5  5  5  = 50 Punkte  \n\nChance:  \nGibt dem Spieler die Möglichkeit, einen missglückten Wurf, der keine Bedingung erfüllt, trotzdem als Punkte in seinem „Chancefeld“ gutschreiben zu lassen. Alle Augen des Wurfes werden zusammenaddiert. "</string>
-    <string name="end_of_the_game_titel">Spielende</string>
-    <string name="end_of_the_game_text">Das Spiel endet, sobald das letzte Kästchen beim letzten Spieler ausgefüllt ist. Nun werden alle Punkte automatisch zusammengerechnet. Der Spieler mit den meisten Punkten ist der Sieger.</string>
-    <string name="scource_titel">Quelle</string>
-    <string name="scource_text">"Schmidt Spiele GmbH Lahnstr. 21 D-12055 Berlin  1972,\n Kniffel registered trademark \n www.schmidtspiele.de \nwww.schmidtspiele-shop.de"</string>
-    <string name="rules_headline">Regeln</string>
+    <string name="heading_roll_the_dice">Würfeln</string>
+    <string name="dice_one">Würfel 1</string>
+    <string name="dice_two">Würfel 2</string>
+    <string name="dice_three">Würfel 3</string>
+    <string name="dice_four">Würfel 4</string>
+    <string name="dice_five">Würfel 5</string>
+    <string name="player_name_roll_the_dice">Spieler 1:</string>
+    <string name="button_clear_selected_dices">Würfel zurücklegen</string>
 </resources>
 
 
