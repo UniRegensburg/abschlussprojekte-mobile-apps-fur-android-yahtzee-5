@@ -21,6 +21,7 @@
         <activity android:name=".RollTheDice.RollTheDiceActivity"/>
         <activity android:name=".InsertResults.TableActivity"/>
         <activity android:name=".Highscore.HighscoreActivity"/>
+        <activity android:name=".Rules.Rules"/>
     </application>
 
 </manifest>

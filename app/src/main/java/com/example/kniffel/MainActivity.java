@@ -4,6 +4,7 @@ import android.app.ActionBar;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.Menu;
 import android.view.View;
 import android.view.WindowManager;
 import android.view.animation.Animation;
@@ -19,9 +20,12 @@ import pl.droidsonroids.gif.GifImageView;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static int SPLASH_SCREEN = 5000;
+    /**
+     * Dauer bis der SplashScreen automatisch beendet wird
+     */
+    private final static int SPLASH_SCREEN = 5000;
 
-    //Variables
+
     Animation topAnim,
             bottomAnimLeft,
             bottomAnimRight;
@@ -33,9 +37,22 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        hideBars();
         initAnimation();
         initUI();
+        switchToInsertNameActivity();
+    }
+
+    //Actionbar wird immernoch angezeigt
+
+    /**
+     * Der ActionBar wird hier erstellt, bzw. auch hier ausgeblendet
+     *
+     * @return kein menu wird zurückgegeben
+     */
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        hideBars();
+        return super.onCreateOptionsMenu(menu);
     }
 
     private void hideBars() {
@@ -47,13 +64,15 @@ public class MainActivity extends AppCompatActivity {
         decorView.setSystemUiVisibility(uiOptions);
 
         //ActionBar zu auszublenden funktioniert so leider nicht
-        //ActionBar actionBar = getActionBar();
-        //if(actionBar != null){
-        //actionBar.hide();
-        //}
-        //
+        ActionBar actionBar = getActionBar();
+        if (actionBar != null) {
+            actionBar.hide();
+        }
     }
 
+    /**
+     * Animationen für drei verschiedene Richtungen werden initialisiert
+     */
     private void initAnimation() {
         topAnim = AnimationUtils.loadAnimation(this, R.anim.top_animation);
         bottomAnimLeft = AnimationUtils.loadAnimation(this, R.anim.bottom_animation_left);
@@ -61,6 +80,9 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * Gif und zwei Textviews werden initialisiert und bekommen jeweils eine Animation zugewiesen
+     */
     private void initUI() {
         gif = findViewById(R.id.gifImageView);
         logo = findViewById(R.id.logo);
@@ -69,7 +91,13 @@ public class MainActivity extends AppCompatActivity {
         gif.setAnimation(topAnim);
         logo.setAnimation(bottomAnimLeft);
         slogan.setAnimation(bottomAnimRight);
+    }
 
+
+    /**
+     * Nach 5 Sekunden wechselt der SplashScreen zu InsertNumberOfPlayersActivity
+     */
+    private void switchToInsertNameActivity() {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {

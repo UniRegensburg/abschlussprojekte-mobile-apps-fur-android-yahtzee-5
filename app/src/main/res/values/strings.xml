@@ -64,13 +64,22 @@
     <string name="points_in_upper_part_text">Die Kniffel-Tabelle ist unterteilt in einen oberen und einen unteren Teil. Im oberen Teil sind die Kästchen für Einsen, Zweien, Dreien, Vieren, Fünfen und Sechsen. Entschließt sich ein Spieler, sein Würfelergebnis hier einzutragen, zählt er alle gewürfelten gleichen Zahlen zusammen und trägt das Ergebnis in das entsprechende Kästchen ein.</string>
     <string name="bonus_titel">Bonus</string>
     <string name="bonus_text">Um den Bonus von 35 Punkten zu bekommen, müssen die Spieler mindestens 63 Punkte im gesamten oberen Teil zusammenaddiert erreichen.</string>
-    <string name="points_in_lower_part_title">Der untere TEil</string>
+    <string name="points_in_lower_part_title">Der untere Teil</string>
     <string name="points_in_lower_part_text">Im unteren Teil sind die Kästchen für die Sonderwürfe:  \n\nDreierpasch:  \nMindestens drei gleiche Zahlen. Alle Augen des Wurfes (nicht nur die der gleichen Zah- len) werden zusammengezählt.  \n6  6  6  3  1  = 22 Punkte \n\nViererpasch:  \nMindestens vier gleiche Zahlen. Auch hier werden alle Augen des Wurfes zusammengezählt. \n3  3  3  3  5  = 17 Punkte   \n\nFull-House:  \nDrei gleiche und zwei gleiche, andere Zahlen (z.B. drei Vieren und zwei Einsen). Für ein Full-House gibt es pauschal 25 Punkte.  \n4  4  4  3  3  = 25 PUnkte  \n\nKleine Straße:  \nEine Folge von vier aufeinander folgenden Würfeln. Der fünfte Würfel kann eine beliebige Zahl zeigen (z. B. 1, 2, 3, 4, 2). Eine kleine Straße bringt pauschal 30 Punkte.  \n1  2  3  4  3 = 30 Punkte  \n\nGroße Straße \nEine Folge von fünf aufeinander folgenden Würfeln (z. B. 2, 3, 4, 5, 6). Eine große Straße bringt pauschal 40 Punkte. \n 2  3  4  5  6 = 40 Punkte  \n\nKniffel®:  \n5gleicheZahlen. EinKniffel® bringt 50 Punkte.  \n5  5  5  5  5  = 50 Punkte  \n\nChance:  \nGibt dem Spieler die Möglichkeit, einen missglückten Wurf, der keine Bedingung erfüllt, trotzdem als Punkte in seinem „Chancefeld“ gutschreiben zu lassen. Alle Augen des Wurfes werden zusammenaddiert.</string>
     <string name="end_of_the_game_title">Spielende</string>
     <string name="end_of_the_game_text">Das Spiel endet, sobald das letzte Kästchen beim letzten Spieler ausgefüllt ist. Nun werden alle Punkte automatisch zusammengerechnet. Der Spieler mit den meisten Punkten ist der Sieger.</string>
     <string name="scource_title">Quelle</string>
     <string name="scource_text">Schmidt Spiele GmbH Lahnstr. 21 D-12055 Berlin  1972,\n Kniffel registered trademark \n www.schmidtspiele.de \nwww.schmidtspiele-shop.de</string>
     <string name="slogan">Der knifflige Würfelspaß</string>
+
+    //Burgermenu
+    <string name="highscore_burgermenu_item">Highscore</string>
+    <string name="tutorial_burgermenu_item">Tutorial</string>
+    <string name="rules_burgermenu_item">Regeln</string>
+    <string name="end_game_burgermenu_item">Spiel beenden</string>
+    <string name="settings_burgermenu_item">Einstellungen</string>
+    <string name="start_new_game_burgermenu_item">"Neues Spiel starten"</string>
+    <string name="burgermenu_icon">Burgermenü ausklappen</string>
 </resources>
 
 
