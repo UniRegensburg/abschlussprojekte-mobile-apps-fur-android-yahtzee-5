@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/highscore_burgermenu_item"
+            android:title="@string/highscore_burgermenu_item"/>
+        <item
+            android:id="@+id/tutorial_burgermenu_item"
+            android:title="@string/tutorial_burgermenu_item"/>
+        <item
+            android:id="@+id/rules_burgermenu_item"
+            android:title="@string/rules_burgermenu_item"/>
+        <item
+            android:id="@+id/settings_burgermenu_item"
+            android:title="@string/settings_burgermenu_item"/>
+        <item
+            android:id="@+id/end_game_burgermenu_item"
+            android:title="@string/end_game_burgermenu_item"/>
+        <item
+            android:id="@+id/start_new_game_burgermenu_item"
+            android:title="@string/start_new_game_burgermenu_item"/>
+
+    </group>
+
+</menu>

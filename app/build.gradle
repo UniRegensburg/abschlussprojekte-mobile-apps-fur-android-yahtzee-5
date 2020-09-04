@@ -37,4 +37,7 @@ dependencies {
     //Gif Animation SplashScreen
     implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.19'
 
+    //NavigationDrawer
+    implementation'com.google.android.material:material:1.3.0-alpha02'
+
 }
