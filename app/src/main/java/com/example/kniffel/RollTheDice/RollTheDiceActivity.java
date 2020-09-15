@@ -1,8 +1,11 @@
 package com.example.kniffel.RollTheDice;
 
+import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Vibrator;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -116,6 +119,7 @@ public class RollTheDiceActivity extends AppCompatActivity implements ShakeSenso
     private void initSensor() {
         shakeSensor = new ShakeSensor(this, this);
         shakeSensor.start();
+
     }
 
     private void initUi() {
@@ -205,6 +209,15 @@ public class RollTheDiceActivity extends AppCompatActivity implements ShakeSenso
         diceFive.setBackgroundColor(Color.TRANSPARENT);
     }
 
+    @SuppressLint("MissingPermission")
+    private void vibrate(){
+        /** Instanz von Vibrator im aktuellen Kontext holen*/
+        Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+
+        /** Vibriert die Zahl in Klammern in ms*/
+        v.vibrate(500);
+    }
+
     /** berechnet eine Zufallszahl zwischen 0 und 5*/
     private int randomIndex() {
         Random random = new Random();
@@ -215,6 +228,7 @@ public class RollTheDiceActivity extends AppCompatActivity implements ShakeSenso
     @Override
     public void onShakingDetected() {
         throwDices();
+        vibrate();
     }
 
 

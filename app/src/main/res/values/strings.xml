@@ -80,6 +80,7 @@
     <string name="settings_burgermenu_item">Einstellungen</string>
     <string name="start_new_game_burgermenu_item">"Neues Spiel starten"</string>
     <string name="burgermenu_icon">Burgermenü ausklappen</string>
+    <string name="trials_rolling_the_dice">verfügbare Würfe:</string>
 </resources>
 
 
