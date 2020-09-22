@@ -139,6 +139,7 @@ public class RollTheDiceActivity extends AppCompatActivity implements ShakeSenso
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(RollTheDiceActivity.this, TableActivity.class);
+                //hier muss dem Intent als Extra ein Ineger Array mit den würfelaugen mitgegeben werden
                 startActivity(intent);
             }
         });
