@@ -16,6 +16,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".Tutorial.Tutorial">
+
+        </activity>
         <activity android:name=".InsertNumberOfPlayers.InsertNumberOfPlayers"/>
         <activity android:name=".InsertName.InsertNameActivity"/>
         <activity android:name=".RollTheDice.RollTheDiceActivity"/>

@@ -21,6 +21,7 @@ import com.example.kniffel.Highscore.HighscoreActivity;
 import com.example.kniffel.InsertName.InsertNameActivity;
 import com.example.kniffel.R;
 import com.example.kniffel.Rules.Rules;
+import com.example.kniffel.Tutorial.Tutorial;
 import com.google.android.material.navigation.NavigationView;
 
 public class InsertNumberOfPlayers extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -181,7 +182,8 @@ public class InsertNumberOfPlayers extends AppCompatActivity implements Navigati
                 startActivity(intentToStartHighscoreActivity);
                 break;
             case R.id.tutorial_burgermenu_item:
-                //
+                Intent intentToStartTutorialActivity = new Intent(this, Tutorial.class);
+                startActivity(intentToStartTutorialActivity);
                 break;
             case R.id.rules_burgermenu_item:
                 Intent intentToStartRulesActivity = new Intent(this, Rules.class);
