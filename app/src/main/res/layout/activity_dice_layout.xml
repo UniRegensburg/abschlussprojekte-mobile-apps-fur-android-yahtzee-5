@@ -21,12 +21,10 @@
         android:id="@+id/text_roll_the_dice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
         android:text="@string/text_roll_the_dice"
-        android:textSize="30sp"
+        android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.221"
+        app:layout_constraintHorizontal_bias="0.3"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/heading_roll_the_dice" />
 
@@ -35,28 +33,34 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
         android:text="@string/player_name_roll_the_dice"
-        android:textSize="30sp"
+        android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@id/text_roll_the_dice"
         app:layout_constraintTop_toBottomOf="@id/heading_roll_the_dice" />
 
     <TextView
+        android:id="@+id/trials_rolling_the_dice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/trials_rolling_the_dice"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.419"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/player_name_roll_the_dice" />
+
+    <TextView
         android:id="@+id/countdown_rolling_the_dice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
         android:text="@string/countdown_rolling_the_dice"
-        android:textSize="30sp"
+        android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/player_name_roll_the_dice"
-        app:layout_constraintTop_toBottomOf="@id/heading_roll_the_dice" />
+        app:layout_constraintStart_toEndOf="@id/trials_rolling_the_dice"
+        app:layout_constraintTop_toBottomOf="@id/player_name_roll_the_dice" />
 
     <ImageView
         android:id="@+id/dice_1"
