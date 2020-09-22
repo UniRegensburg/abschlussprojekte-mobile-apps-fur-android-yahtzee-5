@@ -2,6 +2,7 @@ package com.example.kniffel;
 
 import android.app.ActionBar;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.Menu;
@@ -14,6 +15,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.kniffel.InsertNumberOfPlayers.InsertNumberOfPlayers;
+import com.example.kniffel.Tutorial.Tutorial;
 
 import pl.droidsonroids.gif.GifImageView;
 
@@ -93,7 +95,21 @@ public class MainActivity extends AppCompatActivity {
         slogan.setAnimation(bottomAnimRight);
     }
 
+    /** Mittels "shared preferences" booleschen Wert im Speicher speichern, damit beim nächsten Ausführen der Anwendung bekannt ist,
+     * dass der Benutzer die Aktivität des Tutorials bereits durchlaufen hat */
+    private void savePrefsData() {
+        SharedPreferences preferences = getApplicationContext().getSharedPreferences("tutorialPrefs", MODE_PRIVATE);
+        SharedPreferences.Editor prefEditor = preferences.edit();
+        prefEditor.putBoolean("isTutorialOpened", true);
+        prefEditor.commit();
+    }
 
+    /** Methode prüft, ob die TutorialActivit schon einmal geöffnet wurde*/
+    private boolean restorePrefData() {
+        SharedPreferences preferences = getApplicationContext().getSharedPreferences("tutorialPrefs", MODE_PRIVATE);
+        Boolean isTutorialActivityOpenendBefore = preferences.getBoolean("isTutorialOpened", false);
+        return isTutorialActivityOpenendBefore;
+    }
     /**
      * Nach 5 Sekunden wechselt der SplashScreen zu InsertNumberOfPlayersActivity
      */
@@ -101,9 +117,21 @@ public class MainActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intentToInsertNumberOfPlayers = new Intent(getApplicationContext(), InsertNumberOfPlayers.class);
-                startActivity(intentToInsertNumberOfPlayers);
-                finish();
+                /** kurz bevor die TutorialActivity gestartet wird, wird überprüft ob sie vorher schon einmal geöffnet wurde*/
+                if(!restorePrefData()){
+                    /** wurde sie noch nicht geöffnet, wird sie geöffnet*/
+                    Intent intentOpenTutorial = new Intent(getApplicationContext(), Tutorial.class);
+                    startActivity(intentOpenTutorial);
+                    savePrefsData();
+                    finish();
+                }
+                /** wurde die TuturialActivity bereits in der MainActivity geöffnet, wird die insertNumberOfPlayerActivity geöffnet
+                 * die TutorialActivity ist dann nur noch über das Burgermenu aufrufbar*/
+                else {
+                    Intent intentToInsertNumberOfPlayers = new Intent(getApplicationContext(), InsertNumberOfPlayers.class);
+                    startActivity(intentToInsertNumberOfPlayers);
+                    finish();
+                }
             }
         }, SPLASH_SCREEN);
     }

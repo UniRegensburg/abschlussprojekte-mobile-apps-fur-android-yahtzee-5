@@ -71,6 +71,8 @@
     <string name="scource_title">Quelle</string>
     <string name="scource_text">Schmidt Spiele GmbH Lahnstr. 21 D-12055 Berlin  1972,\n Kniffel registered trademark \n www.schmidtspiele.de \nwww.schmidtspiele-shop.de</string>
     <string name="slogan">Der knifflige Würfelspaß</string>
+    <string name="trials_rolling_the_dice">verfügbare Würfe:</string>
+
 
     //Burgermenu
     <string name="highscore_burgermenu_item">Highscore</string>
@@ -80,7 +82,22 @@
     <string name="settings_burgermenu_item">Einstellungen</string>
     <string name="start_new_game_burgermenu_item">"Neues Spiel starten"</string>
     <string name="burgermenu_icon">Burgermenü ausklappen</string>
-    <string name="trials_rolling_the_dice">verfügbare Würfe:</string>
+
+    // Tutorial
+    <string name="tutorial_button_text">weiter</string>
+    <string name="button_start_tutorial">Spiel starten</string>
+    <string name="tutorial_title_menu_player">Spieleranzahl und Menü</string>
+    <string name="tutorial_description_menu_player">In der obenen rechten Ecke befindet sich das Menü. Dieses dient der Navigation und kann mit einem Klick darauf geöffnet werden. \n Bevor das Spiel gestartet werden kann, muss die Spieleranzahl ausgewählt werden. Dazu sind drei Buttons vorhanden. Es sind zwei bis vier Spieler möglich.</string>
+    <string name="tutorial_title_player_name">Spieler eintragen</string>
+    <string name="tutorial_description_player_name">Ist die Spieleranzahl ausgewählt, kann für jeden Mitspieler der Name eingetragen werden. So weiß man später, wer an der Reihe ist und kann den aktuellen Spielstand in der Tabelle ablesen.</string>
+    <string name="tutorial_title_burger_menu">Menü</string>
+    <string name="tutorial_description_burger_menu">Im Menü hat man die Möglichkeit zu verschiedensten Teilen der App zu navigieren: \n - Die Highscores der besten Spieler anschauen \n - Dieses Tutorial nochmal aufrufen \n - Die Spielregeln von Kniffel durchlesen \n - Die Einstellungen ändern \n - Das aktuelle Spiel beende \n - Ein neues Spiel starten</string>
+    <string name="tutorial_title_dice_activity">Würfeln</string>
+    <string name="tutorial_description_dice_activity">"Es wird angezeigt, welcher Spieler an der Reihe ist und wie viele Würfe er beim aktuellen Spielzug noch hat. Um zu Würfeln muss das Gerät geschüttelt werden. "</string>
+    <string name="tutorial_title_dice_activity_selected">Würfel auswählen</string>
+    <string name="tutorial_description_dice_activity_selected">"Die Würfel, die nicht mehr mit gewürfelt werden sollen, können mit einem Klick auf diese ausgewählt werden. Ausgewählte Würfel erkennt man an einer pinken Umrandung. Bei erneutem schütteln ändert sich nur die Augenzahl der nicht ausgewählten Würfel. Die Würfelauswahl wird durch erneutes Würfeln aufgehoben. \n mit dem Button \"Würfel zurücklegen\" kann die Würfelauswahl auch ohne Würfeln aufgehoben werden. \n Mit dem Button \"Eintragen\" gelangt man zur Auswertungstabelle. "</string>
+    <string name="tutorial_table_results">Ergebnisse eintragen</string>
+    <string name="tutorial_description_table_results">Die Tabelle zeigt die Ergebnisse aller Spieler an. Man sieht welche Würfe erlangt werden können und auch welche bereits eingetragen sind. \n Die drei Buttons unten dienen der Navigation. Mit ihnen kann man zu den Würfeln zurückgelangen, das gewürfelte Ergebnis beim entsprechenden Spieler eintragen oder auch ein Ergebnis streichen, wenn keine passendes Wurfergebnis gewürfelt wurde.</string>
 </resources>
 
 
