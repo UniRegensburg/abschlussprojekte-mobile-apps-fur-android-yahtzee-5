@@ -23,7 +23,7 @@ public class InsertNameActivity extends AppCompatActivity {
 
     private EditText editTextForPlayerNames;
     private Button buttonToConfirmPlayerNames;
-    private String playerNames[];
+    private String[] playerNames;
     private int counterHowMuchNamesAlreadyEntered = 0;
 
     @Override
@@ -90,8 +90,6 @@ public class InsertNameActivity extends AppCompatActivity {
     private void createIntentToStartRollTheDiceActivity() {
         Intent intentToStartRollTheDiceActivity = new Intent(this, RollTheDiceActivity.class);
 
-        // falls man als Extra kein Array übergeben kann, muss hier noch eine Schleife einzelne String Extras erstellen
-        // die Frage ist, ob ein Array dann überhaupt Sinn macht
         intentToStartRollTheDiceActivity.putExtra(EXTRA_KEY_PLAYER_NAMES_ARRAY, playerNames);
         startActivity(intentToStartRollTheDiceActivity);
     }

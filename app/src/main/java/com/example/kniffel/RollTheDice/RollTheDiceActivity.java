@@ -14,8 +14,9 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.kniffel.InsertName.InsertNameActivity;
-import com.example.kniffel.InsertResults.TableActivity;
-import com.example.kniffel.MainActivity;
+import com.example.kniffel.InsertResults.TableActivityFourPlayers;
+import com.example.kniffel.InsertResults.TableActivityThreePlayers;
+import com.example.kniffel.InsertResults.TableActivityTwoPlayers;
 import com.example.kniffel.R;
 import com.example.kniffel.RollTheDice.ShakeSensor.ShakeSensor;
 import com.example.kniffel.RollTheDice.ShakeSensor.ShakeSensorListener;
@@ -24,6 +25,8 @@ import java.util.Random;
 
 public class RollTheDiceActivity extends AppCompatActivity implements ShakeSensorListener {
 
+    public static final String EXTRA_KEY_PLAYER_NAMES_ARRAY = "PLAYERS_NAMES";
+    public static final String EXTRA_KEY_ROLLED_DICE_EYE_NUMBERS = "EYE_NUMBERS";
     private static final int MAX_DICE_DIGIT = 6;
     /** ImageViews mit den Würfeln*/
     private ImageView diceOne;
@@ -60,7 +63,7 @@ public class RollTheDiceActivity extends AppCompatActivity implements ShakeSenso
     private void setupDices() {
         /** Array mit Speicheradresse der Würfel*/
         diceDrawablePath = new int[]{R.drawable.dice_throw_1, R.drawable.dice_throw_2, R.drawable.dice_throw_3, R.drawable.dice_throw_4, R.drawable.dice_throw_5, R.drawable.dice_throw_6};
-        /** Array mit den aktuellen Würfelzahlen (macht es Sinn hier new int[5] zu machen? -Q)*/
+        /** Array mit den aktuellen Würfelzahlen*/
         diceEyeNumber = new int[]{1, 2, 3, 4, 5};
         lockDices();
     }
@@ -138,13 +141,26 @@ public class RollTheDiceActivity extends AppCompatActivity implements ShakeSenso
         playerNameView.setText(playerNames[0]);
 
         scoreboardButton = findViewById(R.id.button_scoreboard);
-        /** "Eintragen" ermöglicht den Wechsel zur TableActivity*/
+        /** "Eintragen" ermöglicht den Wechsel zur TableActivity
+         *   Der Switch Case Block erstellt den richtigen Intent abhänging der Spieleranzahl
+         */
         scoreboardButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(RollTheDiceActivity.this, TableActivity.class);
-                //hier muss dem Intent als Extra ein Ineger Array mit den würfelaugen mitgegeben werden
-                startActivity(intent);
+                switch (playerNames.length) {
+                    case 2:
+                        Intent intent = new Intent(RollTheDiceActivity.this, TableActivityTwoPlayers.class);
+                        addExtrasAndStartNextActivity(intent);
+                        break;
+                    case 3:
+                        Intent intent2 = new Intent(RollTheDiceActivity.this, TableActivityThreePlayers.class);
+                        addExtrasAndStartNextActivity(intent2);
+                        break;
+                    case 4:
+                        Intent intent3 = new Intent(RollTheDiceActivity.this, TableActivityFourPlayers.class);
+                        addExtrasAndStartNextActivity(intent3);
+                        break;
+                }
             }
         });
         clearSelectedDicesButton = findViewById(R.id.button_clear_selected_dices);
@@ -155,6 +171,16 @@ public class RollTheDiceActivity extends AppCompatActivity implements ShakeSenso
                 unlockDices();
             }
         });
+    }
+
+    /**
+     * fügt die Extras an den Intent und startet diesen
+     * @param intent
+     */
+    private void addExtrasAndStartNextActivity(Intent intent) {
+        intent.putExtra(EXTRA_KEY_PLAYER_NAMES_ARRAY, playerNames);
+        intent.putExtra(EXTRA_KEY_ROLLED_DICE_EYE_NUMBERS, diceEyeNumber);
+        startActivity(intent);
     }
 
     /** zählt die Anzahl der noch übrigen Würfe herunter (bei counterThrows = 0 verändern sich die Würfel nicht mehr)
