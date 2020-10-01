@@ -157,7 +157,7 @@ public class InsertNumberOfPlayers extends AppCompatActivity implements Navigati
     @SuppressLint("ResourceAsColor")
     private void animateNavigationDrawer() {
         //Um das Layout einzufärben
-        drawerLayout.setScrimColor(getResources().getColor(R.color.colorPrimaryDark, getTheme()));
+        drawerLayout.setScrimColor(getResources().getColor(R.color.light_blue, getTheme()));
         drawerLayout.addDrawerListener(new DrawerLayout.SimpleDrawerListener() {
             @Override
             public void onDrawerSlide(View drawerView, float slideOffset) {

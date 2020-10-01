@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.kniffel">
+
     <uses-permission android:name="android.permission.VIBRATE" />
     <application
         android:allowBackup="true"
@@ -9,7 +10,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity
+            android:name=".MainActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -19,12 +22,16 @@
         <activity android:name=".Tutorial.Tutorial">
 
         </activity>
-        <activity android:name=".InsertNumberOfPlayers.InsertNumberOfPlayers"/>
-        <activity android:name=".InsertName.InsertNameActivity"/>
-        <activity android:name=".RollTheDice.RollTheDiceActivity"/>
-        <activity android:name=".InsertResults.TableActivity"/>
-        <activity android:name=".Highscore.HighscoreActivity"/>
-        <activity android:name=".Rules.Rules"/>
+        <activity android:name=".InsertNumberOfPlayers.InsertNumberOfPlayers" />
+        <activity android:name=".InsertName.InsertNameActivity" />
+        <activity
+            android:name=".RollTheDice.RollTheDiceActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
+            android:name=".InsertResults.TableActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity android:name=".Highscore.HighscoreActivity" />
+        <activity android:name=".Rules.Rules" />
     </application>
 
 </manifest>
