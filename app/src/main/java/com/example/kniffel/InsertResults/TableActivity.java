@@ -1,18 +1,32 @@
 package com.example.kniffel.InsertResults;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.kniffel.InsertName.InsertNameActivity;
 import com.example.kniffel.R;
 import com.example.kniffel.RollTheDice.RollTheDiceActivity;
 
-public class TableActivityTwoPlayers extends AppCompatActivity {
+public class TableActivity extends AppCompatActivity {
 
     private String[] playerNames;
     private int[] diceEyeNumber;
+
+    /**
+     * Key um die Spieler Namen an die RollTheDiceActivity weiterzugeben
+     */
+    public static final String EXTRA_KEY_PLAYER_NAMES_ARRAY = "PLAYERS_NAMES";
+
+    /**
+     * Request Code für den Acitivity for Result Intent von der ROllTheDiceActivity
+     */
+
+    public static final int REQUEST_CODE_FOR_ACTIVITY_FOR_RESULT = 101;
 
     /**
      * alle Id's der TexViews für die Punkte
@@ -30,13 +44,40 @@ public class TableActivityTwoPlayers extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getExtrasFromIntent();
+        createActivityStack();
         initViews();
     }
 
+    /**
+     * speichert die Namen der Spieler in das playerNames String array aus dem Extra der InsertNameActivity
+     */
     private void getExtrasFromIntent() {
         Bundle extras = getIntent().getExtras();
-        playerNames = extras.getStringArray(RollTheDiceActivity.EXTRA_KEY_PLAYER_NAMES_ARRAY);
-        diceEyeNumber = extras.getIntArray(RollTheDiceActivity.EXTRA_KEY_ROLLED_DICE_EYE_NUMBERS);
+        playerNames = extras.getStringArray(InsertNameActivity.EXTRA_KEY_PLAYER_NAMES_ARRAY);
+    }
+
+    /**
+     * Erstellt und führt den Intent mit ActivityForResult aus, damit die TableActivity auf dem ActivityStack unten liegt
+     */
+    private void createActivityStack() {
+        Intent intentToGetRollTheDiceActivityOnStack = new Intent(this, RollTheDiceActivity.class);
+        intentToGetRollTheDiceActivityOnStack.putExtra(EXTRA_KEY_PLAYER_NAMES_ARRAY, playerNames);
+
+        startActivityForResult(intentToGetRollTheDiceActivityOnStack, REQUEST_CODE_FOR_ACTIVITY_FOR_RESULT);
+    }
+
+    /**
+     * bekommt von der ActvityForResult Methode aus der RollTheDiceActivity das Integer Array mit den 5 gewürfelten Würfeln
+     */
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if(requestCode == REQUEST_CODE_FOR_ACTIVITY_FOR_RESULT) {
+            if (resultCode == RESULT_OK) {
+                diceEyeNumber = data.getIntArrayExtra(RollTheDiceActivity.EXTRA_KEY_ROLLED_DICE_EYE_NUMBERS);
+            }
+        }
     }
 
     /**

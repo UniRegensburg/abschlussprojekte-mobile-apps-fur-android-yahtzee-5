@@ -10,14 +10,13 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.kniffel.InsertNumberOfPlayers.InsertNumberOfPlayers;
-import com.example.kniffel.MainActivity;
+import com.example.kniffel.InsertResults.TableActivity;
 import com.example.kniffel.R;
-import com.example.kniffel.RollTheDice.RollTheDiceActivity;
 
 public class InsertNameActivity extends AppCompatActivity {
 
     /**
-     * Key um die Spieler Anzahl an die InsertNameActivity weiterzugeben
+     * Key um die Spieler Namen an die TableActivity weiterzugeben
      */
     public static final String EXTRA_KEY_PLAYER_NAMES_ARRAY = "PLAYERS_NAMES";
 
@@ -79,7 +78,7 @@ public class InsertNameActivity extends AppCompatActivity {
         counterHowMuchNamesAlreadyEntered++;
 
         if(counterHowMuchNamesAlreadyEntered == playerNames.length) {
-            createIntentToStartRollTheDiceActivity();
+            createIntentToStartTableActivity();
         }
 
     }
@@ -87,10 +86,10 @@ public class InsertNameActivity extends AppCompatActivity {
     /**
      * Intent um die RollTheDiceActivity aufzurufen wird erstellt
      */
-    private void createIntentToStartRollTheDiceActivity() {
-        Intent intentToStartRollTheDiceActivity = new Intent(this, RollTheDiceActivity.class);
+    private void createIntentToStartTableActivity() {
+        Intent intentToStartTableActivity = new Intent(this, TableActivity.class);
 
-        intentToStartRollTheDiceActivity.putExtra(EXTRA_KEY_PLAYER_NAMES_ARRAY, playerNames);
-        startActivity(intentToStartRollTheDiceActivity);
+        intentToStartTableActivity.putExtra(EXTRA_KEY_PLAYER_NAMES_ARRAY, playerNames);
+        startActivity(intentToStartTableActivity);
     }
 }
