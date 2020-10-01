@@ -99,8 +99,4 @@
         app:headerLayout="@layout/burgermenu_header"
         app:menu="@menu/burgermenu_menu"/>
 
-
-
-
-
 </androidx.drawerlayout.widget.DrawerLayout>
