@@ -22,7 +22,9 @@
         <activity android:name=".InsertNumberOfPlayers.InsertNumberOfPlayers"/>
         <activity android:name=".InsertName.InsertNameActivity"/>
         <activity android:name=".RollTheDice.RollTheDiceActivity"/>
-        <activity android:name=".InsertResults.TableActivity"/>
+        <activity android:name=".InsertResults.TableActivityTwoPlayers"/>
+        <activity android:name=".InsertResults.TableActivityThreePlayers"/>
+        <activity android:name=".InsertResults.TableActivityFourPlayers"/>
         <activity android:name=".Highscore.HighscoreActivity"/>
         <activity android:name=".Rules.Rules"/>
     </application>

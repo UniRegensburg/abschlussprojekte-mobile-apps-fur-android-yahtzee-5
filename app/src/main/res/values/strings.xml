@@ -99,8 +99,12 @@
     <string name="tutorial_table_results">Ergebnisse eintragen</string>
     <string name="tutorial_description_table_results">Die Tabelle zeigt die Ergebnisse aller Spieler an. Man sieht welche Würfe erlangt werden können und auch welche bereits eingetragen sind. \n Die drei Buttons unten dienen der Navigation. Mit ihnen kann man zu den Würfeln zurückgelangen, das gewürfelte Ergebnis beim entsprechenden Spieler eintragen oder auch ein Ergebnis streichen, wenn keine passendes Wurfergebnis gewürfelt wurde.</string>
 
+
     //Spielerauswahl
     <string name="slogan_number_of_players">Wähle die Anzahl der Spieler aus</string>
+
+    <string name="ValueKniffel">50</string>
+
 </resources>
 
 
