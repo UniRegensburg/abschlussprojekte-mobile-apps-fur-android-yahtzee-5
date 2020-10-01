@@ -14,16 +14,18 @@
 
     <TextView
         android:id="@+id/tutorial_title"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:text="TextView"
+        android:background="@drawable/custom_button2"
         android:fontFamily="@font/kniffel_textart"
-        android:textColor="@color/tutorial_title_color"
+        android:textColor="@color/gray"
         android:textSize="25sp"
         android:textStyle="bold"
+        android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tutorial_image" />

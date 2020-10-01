@@ -10,29 +10,32 @@
         android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/textViewInsertPlayersNames"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-
+        android:layout_marginTop="60dp"
         android:fontFamily="@font/kniffel_textart"
         android:text="@string/app_name"
         android:textColor="@android:color/black"
-        android:textSize="100sp" />
 
-    <TextView
-        android:id="@+id/textViewInsertPlayersNames"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="40dp"
-        app:layout_constraintBottom_toTopOf="@+id/editTextForPlayersNames"
+        android:textSize="100sp"
+        app:layout_constraintBottom_toTopOf="@+id/textViewInsertPlayersNames"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/slogan_insert_player_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/custom_button2"
+        android:fontFamily="@font/kniffel_textart"
         android:text="@string/insert_player_names_here"
         android:textAlignment="center"
-        android:textColor="@android:color/black"
-        android:textSize="20sp" />
+        android:textColor="@color/mid_green"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title" />
+
+
 
     <EditText
         android:id="@+id/editTextForPlayersNames"
@@ -43,7 +46,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-
         android:hint="@string/edit_text_for_players_names_filler"/>
 
     <Button
@@ -57,7 +59,7 @@
 
         android:background="@drawable/custom_button4"
         android:text="@string/button_accept_player_name"
-        android:textAllCaps="false"
+        android:textAllCaps="true"
         android:textColor="#FFFFFF"
         android:textSize="20sp" />
 
