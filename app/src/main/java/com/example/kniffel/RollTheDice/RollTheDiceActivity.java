@@ -192,6 +192,7 @@ public class RollTheDiceActivity extends AppCompatActivity implements ShakeSenso
             counterThrows--;
             countdownDiceThrows.setText(Integer.toString(counterThrows));
             shakeDices();
+            vibrate();
         }
     }
     /** Wird das Handy geschüttelt, werden den ImageViews der Würfel neue WürfelBilder zugeordnet*/
@@ -255,7 +256,6 @@ public class RollTheDiceActivity extends AppCompatActivity implements ShakeSenso
     @Override
     public void onShakingDetected() {
         throwDices();
-        vibrate();
     }
 
 

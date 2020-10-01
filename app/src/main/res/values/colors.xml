@@ -4,18 +4,31 @@
     <color name="colorPrimaryDark">#3700B3</color>
     <color name="colorAccent">#03DAC5</color>
     <color name="lightblue">#FF87CEFA</color>
-    <color name="white">#FFFFFFFF</color>
+
 
     <!-- Farben für Button Tutorial-->
     <color name="gradient_start_color">#4c84ff</color>
     <color name="gradient_end_color">#18a3fe</color>
 
-    <!-- Fraben für den Tab- und Screentext (Tutorial)-->
-    <color name="tab_indicator_gray">#c0c0c0</color>
-    <color name="tutorial_title_color">#000000</color>
-    <color name="tutorial_description_color">#656565</color>
+    <!-- Grau-->
+    <color name="gray">#7F7F7F</color>
 
-
+    <!-- Dunkelgrün -->
+    <color name="dark_green">#132A13</color>
+    <!-- Mittelgrün -->
+    <color name="mid_green">#31572C</color>
+    <!-- Hellgrün -->
+    <color name="light_green">#90A955</color>
+    <!-- Hellgelb -->
+    <color name="light_yellow">#ECF39E</color>
+    <!-- Orange-->
+    <color name="orange">#FF934f</color>
+    <!-- Hellblau -->
+    <color name="light_blue">#AED9E0</color>
+    <!-- Weiß -->
+    <color name="white">#FFFFFFFF</color>
+    <!-- Schwarz -->
+    <color name="black">#000000</color>
 
 
 </resources>

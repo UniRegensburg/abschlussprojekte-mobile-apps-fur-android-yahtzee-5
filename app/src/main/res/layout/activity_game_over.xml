@@ -16,7 +16,7 @@
 
         android:fontFamily="@font/kniffel_textart"
         android:text="@string/game_over"
-        android:textColor="@android:color/black"
+        android:textColor="@color/orange"
         android:textSize="70sp" />
 
     <TextView

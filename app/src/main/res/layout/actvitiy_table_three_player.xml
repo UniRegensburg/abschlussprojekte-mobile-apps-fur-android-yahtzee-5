@@ -7,10 +7,10 @@
 
 
     <ScrollView
+        android:id="@+id/scrollView3"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginBottom="10dp"
-        android:background="@drawable/custom_button3"
         app:layout_constraintBottom_toTopOf="@+id/submit_button_player_table"
         app:layout_constraintEnd_toStartOf="parent"
         app:layout_constraintStart_toEndOf="parent"
@@ -73,7 +73,6 @@
                 android:textStyle="bold" />
 
 
-
             <!-- first row-->
             <TextView
                 android:layout_width="0dp"
@@ -93,11 +92,11 @@
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:background="@color/white"
+                android:clickable="true"
+                android:focusable="true"
                 android:padding="3dp"
                 android:text=""
-                android:textAlignment="center"
-                android:clickable="true"
-                android:focusable="true"/>
+                android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/player_2_toss_one"
@@ -106,11 +105,11 @@
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:background="@color/white"
+                android:clickable="true"
+                android:focusable="true"
                 android:padding="3dp"
                 android:text=""
-                android:textAlignment="center"
-                android:clickable="true"
-                android:focusable="true"/>
+                android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/player_3_toss_one"
@@ -119,12 +118,11 @@
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:background="@color/white"
+                android:clickable="true"
+                android:focusable="true"
                 android:padding="3dp"
                 android:text=""
-                android:textAlignment="center"
-                android:clickable="true"
-                android:focusable="true"/>
-
+                android:textAlignment="center" />
 
 
             <!--second row -->
@@ -146,11 +144,11 @@
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:background="@color/white"
+                android:clickable="true"
+                android:focusable="true"
                 android:padding="3dp"
                 android:text=""
-                android:textAlignment="center"
-                android:clickable="true"
-                android:focusable="true"/>
+                android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/player_2_toss_two"
@@ -159,11 +157,11 @@
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:background="@color/white"
+                android:clickable="true"
+                android:focusable="true"
                 android:padding="3dp"
                 android:text=""
-                android:textAlignment="center"
-                android:clickable="true"
-                android:focusable="true"/>
+                android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/player_3_toss_two"
@@ -172,11 +170,11 @@
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:background="#FFFFFFFF"
+                android:clickable="true"
+                android:focusable="true"
                 android:padding="3dp"
                 android:text=""
-                android:textAlignment="center"
-                android:clickable="true"
-                android:focusable="true"/>
+                android:textAlignment="center" />
 
             <!--third row -->
             <TextView
@@ -197,11 +195,11 @@
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:background="@color/white"
+                android:clickable="true"
+                android:focusable="true"
                 android:padding="3dp"
                 android:text=""
-                android:textAlignment="center"
-                android:clickable="true"
-                android:focusable="true"/>
+                android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/player_2_toss_three"
@@ -210,11 +208,11 @@
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:background="@color/white"
+                android:clickable="true"
+                android:focusable="true"
                 android:padding="3dp"
                 android:text=""
-                android:textAlignment="center"
-                android:clickable="true"
-                android:focusable="true"/>
+                android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/player_3_toss_three"
@@ -223,11 +221,11 @@
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:background="@color/white"
+                android:clickable="true"
+                android:focusable="true"
                 android:padding="3dp"
                 android:text=""
-                android:textAlignment="center"
-                android:clickable="true"
-                android:focusable="true"/>
+                android:textAlignment="center" />
 
             <!--fourth row -->
             <TextView
@@ -239,8 +237,7 @@
                 android:padding="3dp"
                 android:text="@string/toss_four"
                 android:textAlignment="center"
-                android:textStyle="bold"
-                />
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/player_1_toss_four"
@@ -249,11 +246,11 @@
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:background="@color/white"
+                android:clickable="true"
+                android:focusable="true"
                 android:padding="3dp"
                 android:text=""
-                android:textAlignment="center"
-                android:clickable="true"
-                android:focusable="true"/>
+                android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/player_2_toss_four"
@@ -262,11 +259,11 @@
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:background="@color/white"
+                android:clickable="true"
+                android:focusable="true"
                 android:padding="3dp"
                 android:text=""
-                android:textAlignment="center"
-                android:clickable="true"
-                android:focusable="true"/>
+                android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/player_3_toss_four"
@@ -275,11 +272,11 @@
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:background="@color/white"
+                android:clickable="true"
+                android:focusable="true"
                 android:padding="3dp"
                 android:text=""
-                android:textAlignment="center"
-                android:clickable="true"
-                android:focusable="true"/>
+                android:textAlignment="center" />
 
 
             <!--fifth row -->
@@ -301,11 +298,11 @@
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:background="@color/white"
+                android:clickable="true"
+                android:focusable="true"
                 android:padding="3dp"
                 android:text=""
-                android:textAlignment="center"
-                android:clickable="true"
-                android:focusable="true"/>
+                android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/player_2_toss_five"
@@ -314,11 +311,11 @@
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:background="@color/white"
+                android:clickable="true"
+                android:focusable="true"
                 android:padding="3dp"
                 android:text=""
-                android:textAlignment="center"
-                android:clickable="true"
-                android:focusable="true"/>
+                android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/player_3_toss_five"
@@ -327,11 +324,11 @@
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:background="@color/white"
+                android:clickable="true"
+                android:focusable="true"
                 android:padding="3dp"
                 android:text=""
-                android:textAlignment="center"
-                android:clickable="true"
-                android:focusable="true"/>
+                android:textAlignment="center" />
 
 
             <!--sixth row -->
@@ -353,11 +350,11 @@
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:background="@color/white"
+                android:clickable="true"
+                android:focusable="true"
                 android:padding="3dp"
                 android:text=""
-                android:textAlignment="center"
-                android:clickable="true"
-                android:focusable="true"/>
+                android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/player_2_toss_six"
@@ -366,11 +363,11 @@
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:background="@color/white"
+                android:clickable="true"
+                android:focusable="true"
                 android:padding="3dp"
                 android:text=""
-                android:textAlignment="center"
-                android:clickable="true"
-                android:focusable="true"/>
+                android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/player_3_toss_six"
@@ -379,11 +376,11 @@
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:background="@color/white"
+                android:clickable="true"
+                android:focusable="true"
                 android:padding="3dp"
                 android:text=""
-                android:textAlignment="center"
-                android:clickable="true"
-                android:focusable="true"/>
+                android:textAlignment="center" />
 
             <!--top summary row -->
             <TextView
@@ -496,11 +493,11 @@
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:background="@color/white"
+                android:clickable="true"
+                android:focusable="true"
                 android:padding="3dp"
                 android:text=""
-                android:textAlignment="center"
-                android:clickable="true"
-                android:focusable="true"/>
+                android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/player_2_toss_three_doubles"
@@ -509,11 +506,11 @@
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:background="@color/white"
+                android:clickable="true"
+                android:focusable="true"
                 android:padding="3dp"
                 android:text=""
-                android:textAlignment="center"
-                android:clickable="true"
-                android:focusable="true"/>
+                android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/player_3_toss_three_doubles"
@@ -522,11 +519,11 @@
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:background="@color/white"
+                android:clickable="true"
+                android:focusable="true"
                 android:padding="3dp"
                 android:text=""
-                android:textAlignment="center"
-                android:clickable="true"
-                android:focusable="true"/>
+                android:textAlignment="center" />
 
 
             <!-- double four row-->
@@ -548,11 +545,11 @@
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:background="@color/white"
+                android:clickable="true"
+                android:focusable="true"
                 android:padding="3dp"
                 android:text=""
-                android:textAlignment="center"
-                android:clickable="true"
-                android:focusable="true"/>
+                android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/player_2_toss_four_doubles"
@@ -561,11 +558,11 @@
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:background="@color/white"
+                android:clickable="true"
+                android:focusable="true"
                 android:padding="3dp"
                 android:text=""
-                android:textAlignment="center"
-                android:clickable="true"
-                android:focusable="true"/>
+                android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/player_3_toss_four_doubles"
@@ -574,11 +571,11 @@
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:background="@color/white"
+                android:clickable="true"
+                android:focusable="true"
                 android:padding="3dp"
                 android:text=""
-                android:textAlignment="center"
-                android:clickable="true"
-                android:focusable="true"/>
+                android:textAlignment="center" />
 
 
             <!-- full house row-->
@@ -600,11 +597,11 @@
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:background="@color/white"
+                android:clickable="true"
+                android:focusable="true"
                 android:padding="3dp"
                 android:text=""
-                android:textAlignment="center"
-                android:clickable="true"
-                android:focusable="true"/>
+                android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/player_2_toss_full_house"
@@ -613,11 +610,11 @@
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:background="@color/white"
+                android:clickable="true"
+                android:focusable="true"
                 android:padding="3dp"
                 android:text=""
-                android:textAlignment="center"
-                android:clickable="true"
-                android:focusable="true"/>
+                android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/player_3_toss_full_house"
@@ -626,11 +623,11 @@
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:background="@color/white"
+                android:clickable="true"
+                android:focusable="true"
                 android:padding="3dp"
                 android:text=""
-                android:textAlignment="center"
-                android:clickable="true"
-                android:focusable="true"/>
+                android:textAlignment="center" />
 
 
             <!-- little street row-->
@@ -652,11 +649,11 @@
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:background="@color/white"
+                android:clickable="true"
+                android:focusable="true"
                 android:padding="3dp"
                 android:text=""
-                android:textAlignment="center"
-                android:clickable="true"
-                android:focusable="true"/>
+                android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/player_2_toss_little_street"
@@ -665,11 +662,11 @@
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:background="@color/white"
+                android:clickable="true"
+                android:focusable="true"
                 android:padding="3dp"
                 android:text=""
-                android:textAlignment="center"
-                android:clickable="true"
-                android:focusable="true"/>
+                android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/player_3_toss_little_street"
@@ -678,11 +675,11 @@
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:background="@color/white"
+                android:clickable="true"
+                android:focusable="true"
                 android:padding="3dp"
                 android:text=""
-                android:textAlignment="center"
-                android:clickable="true"
-                android:focusable="true"/>
+                android:textAlignment="center" />
 
 
             <!-- large street row-->
@@ -704,11 +701,11 @@
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:background="@color/white"
+                android:clickable="true"
+                android:focusable="true"
                 android:padding="3dp"
                 android:text=""
-                android:textAlignment="center"
-                android:clickable="true"
-                android:focusable="true"/>
+                android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/player_2_toss_large_street"
@@ -717,11 +714,11 @@
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:background="@color/white"
+                android:clickable="true"
+                android:focusable="true"
                 android:padding="3dp"
                 android:text=""
-                android:textAlignment="center"
-                android:clickable="true"
-                android:focusable="true"/>
+                android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/player_3_toss_large_street"
@@ -730,11 +727,11 @@
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:background="@color/white"
+                android:clickable="true"
+                android:focusable="true"
                 android:padding="3dp"
                 android:text=""
-                android:textAlignment="center"
-                android:clickable="true"
-                android:focusable="true"/>
+                android:textAlignment="center" />
 
 
             <!-- kniffel row-->
@@ -756,11 +753,11 @@
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:background="@color/white"
+                android:clickable="true"
+                android:focusable="true"
                 android:padding="3dp"
                 android:text=""
-                android:textAlignment="center"
-                android:clickable="true"
-                android:focusable="true"/>
+                android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/player_2_toss_kniffel"
@@ -769,11 +766,11 @@
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:background="@color/white"
+                android:clickable="true"
+                android:focusable="true"
                 android:padding="3dp"
                 android:text=""
-                android:textAlignment="center"
-                android:clickable="true"
-                android:focusable="true"/>
+                android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/player_3_toss_kniffel"
@@ -782,12 +779,11 @@
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:background="@color/white"
+                android:clickable="true"
+                android:focusable="true"
                 android:padding="3dp"
                 android:text=""
-                android:textAlignment="center"
-                android:clickable="true"
-                android:focusable="true"/>
-
+                android:textAlignment="center" />
 
 
             <!-- chance row-->
@@ -809,11 +805,11 @@
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:background="@color/white"
+                android:clickable="true"
+                android:focusable="true"
                 android:padding="3dp"
                 android:text=""
-                android:textAlignment="center"
-                android:clickable="true"
-                android:focusable="true"/>
+                android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/player_2_toss_chance"
@@ -822,11 +818,11 @@
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:background="@color/white"
+                android:clickable="true"
+                android:focusable="true"
                 android:padding="3dp"
                 android:text=""
-                android:textAlignment="center"
-                android:clickable="true"
-                android:focusable="true"/>
+                android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/player_3_toss_chance"
@@ -835,11 +831,11 @@
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:background="@color/white"
+                android:clickable="true"
+                android:focusable="true"
                 android:padding="3dp"
                 android:text=""
-                android:textAlignment="center"
-                android:clickable="true"
-                android:focusable="true"/>
+                android:textAlignment="center" />
 
 
             <!-- total summary row-->
@@ -851,8 +847,8 @@
                 android:background="@drawable/custom_button3"
                 android:padding="3dp"
                 android:text="@string/toss_end_summary"
-                android:textColor="@color/colorPrimaryDark"
                 android:textAlignment="center"
+                android:textColor="@color/colorPrimaryDark"
                 android:textStyle="bold" />
 
             <TextView
@@ -861,11 +857,11 @@
                 android:layout_height="0dp"
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
-                android:textColor="@color/white"
                 android:background="@drawable/custom_button3"
                 android:padding="3dp"
                 android:text=""
-                android:textAlignment="center" />
+                android:textAlignment="center"
+                android:textColor="@color/white" />
 
             <TextView
                 android:id="@+id/player_2_toss_end_summary"
@@ -873,11 +869,11 @@
                 android:layout_height="wrap_content"
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
-                android:textColor="@color/white"
                 android:background="@drawable/custom_button3"
                 android:padding="3dp"
                 android:text=""
-                android:textAlignment="center" />
+                android:textAlignment="center"
+                android:textColor="@color/white" />
 
             <TextView
                 android:id="@+id/player_3_toss_end_summary"
@@ -885,12 +881,11 @@
                 android:layout_height="wrap_content"
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
-                android:textColor="@color/white"
                 android:background="@drawable/custom_button3"
                 android:padding="3dp"
                 android:text=""
-                android:textAlignment="center" />
-
+                android:textAlignment="center"
+                android:textColor="@color/white" />
 
 
         </GridLayout>
@@ -924,12 +919,11 @@
         android:textColor="#FFFFFF"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@id/cross_out_button_player_table"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_weight="2"
         app:layout_constraintStart_toEndOf="@id/dice_button_player_table"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintVertical_bias="0.96"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/scrollView3" />
 
     <Button
         android:id="@+id/cross_out_button_player_table"

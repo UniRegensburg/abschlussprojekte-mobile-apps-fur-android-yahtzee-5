@@ -4,7 +4,7 @@
     <string name="button_2players">2 Spieler</string>
     <string name="button_3players">3 Spieler</string>
     <string name="button_4players">4 Spieler</string>
-    <string name="insert_player_names_here">Namen des ersten Spielers hier eingeben.</string>
+    <string name="insert_player_names_here">Namen des Spielers eingeben:</string>
     <string name="edit_text_for_players_names_filler">#Player1</string>
     <string name="button_accept_player_name">Bestätigen</string>
     <string name="game_over">Spiel beendet</string>
@@ -39,7 +39,7 @@
     <string name="toss_chance">Chance</string>
     <string name="toss_end_summary">End-\nsumme</string>
     <string name="name">Name</string>
-    <string name="text_roll_the_dice">Es würfelt</string>
+    <string name="text_roll_the_dice">ist an der Reihe</string>
     <string name="countdown_rolling_the_dice">3</string>
     <string name="rules_text">Regeln</string>
     <string name="heading_roll_the_dice">Würfeln</string>
@@ -70,8 +70,8 @@
     <string name="end_of_the_game_text">Das Spiel endet, sobald das letzte Kästchen beim letzten Spieler ausgefüllt ist. Nun werden alle Punkte automatisch zusammengerechnet. Der Spieler mit den meisten Punkten ist der Sieger.</string>
     <string name="scource_title">Quelle</string>
     <string name="scource_text">Schmidt Spiele GmbH Lahnstr. 21 D-12055 Berlin  1972,\n Kniffel registered trademark \n www.schmidtspiele.de \nwww.schmidtspiele-shop.de</string>
-    <string name="slogan">Der knifflige Würfelspaß</string>
-    <string name="trials_rolling_the_dice">verfügbare Würfe:</string>
+    <string name="slogan">  Der knifflige Würfelspaß</string>
+    <string name="trials_rolling_the_dice">verfügbare Würfe: </string>
 
 
     //Burgermenu
@@ -98,7 +98,13 @@
     <string name="tutorial_description_dice_activity_selected">"Die Würfel, die nicht mehr mit gewürfelt werden sollen, können mit einem Klick auf diese ausgewählt werden. Ausgewählte Würfel erkennt man an einer pinken Umrandung. Bei erneutem schütteln ändert sich nur die Augenzahl der nicht ausgewählten Würfel. Die Würfelauswahl wird durch erneutes Würfeln aufgehoben. \n mit dem Button \"Würfel zurücklegen\" kann die Würfelauswahl auch ohne Würfeln aufgehoben werden. \n Mit dem Button \"Eintragen\" gelangt man zur Auswertungstabelle. "</string>
     <string name="tutorial_table_results">Ergebnisse eintragen</string>
     <string name="tutorial_description_table_results">Die Tabelle zeigt die Ergebnisse aller Spieler an. Man sieht welche Würfe erlangt werden können und auch welche bereits eingetragen sind. \n Die drei Buttons unten dienen der Navigation. Mit ihnen kann man zu den Würfeln zurückgelangen, das gewürfelte Ergebnis beim entsprechenden Spieler eintragen oder auch ein Ergebnis streichen, wenn keine passendes Wurfergebnis gewürfelt wurde.</string>
+
+
+    //Spielerauswahl
+    <string name="slogan_number_of_players">Wähle die Anzahl der Spieler aus</string>
+
     <string name="ValueKniffel">50</string>
+
 </resources>
 
 
