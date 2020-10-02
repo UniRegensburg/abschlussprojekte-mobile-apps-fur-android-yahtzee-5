@@ -22,6 +22,7 @@ import com.example.kniffel.Tutorial.Tutorial;
 import com.google.android.material.navigation.NavigationView;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 /**
  * nicht fertig
@@ -31,7 +32,7 @@ import java.util.ArrayList;
  * In dieser Activity werden alle Highscore Einträge in einer Liste angezeigt.
  */
 
-public class HighscoreActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
+public class HighscoreActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     public final float END_SCALE = 0.7f;
 
@@ -62,6 +63,7 @@ public class HighscoreActivity extends AppCompatActivity implements NavigationVi
         adapter = new HighscoreListAdapter(this, highscoreList);
         highscoreListView.setAdapter(adapter);
     }
+
     /**
      * Actionbar wird mit Icon erstellt, rechts oben allerdings noch sehr dunkel
      */
@@ -95,7 +97,7 @@ public class HighscoreActivity extends AppCompatActivity implements NavigationVi
         drawerLayout = findViewById(R.id.drawerLayout);
         navigationView = findViewById(R.id.navigation_view);
         contentView = findViewById(R.id.constraint_highscores);
-
+        Objects.requireNonNull(getSupportActionBar()).setTitle("");
     }
 
     /**
@@ -175,7 +177,7 @@ public class HighscoreActivity extends AppCompatActivity implements NavigationVi
  * Das muss am besten passieren, sobald das Spiel beendet wird. Das heißt wenn auf den "Game-Over-Button"
  * geklickt wird, muss überprüft werden ob einer der Spieler einen neuen Highscore erreicht hat, nur
  * dann wird ein Datenbankaufruf benötigt.
- *
+ * <p>
  * GameFinishedButton.setOnClickListener(new View.OnClickListener(){
  *
  * @Override public void onClick(View v) {
@@ -186,7 +188,7 @@ public class HighscoreActivity extends AppCompatActivity implements NavigationVi
  * HighscoreItem highscoreItem = new HighscoreItem(task, date, score);
  * highscoreList.add(highscoreItem);
  * adapter.notifyDataSetChanged();
- *
+ * <p>
  * }
  * dbHelper.addHighscoreToDatabase(highscoreItem);
  * }

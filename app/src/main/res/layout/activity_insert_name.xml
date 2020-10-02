@@ -46,27 +46,39 @@
             android:id="@+id/editTextForPlayersNames"
             android:layout_width="250dp"
             android:layout_height="60dp"
-            android:layout_marginTop="100dp"
+            android:layout_marginTop="30dp"
             android:hint="@string/edit_text_for_players_names_filler"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/slogan_insert_player_name" />
 
         <Button
             android:id="@+id/buttonAcceptPlayerName"
             android:layout_width="250dp"
             android:layout_height="60dp"
+            android:layout_marginTop="30dp"
             android:background="@drawable/custom_button4"
             android:text="@string/button_accept_player_name"
             android:textAllCaps="true"
             android:textColor="#FFFFFF"
-
             android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/editTextForPlayersNames" />
+
+        <pl.droidsonroids.gif.GifImageView
+            android:id="@+id/gifImageViewSmall"
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="8dp"
+            android:src="@drawable/dice_animation"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/buttonAcceptPlayerName"
+            app:layout_constraintBottom_toBottomOf="parent"/>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

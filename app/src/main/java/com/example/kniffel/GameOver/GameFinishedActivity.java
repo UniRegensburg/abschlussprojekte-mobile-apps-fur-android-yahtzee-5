@@ -22,6 +22,8 @@ import com.example.kniffel.Rules.Rules;
 import com.example.kniffel.Tutorial.Tutorial;
 import com.google.android.material.navigation.NavigationView;
 
+import java.util.Objects;
+
 public class GameFinishedActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     public final float END_SCALE = 0.7f;
 
@@ -76,19 +78,18 @@ public class GameFinishedActivity extends AppCompatActivity implements Navigatio
 
     //Funktionalität der Game Finished Activity
 
-    private void initViews(){
+    private void initViews() {
         btnHighscores = findViewById(R.id.buttonToHighscores);
         btnNewGame = findViewById(R.id.buttonNewGame);
     }
 
-    private void initUi(){
+    private void initUi() {
         btnNewGame.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startNewGame();
             }
         });
-
         btnHighscores.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -97,17 +98,15 @@ public class GameFinishedActivity extends AppCompatActivity implements Navigatio
         });
     }
 
-    private void startNewGame(){
+    private void startNewGame() {
         Intent startNewGame = new Intent(this, InsertNumberOfPlayers.class);
         startActivity(startNewGame);
     }
 
-    private void showHighscores(){
-        Intent showHighscores = new Intent (this, HighscoreActivity.class);
+    private void showHighscores() {
+        Intent showHighscores = new Intent(this, HighscoreActivity.class);
         startActivity(showHighscores);
     }
-
-
 
 
     //Funktionalität des Burgermenüs
@@ -120,7 +119,7 @@ public class GameFinishedActivity extends AppCompatActivity implements Navigatio
         drawerLayout = findViewById(R.id.drawerLayout);
         navigationView = findViewById(R.id.navigation_view);
         contentView = findViewById(R.id.game_over_constraint);
-
+        Objects.requireNonNull(getSupportActionBar()).setTitle("");
     }
 
     /**

@@ -24,6 +24,8 @@ import com.example.kniffel.Rules.Rules;
 import com.example.kniffel.Tutorial.Tutorial;
 import com.google.android.material.navigation.NavigationView;
 
+import java.util.Objects;
+
 public class InsertNameActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     /**
@@ -152,7 +154,7 @@ public class InsertNameActivity extends AppCompatActivity implements NavigationV
         drawerLayout = findViewById(R.id.drawerLayout);
         navigationView = findViewById(R.id.navigation_view);
         contentView = findViewById(R.id.insert_name_of_player_constraint);
-
+        Objects.requireNonNull(getSupportActionBar()).setTitle("");
     }
 
     /**
