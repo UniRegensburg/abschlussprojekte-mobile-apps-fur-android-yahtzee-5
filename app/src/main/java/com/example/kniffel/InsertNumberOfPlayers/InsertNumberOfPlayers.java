@@ -5,6 +5,7 @@ import android.content.ClipData;
 import android.content.Intent;
 
 import android.os.Bundle;
+import android.text.Html;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -24,6 +25,8 @@ import com.example.kniffel.R;
 import com.example.kniffel.Rules.Rules;
 import com.example.kniffel.Tutorial.Tutorial;
 import com.google.android.material.navigation.NavigationView;
+
+import java.util.Objects;
 
 public class InsertNumberOfPlayers extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -139,6 +142,7 @@ public class InsertNumberOfPlayers extends AppCompatActivity implements Navigati
         drawerLayout = findViewById(R.id.drawerLayout);
         navigationView = findViewById(R.id.navigation_view);
         contentView = findViewById(R.id.insert_number_of_player_constraint);
+        Objects.requireNonNull(getSupportActionBar()).setTitle("");
 
     }
 

@@ -3,15 +3,16 @@ package com.example.kniffel.Rules;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Html;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ScrollView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
@@ -20,6 +21,8 @@ import com.example.kniffel.InsertNumberOfPlayers.InsertNumberOfPlayers;
 import com.example.kniffel.R;
 import com.example.kniffel.Tutorial.Tutorial;
 import com.google.android.material.navigation.NavigationView;
+
+import java.util.Objects;
 
 public class Rules extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     public final float END_SCALE = 0.7f;
@@ -53,7 +56,7 @@ public class Rules extends AppCompatActivity implements NavigationView.OnNavigat
      * Wenn das Burgermenü bereits geöffnet ist schließt es sich wieder
      */
     @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+   public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (R.id.burgermenu_icon == item.getItemId()) {
             if (drawerLayout.isDrawerVisible(GravityCompat.START)) {
                 drawerLayout.closeDrawer(GravityCompat.START);
@@ -72,7 +75,7 @@ public class Rules extends AppCompatActivity implements NavigationView.OnNavigat
         drawerLayout = findViewById(R.id.drawerLayout);
         navigationView = findViewById(R.id.navigation_view);
         contentView = findViewById(R.id.rules_scroll_view);
-
+        Objects.requireNonNull(getSupportActionBar()).setTitle("");
     }
 
     /**
@@ -106,6 +109,7 @@ public class Rules extends AppCompatActivity implements NavigationView.OnNavigat
                 contentView.setTranslationX(xTranslation);
             }
         });
+
     }
 
     @Override

@@ -8,7 +8,12 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-
+    //Actionbar wird durchsichtig, Icons werden aber noch angezeigt
+    <style name="AppTheme.ActionBar.Transparent" parent="AppTheme">
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="windowActionBarOverlay">true</item>
+        <item name="colorPrimary">@android:color/transparent</item>
+    </style>
 
 //ausgewähltes Item im Burgermenü wird dunkelgrün eingefärbt und hat einen hellgrünenn Hintergrund
     <style name="navigationTheme">

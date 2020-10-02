@@ -8,99 +8,101 @@
     tools:openDrawer="start">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/game_over_constraint"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/game_over_constraint">
+        android:background="@color/white">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="70dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-
             android:fontFamily="@font/kniffel_textart"
             android:text="@string/game_over"
             android:textColor="@color/orange"
-            android:textSize="70sp" />
+
+            android:textSize="70sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/textViewPlayer1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintBottom_toTopOf="@+id/textViewPlayer2"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-
             android:text="@string/game_over_names_filler"
-            android:textSize="30sp" />
+            android:textSize="30sp"
+            app:layout_constraintBottom_toTopOf="@+id/textViewPlayer2"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
             android:id="@+id/textViewPlayer2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="150dp"
+            android:text="@string/game_over_names_filler"
+            android:textSize="30sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
 
-            android:text="@string/game_over_names_filler"
-            android:textSize="30sp" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/textViewPlayer3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textViewPlayer2"
-
             android:text="@string/game_over_names_filler"
-            android:textSize="30sp" />
+            android:textSize="30sp"
+            app:layout_constraintEnd_toEndOf="parent"
+
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewPlayer2" />
 
         <TextView
             android:id="@+id/textViewPlayer4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textViewPlayer3"
-
             android:text="@string/game_over_names_filler"
-            android:textSize="30sp" />
+            android:textSize="30sp"
+            app:layout_constraintEnd_toEndOf="parent"
+
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewPlayer3" />
 
         <Button
             android:id="@+id/buttonNewGame"
             android:layout_width="250dp"
             android:layout_height="60dp"
             android:layout_marginBottom="60sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textViewPlayer4"
-
             android:background="@drawable/custom_button4"
             android:text="@string/play_again"
             android:textAllCaps="false"
             android:textColor="#FFFFFF"
-            android:textSize="20sp" />
+
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewPlayer4" />
 
         <Button
             android:id="@+id/buttonToHighscores"
             android:layout_width="250dp"
             android:layout_height="60dp"
             android:layout_marginBottom="30sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/buttonNewGame"
-
             android:background="@drawable/custom_button4"
             android:text="@string/highscores"
             android:textAllCaps="false"
             android:textColor="#FFFFFF"
-            android:textSize="20sp" />
+
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/buttonNewGame" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -108,12 +110,12 @@
         android:id="@+id/navigation_view"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:background="@drawable/background"
-        android:theme="@style/navigationTheme"
         android:layout_gravity="start"
+        android:background="@drawable/background"
         android:fitsSystemWindows="true"
+        android:theme="@style/navigationTheme"
         app:headerLayout="@layout/burgermenu_header"
-        app:menu="@menu/burgermenu_menu"/>
+        app:menu="@menu/burgermenu_menu" />
 
 </androidx.drawerlayout.widget.DrawerLayout>
 

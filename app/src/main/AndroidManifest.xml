@@ -22,17 +22,22 @@
         <activity android:name=".Tutorial.Tutorial">
 
         </activity>
-        <activity android:name=".InsertNumberOfPlayers.InsertNumberOfPlayers" />
-        <activity android:name=".InsertName.InsertNameActivity" />
+        <activity android:name=".InsertNumberOfPlayers.InsertNumberOfPlayers"
+            android:theme="@style/AppTheme.ActionBar.Transparent"/>
+        <activity android:name=".InsertName.InsertNameActivity"
+            android:theme="@style/AppTheme.ActionBar.Transparent"/>
         <activity
             android:name=".RollTheDice.RollTheDiceActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
             android:name=".InsertResults.TableActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
-        <activity android:name=".Highscore.HighscoreActivity" />
-        <activity android:name=".Rules.Rules" />
-        <activity android:name=".GameOver.GameFinishedActivity"/>
+        <activity android:name=".Highscore.HighscoreActivity"
+            android:theme="@style/AppTheme.ActionBar.Transparent"/>
+        <activity android:name=".Rules.Rules"
+            android:theme="@style/AppTheme.ActionBar.Transparent"/>
+        <activity android:name=".GameOver.GameFinishedActivity"
+            android:theme="@style/AppTheme.ActionBar.Transparent"/>
     </application>
 
 </manifest>
