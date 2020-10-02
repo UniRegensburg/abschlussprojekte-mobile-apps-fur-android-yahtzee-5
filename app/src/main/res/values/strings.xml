@@ -104,6 +104,8 @@
     <string name="slogan_number_of_players">Wähle die Anzahl der Spieler aus</string>
 
     <string name="ValueKniffel">50</string>
+    <string name="play_again">nochmal spielen</string>
+    <string name="highscores">Highscores</string>
 
 </resources>
 

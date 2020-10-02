@@ -32,6 +32,7 @@
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity android:name=".Highscore.HighscoreActivity" />
         <activity android:name=".Rules.Rules" />
+        <activity android:name=".GameOver.GameFinishedActivity"/>
     </application>
 
 </manifest>
