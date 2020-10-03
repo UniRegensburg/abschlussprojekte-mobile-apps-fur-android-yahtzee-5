@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="6dp">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/table_head_toss"
+            android:layout_width="70dp"
+            android:layout_height="40dp"
+            android:layout_margin="3dp"
+            android:background="@color/white"
+            android:padding="3dp"
+            android:text="@string/toss"
+            android:gravity="center"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/table_head_toss_ones"
+            android:layout_width="70dp"
+            android:layout_height="40dp"
+            android:layout_margin="3dp"
+            android:background="@color/white"
+            android:padding="3dp"
+            android:text="@string/toss_one"
+            android:gravity="center"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/table_head_toss_twosome"
+            android:layout_width="70dp"
+            android:layout_height="40dp"
+            android:layout_margin="3dp"
+            android:background="@color/white"
+            android:padding="3dp"
+            android:text="@string/toss_two"
+            android:gravity="center"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/table_head_toss_threesome"
+            android:layout_width="70dp"
+            android:layout_height="40dp"
+            android:layout_margin="3dp"
+            android:background="@color/white"
+            android:padding="3dp"
+            android:text="@string/toss_three"
+            android:gravity="center"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/table_head_toss_foursome"
+            android:layout_width="70dp"
+            android:layout_height="40dp"
+            android:layout_margin="3dp"
+            android:background="@color/white"
+            android:padding="3dp"
+            android:text="@string/toss_four"
+            android:gravity="center"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/table_head_toss_fivesome"
+            android:layout_width="70dp"
+            android:layout_height="40dp"
+            android:layout_margin="3dp"
+            android:background="@color/white"
+            android:padding="3dp"
+            android:text="@string/toss_five"
+            android:gravity="center"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/table_head_toss_sixsome"
+            android:layout_width="70dp"
+            android:layout_height="40dp"
+            android:layout_margin="3dp"
+            android:background="@color/white"
+            android:padding="3dp"
+            android:text="@string/toss_six"
+            android:gravity="center"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/table_head_toss_subtotal"
+            android:layout_width="70dp"
+            android:layout_height="40dp"
+            android:layout_margin="3dp"
+            android:background="@drawable/custom_button3"
+            android:padding="3dp"
+            android:text="@string/toss_summary"
+            android:gravity="center"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/table_head_toss_bonus"
+            android:layout_width="70dp"
+            android:layout_height="40dp"
+            android:layout_margin="3dp"
+            android:background="@color/white"
+            android:padding="3dp"
+            android:text="@string/toss_bonus"
+            android:gravity="center"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/table_head_toss_three_doubles"
+            android:layout_width="70dp"
+            android:layout_height="40dp"
+            android:layout_margin="3dp"
+            android:background="@color/white"
+            android:padding="3dp"
+            android:text="@string/toss_three_doubles"
+            android:gravity="center"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/table_head_toss_four_doubles"
+            android:layout_width="70dp"
+            android:layout_height="40dp"
+            android:layout_margin="3dp"
+            android:background="@color/white"
+            android:padding="3dp"
+            android:text="@string/toss_four_doubles"
+            android:gravity="center"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/table_head_toss_full_house"
+            android:layout_width="70dp"
+            android:layout_height="40dp"
+            android:layout_margin="3dp"
+            android:background="@color/white"
+            android:padding="3dp"
+            android:text="@string/toss_full_house"
+            android:gravity="center"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/table_head_toss_small_street"
+            android:layout_width="70dp"
+            android:layout_height="40dp"
+            android:layout_margin="3dp"
+            android:background="@color/white"
+            android:padding="3dp"
+            android:text="@string/toss_little_street"
+            android:gravity="center"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/table_head_toss_big_street"
+            android:layout_width="70dp"
+            android:layout_height="40dp"
+            android:layout_margin="3dp"
+            android:background="@color/white"
+            android:padding="3dp"
+            android:text="@string/toss_large_street"
+            android:gravity="center"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/table_head_toss_kniffel"
+            android:layout_width="70dp"
+            android:layout_height="40dp"
+            android:layout_margin="3dp"
+            android:background="@color/white"
+            android:gravity="center"
+            android:padding="3dp"
+            android:text="@string/toss_kniffel"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/table_head_toss_chance"
+            android:layout_width="70dp"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:layout_margin="3dp"
+            android:background="@color/white"
+            android:padding="3dp"
+            android:text="@string/toss_chance"
+            android:textAlignment="center"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/table_head_end_sum"
+            android:layout_width="70dp"
+            android:layout_height="40dp"
+            android:layout_margin="3dp"
+            android:background="@drawable/custom_button3"
+            android:padding="3dp"
+            android:text="@string/toss_end_summary"
+            android:gravity="center"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

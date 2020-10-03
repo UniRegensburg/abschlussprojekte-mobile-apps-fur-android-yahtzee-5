@@ -7,15 +7,27 @@ import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.kniffel.InsertName.InsertNameActivity;
 import com.example.kniffel.R;
 import com.example.kniffel.RollTheDice.RollTheDiceActivity;
 
+import java.util.ArrayList;
+
+/**
+ * Activity verwaltet die Spieler und ihre Würfe in einem RecyclerView:
+ * - Tabelle verwaltet die Spieler und speichert ihre Ergebnisse
+ * - neue Wurfergebnisse können ergänzt werden
+ * - */
 public class TableActivity extends AppCompatActivity {
 
     private String[] playerNames;
     private int[] diceEyeNumber;
+    private ArrayList<Player> players;
+    private TableEntryAdapter entryAdapter;
+    private RecyclerView tablePlayerList;
+
 
     /**
      * Key um die Spieler Namen an die RollTheDiceActivity weiterzugeben
@@ -28,24 +40,14 @@ public class TableActivity extends AppCompatActivity {
 
     public static final int REQUEST_CODE_FOR_ACTIVITY_FOR_RESULT = 101;
 
-    /**
-     * alle Id's der TexViews für die Punkte
-     */
-    private int[] allTextViews = {R.id.player_1_toss_one, R.id.player_1_toss_two, R.id.player_1_toss_three,
-            R.id.player_1_toss_four, R.id.player_1_toss_five, R.id.player_1_toss_six, R.id.player_1_toss_three_doubles,
-            R.id.player_1_toss_four_doubles, R.id.player_1_toss_full_house, R.id.player_1_toss_little_street,
-            R.id.player_1_toss_large_street, R.id.player_1_toss_kniffel, R.id.player_1_toss_chance, R.id.player_2_toss_one,
-            R.id.player_2_toss_two, R.id.player_2_toss_three, R.id.player_2_toss_four, R.id.player_2_toss_five,
-            R.id.player_2_toss_six, R.id.player_2_toss_three_doubles, R.id.player_2_toss_four_doubles,
-            R.id.player_2_toss_full_house, R.id.player_2_toss_little_street, R.id.player_2_toss_large_street,
-            R.id.player_2_toss_kniffel, R.id.player_2_toss_chance};
 
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getExtrasFromIntent();
         createActivityStack();
-        initViews();
+        initUI();
+        initPlayers();
     }
 
     /**
@@ -81,24 +83,19 @@ public class TableActivity extends AppCompatActivity {
     }
 
     /**
-     * zuweisung der Namen in die entsprechenden Felder und dann OnClickListeners für die Clickbaren Felder für die Punkte
+     * Layout und RecylerView initialisieren
      */
-    private void initViews() {
-        setContentView(R.layout.activity_table_two_player);
-        TextView p1Name = findViewById(R.id.player_1_column);
-        p1Name.setText(playerNames[0]);
-        TextView p2Name = findViewById(R.id.player_2_column);
-        p2Name.setText(playerNames[1]);
+    private void initUI() {
+        setContentView(R.layout.activity_table);
+        tablePlayerList = findViewById(R.id.table_player_list);
+    }
 
-        for (int pointsTextViewId : allTextViews) {
-            findViewById(pointsTextViewId).setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    clearLastClickedTextView();
-                    onTextViewClicked(v);
-                }
-            });
-        }
+    /** -ArrayList wird initialisiert
+     * - Aus dem playerNames Array werden die namen ausgelesen, die Player erstellt und der ArrayList hinzugefügt*/
+    private void initPlayers(){
+        players = new ArrayList<>();
+        entryAdapter = new TableEntryAdapter(players, this);
+        tablePlayerList.setAdapter(entryAdapter);
     }
 
     /**
