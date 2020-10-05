@@ -4,10 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white">
+    android:background="@color/light_gray">
 
 <ScrollView
-    android:layout_width="wrap_content"
+    android:id="@+id/scrollView4"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     app:layout_constraintBottom_toTopOf="@id/submit_button_player_table"
     app:layout_constraintTop_toTopOf="parent"
@@ -16,7 +17,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:padding="20dp">
 
@@ -37,47 +38,49 @@
         android:layout_marginBottom="6dp"
         android:background="@drawable/custom_button4"
         android:text="@string/dice_button"
+        android:padding="10dp"
         android:textAllCaps="true"
         android:textColor="#FFFFFF"
         android:textSize="15sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/submit_button_player_table"
-        app:layout_constraintHorizontal_weight="2"
+        app:layout_constraintHorizontal_weight="3"
         app:layout_constraintStart_toEndOf="@id/dice_button_player_table"
         app:layout_constraintStart_toStartOf="parent" />
 
 
     <Button
         android:id="@+id/submit_button_player_table"
-        android:layout_width="120dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="6dp"
         android:background="@drawable/custom_button4"
+        android:padding="10dp"
         android:text="@string/submit_button"
-        android:textAllCaps="false"
+        android:textAllCaps="true"
         android:textColor="#FFFFFF"
-        android:textSize="20sp"
+        android:textSize="15sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_weight="2"
+        app:layout_constraintHorizontal_weight="3"
         app:layout_constraintStart_toEndOf="@id/dice_button_player_table"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/scrollView4"
         tools:ignore="NotSibling" />
 
     <Button
         android:id="@+id/cross_out_button_player_table"
-        android:layout_width="120dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="6dp"
         android:background="@drawable/custom_button4"
+        android:padding="10dp"
         android:text="@string/cross_out_button"
-        android:textAllCaps="false"
+        android:textAllCaps="true"
         android:textColor="#FFFFFF"
-        android:textSize="20sp"
+        android:textSize="15sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_weight="2"
+        app:layout_constraintHorizontal_weight="3"
         app:layout_constraintStart_toEndOf="@id/submit_button_player_table" />
 
 
