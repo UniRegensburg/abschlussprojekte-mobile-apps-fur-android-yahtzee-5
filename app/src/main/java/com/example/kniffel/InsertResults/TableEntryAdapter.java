@@ -24,6 +24,14 @@ public class TableEntryAdapter extends RecyclerView.Adapter<TableEntryAdapter.Ta
     private ArrayList<Player> players;
     private Context context;
 
+
+    /**
+     * Konstruktor des Adapters
+     */
+    public TableEntryAdapter( Context context) {
+        this.context = context;
+    }
+
     /**
      * Instanzen von TableEntryViewHolder
      * werden vom Adapter an den RecyclerView weitergegeben um die im Adapter gespeicherten Daten
@@ -31,30 +39,25 @@ public class TableEntryAdapter extends RecyclerView.Adapter<TableEntryAdapter.Ta
      */
     public static class TableEntryViewHolder extends RecyclerView.ViewHolder {
 
-        int viewType;
-        public View entryView;
 
-        public TableEntryViewHolder(View v, int viewType) {
-            super(v);
+        public View entryView;
+        public int viewType;
+
+        public TableEntryViewHolder(View itemView) {
+            super(itemView);
             if (viewType == TYPE_ITEM) {
-                entryView = v;
-                viewType = 1;
+                entryView = itemView;
             } else if (viewType == TYPE_HEADER) {
-                entryView = v;
-                viewType = 0;
+                entryView = itemView;
+
             }
 
         }
+
     }
 
 
-    /**
-     * Konstruktor des Adapters
-     */
-    public TableEntryAdapter(ArrayList<Player> players, Context context) {
-        this.players = players;
-        this.context = context;
-    }
+
 
     /**
      * Ersetzt die aktuell im Adapter gespeicherten Daten (Player-Liste) und informiert das
@@ -74,18 +77,16 @@ public class TableEntryAdapter extends RecyclerView.Adapter<TableEntryAdapter.Ta
 
     @Override
     public TableEntryAdapter.TableEntryViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View v;
-        TableEntryViewHolder vh;
         if (viewType == TYPE_ITEM) {
+            View v;
             v = LayoutInflater.from(parent.getContext()).inflate(R.layout.table_item_player, parent, false);
-            vh = new TableEntryViewHolder(v, viewType);
-            return vh;
+            return new ViewHolderItem(v);
         } else if (viewType == TYPE_HEADER) {
+            View v;
             v = LayoutInflater.from(parent.getContext()).inflate(R.layout.table_item_head, parent, false);
-            vh = new TableEntryViewHolder(v, viewType);
-            return vh;
+           return new ViewHolderHeader(v);
         }
-        return null;
+        throw new RuntimeException("no type");
     }
 
     /**
@@ -94,29 +95,29 @@ public class TableEntryAdapter extends RecyclerView.Adapter<TableEntryAdapter.Ta
      */
     @Override
     public void onBindViewHolder( TableEntryAdapter.TableEntryViewHolder holder, int position) {
-        Player player;
-        if (holder.viewType == TYPE_ITEM) {
-            player = players.get(position - 1);
+        if (holder instanceof ViewHolderItem){
+            Player player = players.get(position-1);
+            ViewHolderItem holderItem = (ViewHolderItem) holder;
+            holderItem.name.setText(player.getName());
+            holderItem.ones.setText(player.getOnes());
+            holderItem.twosome.setText(player.getTwosome());
+            holderItem.threesome.setText(player.getThreesome());
+            holderItem.foursome.setText(player.getFoursome());
+            holderItem.fivesome.setText(player.getFivesome());
+            holderItem.sixsome.setText(player.getSixsome());
+            holderItem.subtotals.setText(player.getSubtotals());
+            holderItem.bonus.setText(player.getBonus());
+            holderItem.threeDoubles.setText(player.getThreeDoubles());
+            holderItem.fourDoubles.setText(player.getFourDoubles());
+            holderItem.fullHouse.setText(player.getFullHouse());
+            holderItem.smallStreet.setText(player.getSmallStreet());
+            holderItem.bigStreet.setText(player.getBigStreet());
+            holderItem.kniffel.setText(player.getKniffel());
+            holderItem.chance.setText(player.getChance());
+            holderItem.totalsum.setText(player.getTotalSum());
+        }
+        if (holder instanceof ViewHolderHeader){
 
-
-        } else if (holder.viewType == TYPE_HEADER) {
-            TextView toss = holder.entryView.findViewById(R.id.table_head_toss);
-            TextView ones = holder.entryView.findViewById(R.id.table_head_toss_ones);
-            TextView twosome = holder.entryView.findViewById(R.id.table_head_toss_twosome);
-            TextView threesome = holder.entryView.findViewById(R.id.table_head_toss_threesome);
-            TextView foursome = holder.entryView.findViewById(R.id.table_head_toss_foursome);
-            TextView fivesome = holder.entryView.findViewById(R.id.table_head_toss_fivesome);
-            TextView sixsome = holder.entryView.findViewById(R.id.table_head_toss_sixsome);
-            TextView subtotals = holder.entryView.findViewById(R.id.table_head_toss_subtotal);
-            TextView bonus = holder.entryView.findViewById(R.id.table_head_toss_bonus);
-            TextView threeDoubles = holder.entryView.findViewById(R.id.table_head_toss_three_doubles);
-            TextView fourDoubles = holder.entryView.findViewById(R.id.table_head_toss_four_doubles);
-            TextView fullHouse = holder.entryView.findViewById(R.id.table_head_toss_full_house);
-            TextView smallStreet = holder.entryView.findViewById(R.id.table_head_toss_small_street);
-            TextView bigStreet = holder.entryView.findViewById(R.id.table_head_toss_big_street);
-            TextView kniffel = holder.entryView.findViewById(R.id.table_head_toss_kniffel);
-            TextView chance = holder.entryView.findViewById(R.id.table_head_toss_chance);
-            TextView totalSum =holder.entryView.findViewById(R.id.table_head_end_sum);
         }
     }
 
@@ -134,4 +135,49 @@ public class TableEntryAdapter extends RecyclerView.Adapter<TableEntryAdapter.Ta
         return TYPE_ITEM;
     }
 
+    private class ViewHolderItem extends TableEntryAdapter.TableEntryViewHolder {
+        TextView name;
+        TextView ones;
+        TextView twosome;
+        TextView threesome;
+        TextView foursome;
+        TextView fivesome;
+        TextView sixsome;
+        TextView subtotals;
+        TextView bonus;
+        TextView threeDoubles;
+        TextView fourDoubles;
+        TextView fullHouse;
+        TextView smallStreet;
+        TextView bigStreet;
+        TextView kniffel;
+        TextView chance;
+        TextView totalsum;
+
+        public ViewHolderItem(View itemView) {
+            super(itemView);
+            View v = itemView;
+            name = v.findViewById(R.id.column_player_name);
+            ones = v.findViewById(R.id.column_player_toss_one);
+            twosome = v.findViewById(R.id.column_player_toss_two);
+            threesome = v.findViewById(R.id.column_player_toss_three);
+            foursome = v.findViewById(R.id.column_player_toss_four);
+            fivesome = v.findViewById(R.id.column_player_toss_five);
+            sixsome = v.findViewById(R.id.column_player_toss_six);
+            subtotals = v.findViewById(R.id.column_player_toss_subtotals);
+            bonus = v.findViewById(R.id.column_player_toss_bonus);
+            threeDoubles = v.findViewById(R.id.column_player_toss_three_doubles);
+            fourDoubles = v.findViewById(R.id.column_player_toss_four_doubles);
+            fullHouse = v.findViewById(R.id.column_player_toss_full_house);
+            smallStreet = v.findViewById(R.id.column_player_toss_little_street);
+            bigStreet = v.findViewById(R.id.column_player_toss_big_street);
+            kniffel = v.findViewById(R.id.column_player_toss_kniffel);
+            chance = v.findViewById(R.id.column_player_toss_chance);
+            totalsum = v.findViewById(R.id.column_player_toss_end_summary);
+        }
+    }
+
+    public class ViewHolderHeader extends TableEntryAdapter.TableEntryViewHolder{
+        public ViewHolderHeader(View itemView){super(itemView);}
+    }
 }

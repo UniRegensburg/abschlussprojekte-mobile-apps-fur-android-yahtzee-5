@@ -86,7 +86,7 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/column_player_toss_summary"
+            android:id="@+id/column_player_toss_subtotals"
             android:layout_width="70dp"
             android:layout_height="40dp"
             android:layout_margin="3dp"
