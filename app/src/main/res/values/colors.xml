@@ -12,7 +12,8 @@
 
     <!-- Grau-->
     <color name="gray">#7F7F7F</color>
-
+    <!-- Hellgrau -->
+    <color name="light_gray">#fafafa</color>
     <!-- Dunkelgrün -->
     <color name="dark_green">#132A13</color>
     <!-- Mittelgrün -->
