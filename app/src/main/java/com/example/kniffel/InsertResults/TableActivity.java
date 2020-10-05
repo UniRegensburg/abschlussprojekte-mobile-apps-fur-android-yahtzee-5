@@ -7,6 +7,7 @@ import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.kniffel.InsertName.InsertNameActivity;
@@ -27,6 +28,7 @@ public class TableActivity extends AppCompatActivity {
     private ArrayList<Player> players;
     private TableEntryAdapter entryAdapter;
     private RecyclerView tablePlayerList;
+    private RecyclerView.LayoutManager layoutManager;
 
 
     /**
@@ -64,7 +66,6 @@ public class TableActivity extends AppCompatActivity {
     private void createActivityStack() {
         Intent intentToGetRollTheDiceActivityOnStack = new Intent(this, RollTheDiceActivity.class);
         intentToGetRollTheDiceActivityOnStack.putExtra(EXTRA_KEY_PLAYER_NAMES_ARRAY, playerNames);
-
         startActivityForResult(intentToGetRollTheDiceActivityOnStack, REQUEST_CODE_FOR_ACTIVITY_FOR_RESULT);
     }
 
@@ -88,14 +89,22 @@ public class TableActivity extends AppCompatActivity {
     private void initUI() {
         setContentView(R.layout.activity_table);
         tablePlayerList = findViewById(R.id.table_player_list);
+        tablePlayerList.setHasFixedSize(true);
+        layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
+        tablePlayerList.setLayoutManager(layoutManager);
     }
 
     /** -ArrayList wird initialisiert
      * - Aus dem playerNames Array werden die namen ausgelesen, die Player erstellt und der ArrayList hinzugefügt*/
     private void initPlayers(){
         players = new ArrayList<>();
-        entryAdapter = new TableEntryAdapter(players, this);
+        players.add(new Player(""));
+        for(String name : playerNames){
+            players.add(new Player(name));
+        }
+        entryAdapter = new TableEntryAdapter(this);
         tablePlayerList.setAdapter(entryAdapter);
+        entryAdapter.setPlayerEntries(players);
     }
 
     /**
