@@ -6,39 +6,45 @@
     android:layout_height="match_parent"
     android:background="@color/light_gray">
 
-<ScrollView
-    android:id="@+id/scrollView4"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    app:layout_constraintBottom_toTopOf="@id/submit_button_player_table"
-    app:layout_constraintTop_toTopOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent">
-
-    <LinearLayout
-        android:layout_width="match_parent"
+    <ScrollView
+        android:id="@+id/scrollView4"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="20dp">
+        android:layout_marginTop="6dp"
+        android:padding="6dp"
+        app:layout_constraintBottom_toTopOf="@id/submit_button_player_table"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/table_player_list"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
-    </LinearLayout>
-</ScrollView>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="20dp">
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/table_player_list"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:scrollbars="horizontal"
+                    android:orientation="horizontal"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+            </LinearLayout>
+
+    </ScrollView>
+
     <Button
         android:id="@+id/button_start_tutorial"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="6dp"
         android:background="@drawable/custom_button4"
-        android:text="@string/dice_button"
         android:padding="10dp"
+        android:text="@string/dice_button"
         android:textAllCaps="true"
         android:textColor="#FFFFFF"
         android:textSize="15sp"

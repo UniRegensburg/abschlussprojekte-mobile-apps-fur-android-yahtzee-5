@@ -2,7 +2,9 @@ package com.example.kniffel.InsertResults;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
@@ -20,7 +22,8 @@ import java.util.ArrayList;
  * Activity verwaltet die Spieler und ihre Würfe in einem RecyclerView:
  * - Tabelle verwaltet die Spieler und speichert ihre Ergebnisse
  * - neue Wurfergebnisse können ergänzt werden
- * - */
+ * -
+ */
 public class TableActivity extends AppCompatActivity {
 
     private String[] playerNames;
@@ -43,7 +46,6 @@ public class TableActivity extends AppCompatActivity {
     public static final int REQUEST_CODE_FOR_ACTIVITY_FOR_RESULT = 101;
 
 
-
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getExtrasFromIntent();
@@ -51,6 +53,7 @@ public class TableActivity extends AppCompatActivity {
         initUI();
         initPlayers();
     }
+
 
     /**
      * speichert die Namen der Spieler in das playerNames String array aus dem Extra der InsertNameActivity
@@ -76,7 +79,7 @@ public class TableActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if(requestCode == REQUEST_CODE_FOR_ACTIVITY_FOR_RESULT) {
+        if (requestCode == REQUEST_CODE_FOR_ACTIVITY_FOR_RESULT) {
             if (resultCode == RESULT_OK) {
                 diceEyeNumber = data.getIntArrayExtra(RollTheDiceActivity.EXTRA_KEY_ROLLED_DICE_EYE_NUMBERS);
             }
@@ -94,17 +97,23 @@ public class TableActivity extends AppCompatActivity {
         tablePlayerList.setLayoutManager(layoutManager);
     }
 
-    /** -ArrayList wird initialisiert
-     * - Aus dem playerNames Array werden die namen ausgelesen, die Player erstellt und der ArrayList hinzugefügt*/
-    private void initPlayers(){
+    /**
+     * -ArrayList wird initialisiert
+     * - Aus dem playerNames Array werden die namen ausgelesen, die Player erstellt und der ArrayList hinzugefügt
+     */
+    private void initPlayers() {
         players = new ArrayList<>();
-        players.add(new Player(""));
-        for(String name : playerNames){
+
+        for (String name : playerNames) {
             players.add(new Player(name));
+            Log.d("Spielername", name);
         }
-        entryAdapter = new TableEntryAdapter(this);
+        /**weiterer (überflüssiger) Spieler wird der Spielerliste hinzugefügt, damit alle Spieler tatsächlichen Spieler im RecyclerView angezeigt werden */
+        players.add(new Player(""));
+        entryAdapter = new TableEntryAdapter(this, players);
         tablePlayerList.setAdapter(entryAdapter);
         entryAdapter.setPlayerEntries(players);
+        entryAdapter.notifyDataSetChanged();
     }
 
     /**
@@ -121,52 +130,52 @@ public class TableActivity extends AppCompatActivity {
             case R.id.player_2_toss_one:
                 insertPointsTossSingleDices(v, 1);
                 break;
-            case  R.id.player_1_toss_two:
-            case  R.id.player_2_toss_two:
+            case R.id.player_1_toss_two:
+            case R.id.player_2_toss_two:
                 insertPointsTossSingleDices(v, 2);
                 break;
-            case  R.id.player_1_toss_three:
-            case  R.id.player_2_toss_three:
+            case R.id.player_1_toss_three:
+            case R.id.player_2_toss_three:
                 insertPointsTossSingleDices(v, 3);
                 break;
-            case  R.id.player_1_toss_four:
-            case  R.id.player_2_toss_four:
+            case R.id.player_1_toss_four:
+            case R.id.player_2_toss_four:
                 insertPointsTossSingleDices(v, 4);
                 break;
-            case  R.id.player_1_toss_five:
-            case  R.id.player_2_toss_five:
+            case R.id.player_1_toss_five:
+            case R.id.player_2_toss_five:
                 insertPointsTossSingleDices(v, 5);
                 break;
-            case  R.id.player_1_toss_six:
-            case  R.id.player_2_toss_six:
+            case R.id.player_1_toss_six:
+            case R.id.player_2_toss_six:
                 insertPointsTossSingleDices(v, 6);
                 break;
-            case  R.id.player_1_toss_three_doubles:
-            case  R.id.player_2_toss_three_doubles:
+            case R.id.player_1_toss_three_doubles:
+            case R.id.player_2_toss_three_doubles:
                 insertPointsTossThreeDoubles(v);
                 break;
-            case  R.id.player_1_toss_four_doubles:
-            case  R.id.player_2_toss_four_doubles:
+            case R.id.player_1_toss_four_doubles:
+            case R.id.player_2_toss_four_doubles:
                 insertPointsTossFourDoubles(v);
                 break;
-            case  R.id.player_1_toss_full_house:
-            case  R.id.player_2_toss_full_house:
+            case R.id.player_1_toss_full_house:
+            case R.id.player_2_toss_full_house:
                 insertPointsTossFullHouse(v);
                 break;
-            case  R.id.player_1_toss_little_street:
-            case  R.id.player_2_toss_little_street:
+            case R.id.player_1_toss_little_street:
+            case R.id.player_2_toss_little_street:
                 insertPointsTossLittleStreet(v);
                 break;
-            case  R.id.player_1_toss_large_street:
-            case  R.id.player_2_toss_large_street:
+            case R.id.player_1_toss_large_street:
+            case R.id.player_2_toss_large_street:
                 insertPointsTossLargeStreet(v);
                 break;
-            case  R.id.player_1_toss_kniffel:
-            case  R.id.player_2_toss_kniffel:
+            case R.id.player_1_toss_kniffel:
+            case R.id.player_2_toss_kniffel:
                 insertPointsTossKniffel(v);
                 break;
-            case  R.id.player_1_toss_chance:
-            case  R.id.player_2_toss_chance:
+            case R.id.player_1_toss_chance:
+            case R.id.player_2_toss_chance:
                 insertPointsTossChance(v);
                 break;
         }
@@ -175,8 +184,8 @@ public class TableActivity extends AppCompatActivity {
     /**
      * @param v ist das angeklickte TextView
      * @param i ist das Würfelergebnis, das gezählt werden soll wie oft es in dem
-     *        diceEyeNumberArray vorkommt.
-     *        Das TextView wird danach auf den Wert i mal Anzahl der Würfel mit Augenzahl i gesetzt.
+     *          diceEyeNumberArray vorkommt.
+     *          Das TextView wird danach auf den Wert i mal Anzahl der Würfel mit Augenzahl i gesetzt.
      */
     private void insertPointsTossSingleDices(View v, int i) {
         //((TextView)v).setText(DiceCheckerHelper.countDiceEyeNumberTogether(diceEyeNumber));
@@ -186,34 +195,35 @@ public class TableActivity extends AppCompatActivity {
     /**
      * die folgenden 7 Methoden lassen immer nur von der Helper Klasse Checken ob die Anforderungen für das angeklickte Feld
      * erfüllt sind und dann wird das TextView auf den Rückgabewert dieser Checker Methoden gesetzt.
+     *
      * @param v ist das angeklickte TextView
      */
     private void insertPointsTossChance(View v) {
-        ((TextView)v).setText(DiceCheckerHelper.countDiceEyeNumberTogether(diceEyeNumber));
+        ((TextView) v).setText(DiceCheckerHelper.countDiceEyeNumberTogether(diceEyeNumber));
     }
 
     private void insertPointsTossKniffel(View v) {
-        ((TextView)v).setText(DiceCheckerHelper.checkKniffel(diceEyeNumber));
+        ((TextView) v).setText(DiceCheckerHelper.checkKniffel(diceEyeNumber));
     }
 
     private void insertPointsTossLargeStreet(View v) {
-        ((TextView)v).setText(DiceCheckerHelper.checkGreatStreet(diceEyeNumber));
+        ((TextView) v).setText(DiceCheckerHelper.checkGreatStreet(diceEyeNumber));
 
     }
 
     private void insertPointsTossLittleStreet(View v) {
-        ((TextView)v).setText(DiceCheckerHelper.checkSmallStreet(diceEyeNumber));
+        ((TextView) v).setText(DiceCheckerHelper.checkSmallStreet(diceEyeNumber));
     }
 
     private void insertPointsTossFullHouse(View v) {
-        ((TextView)v).setText(DiceCheckerHelper.checkFullHouse(diceEyeNumber));
+        ((TextView) v).setText(DiceCheckerHelper.checkFullHouse(diceEyeNumber));
     }
 
     private void insertPointsTossFourDoubles(View v) {
-        ((TextView)v).setText(DiceCheckerHelper.check4ErPasch(diceEyeNumber));
+        ((TextView) v).setText(DiceCheckerHelper.check4ErPasch(diceEyeNumber));
     }
 
     private void insertPointsTossThreeDoubles(View v) {
-        ((TextView)v).setText(DiceCheckerHelper.check3ErPasch(diceEyeNumber));
+        ((TextView) v).setText(DiceCheckerHelper.check3ErPasch(diceEyeNumber));
     }
 }
