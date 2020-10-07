@@ -42,34 +42,34 @@ public class DiceCheckerHelper {
      * @return alle Augen zählen, wenn ein 3er Pasch vorliegt sonst ein Strich
      */
     public static String check3ErPasch(int[] diceEyeNumber) {
+        if (diceEyeNumber[0] == diceEyeNumber[1] && diceEyeNumber[0] == diceEyeNumber[2]) {
+            return valueOf(countDiceEyeNumberTogether(diceEyeNumber));
+        }
+        if (diceEyeNumber[0] == diceEyeNumber[1] && diceEyeNumber[0] == diceEyeNumber[3]) {
+            return valueOf(countDiceEyeNumberTogether(diceEyeNumber));
+        }
+        if (diceEyeNumber[0] == diceEyeNumber[1] && diceEyeNumber[0] == diceEyeNumber[4]) {
+            return valueOf(countDiceEyeNumberTogether(diceEyeNumber));
+        }
+        if (diceEyeNumber[0] == diceEyeNumber[2] && diceEyeNumber[0] == diceEyeNumber[3]) {
+            return valueOf(countDiceEyeNumberTogether(diceEyeNumber));
+        }
+        if (diceEyeNumber[0] == diceEyeNumber[2] && diceEyeNumber[0] == diceEyeNumber[4]) {
+            return valueOf(countDiceEyeNumberTogether(diceEyeNumber));
+        }
+        if (diceEyeNumber[0] == diceEyeNumber[3] && diceEyeNumber[0] == diceEyeNumber[4]) {
+            return valueOf(countDiceEyeNumberTogether(diceEyeNumber));
+        }
         if (diceEyeNumber[1] == diceEyeNumber[2] && diceEyeNumber[1] == diceEyeNumber[3]) {
             return valueOf(countDiceEyeNumberTogether(diceEyeNumber));
         }
         if (diceEyeNumber[1] == diceEyeNumber[2] && diceEyeNumber[1] == diceEyeNumber[4]) {
             return valueOf(countDiceEyeNumberTogether(diceEyeNumber));
         }
-        if (diceEyeNumber[1] == diceEyeNumber[2] && diceEyeNumber[1] == diceEyeNumber[5]) {
-            return valueOf(countDiceEyeNumberTogether(diceEyeNumber));
-        }
-        if (diceEyeNumber[1] == diceEyeNumber[3] && diceEyeNumber[1] == diceEyeNumber[4]) {
-            return valueOf(countDiceEyeNumberTogether(diceEyeNumber));
-        }
-        if (diceEyeNumber[1] == diceEyeNumber[3] && diceEyeNumber[1] == diceEyeNumber[5]) {
-            return valueOf(countDiceEyeNumberTogether(diceEyeNumber));
-        }
-        if (diceEyeNumber[1] == diceEyeNumber[4] && diceEyeNumber[1] == diceEyeNumber[5]) {
+        if (diceEyeNumber[1] == diceEyeNumber[3] && diceEyeNumber[2] == diceEyeNumber[4]) {
             return valueOf(countDiceEyeNumberTogether(diceEyeNumber));
         }
         if (diceEyeNumber[2] == diceEyeNumber[3] && diceEyeNumber[1] == diceEyeNumber[4]) {
-            return valueOf(countDiceEyeNumberTogether(diceEyeNumber));
-        }
-        if (diceEyeNumber[2] == diceEyeNumber[3] && diceEyeNumber[1] == diceEyeNumber[5]) {
-            return valueOf(countDiceEyeNumberTogether(diceEyeNumber));
-        }
-        if (diceEyeNumber[2] == diceEyeNumber[4] && diceEyeNumber[1] == diceEyeNumber[5]) {
-            return valueOf(countDiceEyeNumberTogether(diceEyeNumber));
-        }
-        if (diceEyeNumber[3] == diceEyeNumber[4] && diceEyeNumber[1] == diceEyeNumber[5]) {
             return valueOf(countDiceEyeNumberTogether(diceEyeNumber));
         }
         return "/";
@@ -81,19 +81,19 @@ public class DiceCheckerHelper {
      * @return alle Augen zählen, wenn ein 4er Pasch vorliegt sonst ein Strich
      */
     public static String check4ErPasch(int[] diceEyeNumber) {
+        if (diceEyeNumber[0] == diceEyeNumber[1] && diceEyeNumber[0] == diceEyeNumber[2] && diceEyeNumber[0] == diceEyeNumber[3]) {
+            return valueOf(countDiceEyeNumberTogether(diceEyeNumber));
+        }
+        if (diceEyeNumber[0] == diceEyeNumber[1] && diceEyeNumber[0] == diceEyeNumber[2] && diceEyeNumber[0] == diceEyeNumber[4]) {
+            return valueOf(countDiceEyeNumberTogether(diceEyeNumber));
+        }
+        if (diceEyeNumber[0] == diceEyeNumber[1] && diceEyeNumber[0] == diceEyeNumber[3] && diceEyeNumber[0] == diceEyeNumber[4]) {
+            return valueOf(countDiceEyeNumberTogether(diceEyeNumber));
+        }
+        if (diceEyeNumber[0] == diceEyeNumber[2] && diceEyeNumber[1] == diceEyeNumber[3] && diceEyeNumber[1] == diceEyeNumber[4]) {
+            return valueOf(countDiceEyeNumberTogether(diceEyeNumber));
+        }
         if (diceEyeNumber[1] == diceEyeNumber[2] && diceEyeNumber[1] == diceEyeNumber[3] && diceEyeNumber[1] == diceEyeNumber[4]) {
-            return valueOf(countDiceEyeNumberTogether(diceEyeNumber));
-        }
-        if (diceEyeNumber[1] == diceEyeNumber[2] && diceEyeNumber[1] == diceEyeNumber[3] && diceEyeNumber[1] == diceEyeNumber[5]) {
-            return valueOf(countDiceEyeNumberTogether(diceEyeNumber));
-        }
-        if (diceEyeNumber[1] == diceEyeNumber[2] && diceEyeNumber[1] == diceEyeNumber[4] && diceEyeNumber[1] == diceEyeNumber[5]) {
-            return valueOf(countDiceEyeNumberTogether(diceEyeNumber));
-        }
-        if (diceEyeNumber[1] == diceEyeNumber[3] && diceEyeNumber[1] == diceEyeNumber[4] && diceEyeNumber[1] == diceEyeNumber[5]) {
-            return valueOf(countDiceEyeNumberTogether(diceEyeNumber));
-        }
-        if (diceEyeNumber[2] == diceEyeNumber[3] && diceEyeNumber[2] == diceEyeNumber[4] && diceEyeNumber[2] == diceEyeNumber[5]) {
             return valueOf(countDiceEyeNumberTogether(diceEyeNumber));
         }
         return "/";
@@ -106,45 +106,45 @@ public class DiceCheckerHelper {
      * @return ist 25, wenn ein FullHouse gewürfelt wurde sonst ein Strich
      */
     public static String checkFullHouse(int[] diceEyeNumber) {
-        if (diceEyeNumber[1] == diceEyeNumber[2] && diceEyeNumber[1] == diceEyeNumber[3]) {
-            if (diceEyeNumber[4] == diceEyeNumber[5]) {
-                return "25";            }
-        }
-        if (diceEyeNumber[1] == diceEyeNumber[2] && diceEyeNumber[1] == diceEyeNumber[4]) {
-            if (diceEyeNumber[3] == diceEyeNumber[5]) {
-                return "25";            }
-        }
-        if (diceEyeNumber[1] == diceEyeNumber[2] && diceEyeNumber[1] == diceEyeNumber[5]) {
+        if (diceEyeNumber[0] == diceEyeNumber[1] && diceEyeNumber[0] == diceEyeNumber[2]) {
             if (diceEyeNumber[3] == diceEyeNumber[4]) {
                 return "25";            }
         }
-        if (diceEyeNumber[1] == diceEyeNumber[3] && diceEyeNumber[1] == diceEyeNumber[4]) {
-            if (diceEyeNumber[2] == diceEyeNumber[5]) {
-                return "25";            }
-        }
-        if (diceEyeNumber[1] == diceEyeNumber[3] && diceEyeNumber[1] == diceEyeNumber[5]) {
+        if (diceEyeNumber[0] == diceEyeNumber[1] && diceEyeNumber[0] == diceEyeNumber[3]) {
             if (diceEyeNumber[2] == diceEyeNumber[4]) {
                 return "25";            }
         }
-        if (diceEyeNumber[1] == diceEyeNumber[4] && diceEyeNumber[1] == diceEyeNumber[5]) {
+        if (diceEyeNumber[0] == diceEyeNumber[1] && diceEyeNumber[0] == diceEyeNumber[4]) {
             if (diceEyeNumber[2] == diceEyeNumber[3]) {
                 return "25";            }
         }
-        if (diceEyeNumber[2] == diceEyeNumber[3] && diceEyeNumber[2] == diceEyeNumber[4]) {
-            if (diceEyeNumber[1] == diceEyeNumber[5]) {
-                return "25";            }
-        }
-        if (diceEyeNumber[2] == diceEyeNumber[3] && diceEyeNumber[2] == diceEyeNumber[5]) {
+        if (diceEyeNumber[0] == diceEyeNumber[2] && diceEyeNumber[0] == diceEyeNumber[3]) {
             if (diceEyeNumber[1] == diceEyeNumber[4]) {
                 return "25";            }
         }
-        if (diceEyeNumber[2] == diceEyeNumber[4] && diceEyeNumber[2] == diceEyeNumber[5]) {
+        if (diceEyeNumber[0] == diceEyeNumber[2] && diceEyeNumber[0] == diceEyeNumber[4]) {
             if (diceEyeNumber[1] == diceEyeNumber[3]) {
+                return "25";            }
+        }
+        if (diceEyeNumber[0] == diceEyeNumber[3] && diceEyeNumber[0] == diceEyeNumber[4]) {
+            if (diceEyeNumber[1] == diceEyeNumber[2]) {
+                return "25";            }
+        }
+        if (diceEyeNumber[1] == diceEyeNumber[2] && diceEyeNumber[1] == diceEyeNumber[3]) {
+            if (diceEyeNumber[0] == diceEyeNumber[4]) {
+                return "25";            }
+        }
+        if (diceEyeNumber[1] == diceEyeNumber[2] && diceEyeNumber[1] == diceEyeNumber[4]) {
+            if (diceEyeNumber[0] == diceEyeNumber[3]) {
+                return "25";            }
+        }
+        if (diceEyeNumber[1] == diceEyeNumber[3] && diceEyeNumber[1] == diceEyeNumber[4]) {
+            if (diceEyeNumber[0] == diceEyeNumber[2]) {
                 return "25";
             }
         }
-        if (diceEyeNumber[3] == diceEyeNumber[4] && diceEyeNumber[3] == diceEyeNumber[5]) {
-            if (diceEyeNumber[1] == diceEyeNumber[2]) {
+        if (diceEyeNumber[2] == diceEyeNumber[3] && diceEyeNumber[2] == diceEyeNumber[4]) {
+            if (diceEyeNumber[0] == diceEyeNumber[1]) {
                 return "25";
             }
         }
@@ -163,19 +163,19 @@ public class DiceCheckerHelper {
      */
     public static String checkSmallStreet(int[] diceEyeNumber) {
         Arrays.sort(diceEyeNumber);
-        if (diceEyeNumber[1] == 1) {
-            if (diceEyeNumber[2] == 2 || diceEyeNumber[3] == 2) {
-                if (diceEyeNumber[3] == 3 || diceEyeNumber[4] == 3) {
-                    if (diceEyeNumber[4] == 4 || diceEyeNumber[5] == 4) {
+        if (diceEyeNumber[0] == 1) {
+            if (diceEyeNumber[1] == 2 || diceEyeNumber[2] == 2) {
+                if (diceEyeNumber[2] == 3 || diceEyeNumber[3] == 3) {
+                    if (diceEyeNumber[3] == 4 || diceEyeNumber[4] == 4) {
                         return "30";
                     }
                 }
             }
         }
-        if (diceEyeNumber[1] == 2) {
-            if (diceEyeNumber[2] == 3 || diceEyeNumber[3] == 3) {
-                if (diceEyeNumber[3] == 4 || diceEyeNumber[4] == 4) {
-                    if (diceEyeNumber[4] == 5 || diceEyeNumber[5] == 5) {
+        if (diceEyeNumber[0] == 2) {
+            if (diceEyeNumber[1] == 3 || diceEyeNumber[2] == 3) {
+                if (diceEyeNumber[2] == 4 || diceEyeNumber[3] == 4) {
+                    if (diceEyeNumber[3] == 5 || diceEyeNumber[4] == 5) {
                         return "30";
                     }
                 }
@@ -191,7 +191,9 @@ public class DiceCheckerHelper {
      */
     public static String checkGreatStreet(int[] diceEyeNumber) {
         Arrays.sort(diceEyeNumber);
-        if (diceEyeNumber[1] == 1 && diceEyeNumber[2] == 2 && diceEyeNumber[3] == 3 && diceEyeNumber[4] == 4 && diceEyeNumber[5] == 5){
+        if (diceEyeNumber[0] == 1 && diceEyeNumber[1] == 2 && diceEyeNumber[2] == 3 && diceEyeNumber[3] == 4 && diceEyeNumber[4] == 5){
+            return "40";
+        } else if (diceEyeNumber[0] == 2 && diceEyeNumber[1] == 3 && diceEyeNumber[2] == 4 && diceEyeNumber[3] == 5 && diceEyeNumber[4] == 6) {
             return "40";
         }
         return "/";
@@ -203,7 +205,7 @@ public class DiceCheckerHelper {
      * @return  ist 50, wenn ein Kniffel gewürfelt wurde sonst ein Strich
      */
     public static String checkKniffel (int[] diceEyeNumber) {
-        if (diceEyeNumber[1] == diceEyeNumber[2] && diceEyeNumber[1] == diceEyeNumber[3] && diceEyeNumber[1] == diceEyeNumber[4] &&diceEyeNumber[1] == diceEyeNumber[5]) {
+        if (diceEyeNumber[0] == diceEyeNumber[1] && diceEyeNumber[0] == diceEyeNumber[2] && diceEyeNumber[0] == diceEyeNumber[3] &&diceEyeNumber[0] == diceEyeNumber[4]) {
             return "50";
         }
         return "/";

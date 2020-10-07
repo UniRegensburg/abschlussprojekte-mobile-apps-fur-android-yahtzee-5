@@ -14,6 +14,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.kniffel.InsertName.InsertNameActivity;
+import com.example.kniffel.InsertResults.TableActivity;
 import com.example.kniffel.R;
 import com.example.kniffel.RollTheDice.ShakeSensor.ShakeSensor;
 import com.example.kniffel.RollTheDice.ShakeSensor.ShakeSensorListener;
@@ -43,7 +44,7 @@ public class RollTheDiceActivity extends AppCompatActivity implements ShakeSenso
     /** Buttons*/
     private Button scoreboardButton, clearSelectedDicesButton;
     /** Array in dem die SpielerNamen stehen */
-    private String[] playerNames;
+    private String currentPlayer;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,7 +56,7 @@ public class RollTheDiceActivity extends AppCompatActivity implements ShakeSenso
 
     private void getExtrasFromIntent() {
         Bundle extras = getIntent().getExtras();
-        playerNames = extras.getStringArray(InsertNameActivity.EXTRA_KEY_PLAYER_NAMES_ARRAY);
+        currentPlayer = extras.getString(TableActivity.EXTRA_KEY_CURRENT_PLAYER);
     }
 
 
@@ -134,7 +135,7 @@ public class RollTheDiceActivity extends AppCompatActivity implements ShakeSenso
         countdownDiceThrows = findViewById(R.id.countdown_rolling_the_dice);
 
         playerNameView = findViewById(R.id.player_name_roll_the_dice);
-        playerNameView.setText(playerNames[0]);
+        playerNameView.setText(currentPlayer);
 
         scoreboardButton = findViewById(R.id.button_scoreboard);
         /**

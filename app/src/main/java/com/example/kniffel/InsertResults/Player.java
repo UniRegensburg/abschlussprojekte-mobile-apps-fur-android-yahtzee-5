@@ -1,81 +1,134 @@
 package com.example.kniffel.InsertResults;
 
+import java.util.Arrays;
+
 public class Player {
 
+    private int[] diceEyeNumber;
     private String name;
-    private String ones, twosome, threesome, foursome, fivesome, sixsome, subtotals,bonus, threeDoubles, fourDoubles,
-    fullHouse, smallStreet, bigStreet, kniffel, chance, totalSum;
+    /**
+     * die 13 anklickbaren Felder
+     */
+    private String[] clickableValues = new String[13];
+    private String subtotals,bonus, totalSum;
+    /**
+     * boolean flag ob dieser Player im Moment angeklickt werden darf
+     */
+    private boolean clickable = false;
+    /**
+     * boolean flag ob dieser Spieler in dieser Runde etwas eingetragen hat
+     */
+    private boolean hasInsertetAValue = false;
+    private int runningIndexOfLastItemChanged = -1;
+
 
     public Player(String name){
         this.name = name;
-        ones = "";
-        twosome = "";
-        threesome = "";
-        foursome ="";
-        fivesome ="";
-        sixsome ="";
+
+        Arrays.fill(clickableValues, "");
+
         subtotals ="";
         bonus ="";
-        threeDoubles ="";
-        fourDoubles ="";
-        fullHouse ="";
-        smallStreet ="";
-        bigStreet ="";
-        kniffel ="";
-        chance ="";
         totalSum ="";
+    }
+
+    public void clearLastItem () {
+        if (runningIndexOfLastItemChanged != -1)
+            clickableValues[runningIndexOfLastItemChanged] = "";
+    }
+
+    public boolean getHasInsertetAValue () {
+        return hasInsertetAValue;
+    }
+
+    /**
+     * resetet die Flag, die das letzte Item speichert, dass geändert wurde
+     */
+    public void resetLastItemFlag () {
+        runningIndexOfLastItemChanged = -1;
+    }
+
+    public void setClickable (boolean clickable) {
+        this.clickable = clickable;
+    }
+
+    public boolean getClickable () {
+        return clickable;
+    }
+
+    public void setDiceEyeNumber(int[] diceEyeNumber) {
+        this.diceEyeNumber = diceEyeNumber;
     }
 
     public String getName(){return name;}
 
-    public void setName(String newName){ name = newName; }
-
     public String getOnes() {
-        return ones;
+        return clickableValues[0];
     }
 
-    public void setOnes(String ones) {
-        this.ones = ones;
+    /**
+     *   die ones werden auf die Anzahl der gezählten einser gesetzt
+     */
+    public void setOnes() {
+        clearLastItem();
+        this.clickableValues[0] = String.valueOf(DiceCheckerHelper.countSingleDiceEyeNumbers(diceEyeNumber,1));
+        runningIndexOfLastItemChanged = 0;
+        hasInsertetAValue = true;
     }
 
     public String getTwosome() {
-        return twosome;
+        return clickableValues[1];
     }
 
-    public void setTwosome(String twosome) {
-        this.twosome = twosome;
+    public void setTwosome() {
+        clearLastItem();
+        this.clickableValues[1] = String.valueOf(DiceCheckerHelper.countSingleDiceEyeNumbers(diceEyeNumber,2));
+        runningIndexOfLastItemChanged = 1;
+        hasInsertetAValue = true;
     }
 
     public String getThreesome() {
-        return threesome;
+        return clickableValues[2];
     }
 
-    public void setThreesome(String threesome) {
-        this.threesome = threesome;
+    public void setThreesome() {
+        clearLastItem();
+        this.clickableValues[2] = String.valueOf(DiceCheckerHelper.countSingleDiceEyeNumbers(diceEyeNumber,3));
+        runningIndexOfLastItemChanged = 2;
+        hasInsertetAValue = true;
     }
 
     public String getFoursome() {
-        return foursome;
+        return clickableValues[3];
     }
 
-    public void setFoursome(String foursome) {
-        this.foursome = foursome;
+    public void setFoursome() {
+        clearLastItem();
+        this.clickableValues[3] = String.valueOf(DiceCheckerHelper.countSingleDiceEyeNumbers(diceEyeNumber,4));
+        runningIndexOfLastItemChanged = 3;
+        hasInsertetAValue = true;
     }
 
     public String getFivesome() {
-        return fivesome;
+        return clickableValues[4];
     }
 
-    public void setFivesome(String fivesome) {
-        this.fivesome = fivesome;
+    public void setFivesome() {
+        clearLastItem();
+        this.clickableValues[4]= String.valueOf(DiceCheckerHelper.countSingleDiceEyeNumbers(diceEyeNumber,5));
+        runningIndexOfLastItemChanged = 4;
+        hasInsertetAValue = true;
     }
 
     public String getSixsome() {
-        return sixsome;
+        return clickableValues[5];
     }
 
-    public void setSixsome(String sixsome) {
-        this.sixsome = sixsome;
+    public void setSixsome() {
+        clearLastItem();
+        this.clickableValues[5] = String.valueOf(DiceCheckerHelper.countSingleDiceEyeNumbers(diceEyeNumber,6));
+        runningIndexOfLastItemChanged = 5;
+        hasInsertetAValue = true;
     }
 
     public String getSubtotals() {
@@ -95,59 +148,80 @@ public class Player {
     }
 
     public String getThreeDoubles() {
-        return threeDoubles;
+        return clickableValues[6];
     }
 
-    public void setThreeDoubles(String threeDoubles) {
-        this.threeDoubles = threeDoubles;
+    public void setThreeDoubles() {
+        clearLastItem();
+        this.clickableValues[6] = DiceCheckerHelper.check3ErPasch(diceEyeNumber);
+        runningIndexOfLastItemChanged = 6;
+        hasInsertetAValue = true;
     }
 
     public String getFourDoubles() {
-        return fourDoubles;
+        return clickableValues[7];
     }
 
-    public void setFourDoubles(String fourDoubles) {
-        this.fourDoubles = fourDoubles;
+    public void setFourDoubles() {
+        clearLastItem();
+        this.clickableValues[7] = DiceCheckerHelper.check4ErPasch(diceEyeNumber);
+        runningIndexOfLastItemChanged = 7;
+        hasInsertetAValue = true;
     }
 
     public String getFullHouse() {
-        return fullHouse;
+        return clickableValues[8];
     }
 
-    public void setFullHouse(String fullHouse) {
-        this.fullHouse = fullHouse;
+    public void setFullHouse() {
+        clearLastItem();
+        this.clickableValues[8] = DiceCheckerHelper.checkFullHouse(diceEyeNumber);
+        runningIndexOfLastItemChanged = 8;
+        hasInsertetAValue = true;
     }
 
     public String getSmallStreet() {
-        return smallStreet;
+        return clickableValues[9];
     }
 
-    public void setSmallStreet(String smallStreet) {
-        this.smallStreet = smallStreet;
+    public void setSmallStreet() {
+        clearLastItem();
+        this.clickableValues[9] = DiceCheckerHelper.checkSmallStreet(diceEyeNumber);
+        runningIndexOfLastItemChanged = 9;
+        hasInsertetAValue = true;
     }
 
     public String getBigStreet() {
-        return bigStreet;
+        return clickableValues[10];
     }
 
-    public void setBigStreet(String bigStreet) {
-        this.bigStreet = bigStreet;
+    public void setBigStreet() {
+        clearLastItem();
+        this.clickableValues[10] = DiceCheckerHelper.checkGreatStreet(diceEyeNumber);
+        runningIndexOfLastItemChanged = 10;
+        hasInsertetAValue = true;
     }
 
     public String getKniffel() {
-        return kniffel;
+        return clickableValues[11];
     }
 
-    public void setKniffel(String kniffel) {
-        this.kniffel = kniffel;
+    public void setKniffel() {
+        clearLastItem();
+        this.clickableValues[11] = DiceCheckerHelper.checkKniffel(diceEyeNumber);
+        runningIndexOfLastItemChanged = 11;
+        hasInsertetAValue = true;
     }
 
     public String getChance() {
-        return chance;
+        return clickableValues[12];
     }
 
-    public void setChance(String chance) {
-        this.chance = chance;
+    public void setChance() {
+        clearLastItem();
+        this.clickableValues[12] = String.valueOf(DiceCheckerHelper.countDiceEyeNumberTogether(diceEyeNumber));
+        runningIndexOfLastItemChanged = 12;
+        hasInsertetAValue = true;
     }
 
     public String getTotalSum() {

@@ -19,14 +19,12 @@ public class TableEntryAdapter extends RecyclerView.Adapter<TableEntryAdapter.Ta
     private static final int TYPE_HEADER = 0;
     private static final int TYPE_ITEM = 1;
 
-
-
-
     /**
      * Lister der Spieler, die über den Adapter verwaltet werden
      */
     private ArrayList<Player> players;
     private Context context;
+
 
 
     /**
@@ -97,24 +95,157 @@ public class TableEntryAdapter extends RecyclerView.Adapter<TableEntryAdapter.Ta
         @Override
         public void onBindViewHolder(TableEntryAdapter.TableEntryViewHolder holder, int position) {
             if (holder instanceof ViewHolderItem) {
-                Player player = players.get(position-1);
+                final Player player = players.get(position-1);
                 ViewHolderItem holderItem = (ViewHolderItem) holder;
                 holderItem.name.setText(player.getName());
+
                 holderItem.ones.setText(player.getOnes());
+                if (player.getClickable() && player.getOnes().equals("")) {
+                    holderItem.ones.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            player.setOnes();
+                            setPlayerEntries(players);
+                        }
+                    });
+                }
+
                 holderItem.twosome.setText(player.getTwosome());
+                if (player.getClickable() && player.getTwosome().equals("")) {
+                    holderItem.twosome.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            Log.d("Testen", "onItemClick in Adapter Aufgerufen");
+                            player.setTwosome();
+                            setPlayerEntries(players);
+                        }
+                    });
+                }
+
                 holderItem.threesome.setText(player.getThreesome());
+                if (player.getClickable() && player.getThreesome().equals("")) {
+                    holderItem.threesome.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            player.setThreesome();
+                            setPlayerEntries(players);
+                        }
+                    });
+                }
+
                 holderItem.foursome.setText(player.getFoursome());
+                if (player.getClickable() && player.getFoursome().equals("")) {
+                    holderItem.foursome.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            player.setFoursome();
+                            setPlayerEntries(players);
+                        }
+                    });
+                }
+
                 holderItem.fivesome.setText(player.getFivesome());
+                if (player.getClickable() && player.getFivesome().equals("")) {
+                    holderItem.fivesome.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            player.setFivesome();
+                            setPlayerEntries(players);
+                        }
+                    });
+                }
+
                 holderItem.sixsome.setText(player.getSixsome());
+                if (player.getClickable() && player.getSixsome().equals("")) {
+                    holderItem.sixsome.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            player.setSixsome();
+                            setPlayerEntries(players);
+                        }
+                    });
+                }
+
+                holderItem.threeDoubles.setText(player.getThreeDoubles());
+                if (player.getClickable() && player.getThreeDoubles().equals("")) {
+                    holderItem.threeDoubles.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            player.setThreeDoubles();
+                            setPlayerEntries(players);
+                        }
+                    });
+                }
+
+                holderItem.fourDoubles.setText(player.getFourDoubles());
+                if (player.getClickable() && player.getFourDoubles().equals("")) {
+                    holderItem.fourDoubles.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            player.setFourDoubles();
+                            setPlayerEntries(players);
+                        }
+                    });
+                }
+
+                holderItem.fullHouse.setText(player.getFullHouse());
+                if (player.getClickable() && player.getFullHouse().equals("")) {
+                    holderItem.fullHouse.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            player.setFullHouse();
+                            setPlayerEntries(players);
+                        }
+                    });
+                }
+
+                holderItem.smallStreet.setText(player.getSmallStreet());
+                if (player.getClickable() && player.getSmallStreet().equals("")) {
+                    holderItem.smallStreet.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            player.setSmallStreet();
+                            setPlayerEntries(players);
+                        }
+                    });
+                }
+
+                holderItem.bigStreet.setText(player.getBigStreet());
+                if (player.getClickable() && player.getBigStreet().equals("")) {
+                    holderItem.bigStreet.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            player.setBigStreet();
+                            setPlayerEntries(players);
+                        }
+                    });
+                }
+
+                holderItem.kniffel.setText(player.getKniffel());
+                if (player.getClickable() && player.getKniffel().equals("")) {
+                    holderItem.kniffel.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            player.setKniffel();
+                            setPlayerEntries(players);
+                        }
+                    });
+                }
+
+                holderItem.chance.setText(player.getChance());
+                if (player.getClickable() && player.getChance().equals("")) {
+                    holderItem.chance.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            player.setChance();
+                            setPlayerEntries(players);
+                        }
+                    });
+                }
+
+
                 holderItem.subtotals.setText(player.getSubtotals());
                 holderItem.bonus.setText(player.getBonus());
-                holderItem.threeDoubles.setText(player.getThreeDoubles());
-                holderItem.fourDoubles.setText(player.getFourDoubles());
-                holderItem.fullHouse.setText(player.getFullHouse());
-                holderItem.smallStreet.setText(player.getSmallStreet());
-                holderItem.bigStreet.setText(player.getBigStreet());
-                holderItem.kniffel.setText(player.getKniffel());
-                holderItem.chance.setText(player.getChance());
                 holderItem.totalsum.setText(player.getTotalSum());
             }
 
