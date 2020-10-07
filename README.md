@@ -13,12 +13,9 @@ ausgewählt werden mit wie vielen Spielern das Spiel gestartet werden soll. Das 
 ist hier wie in allen anderen Activities aufrufbar. Über die Buttons der Spieleranzahl gelangt
 man zur Insert PlayersNames Activity.
 
-InsertName-Activity: Zum Eintragen der Spielernamen. Leitet nach der Eingabe alle Namen
-zur Dice Activity.
+InsertName-Activity: Zum Eintragen der Spielernamen. Leitet nach der Eingabe alle Namen zur Dice-Activity.
 
-RollTheDice-Activity: Zeigt an, welcher Spieler an der Reihe ist und wie oft dieser noch würfeln darf.Zeigt vor dem ersten Schütteln keine Würfel an, danach fünf Würfel, die ausgewählt werden
-können, je nachdem welche behalten werden sollen oder nochmal gewürfelt werden. Hat
-einen Buttons. Der Scoreboard-Button führt zur Table Activity.
+RollTheDice-Activity: Zeigt an, welcher Spieler an der Reihe ist und wie oft dieser noch würfeln darf.Zeigt vor dem ersten Schütteln keine Würfel an, danach fünf Würfel, die ausgewählt werden können, je nachdem welche behalten werden sollen oder nochmal gewürfelt werden. Hat einen Buttons. Der Scoreboard-Button führt zur Table Activity.
 
 Table-Activity: Hier kann der Spieler sich aussuchen in welches Feld er seine Augen
 eintragen will. Das angeklickte Feld wird grün hinterlegt. Felder, in denen schon ein Eintrag
