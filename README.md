@@ -9,7 +9,6 @@ seinen Freunden spielen kann. Das Ziel ist, dass die Spieler eine gute Zeit habe
 digitale Kniffeln genauso viel Spaß macht wie das Analoge.
 
 #### Start-Activity
-![StartActivity](C:\Users\LenaG\OneDrive\Desktop\abschlussprojekte-mobile-apps-fur-android-yahtzee-5\app\src\main\res\drawable-mdpi\tutorial_main.png)
 Ist zum Start der App zu sehen, und nach der Game Over Activity. Hier kann
 ausgewählt werden mit wie vielen Spielern das Spiel gestartet werden soll. Das Burger Menu
 ist hier wie in allen anderen Activities aufrufbar. Über die Buttons der Spieleranzahl gelangt
