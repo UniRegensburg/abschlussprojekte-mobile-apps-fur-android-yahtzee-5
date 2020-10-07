@@ -8,37 +8,29 @@ digitalen Spiels ist es, dass man das Spiel praktisch immer bei sich hat und spo
 seinen Freunden spielen kann. Das Ziel ist, dass die Spieler eine gute Zeit haben und das
 digitale Kniffeln genauso viel Spaß macht wie das Analoge.
 
-Start-Activity: Ist zum Start der App zu sehen, und nach der Game Over Activity. Hier kann
+#### Start-Activity
+Ist zum Start der App zu sehen, und nach der Game Over Activity. Hier kann
 ausgewählt werden mit wie vielen Spielern das Spiel gestartet werden soll. Das Burger Menu
 ist hier wie in allen anderen Activities aufrufbar. Über die Buttons der Spieleranzahl gelangt
 man zur Insert PlayersNames Activity.
 
-InsertName-Activity: Zum Eintragen der Spielernamen. Leitet nach der Eingabe alle Namen
-zur Dice Activity.
+#### InsertName-Activity
+Zum Eintragen der Spielernamen. Leitet nach der Eingabe alle Namen zur Dice-Activity.
 
-RollTheDice-Activity: Zeigt an, welcher Spieler an der Reihe ist und wie oft dieser noch würfeln darf.Zeigt vor dem ersten Schütteln keine Würfel an, danach fünf Würfel, die ausgewählt werden
-können, je nachdem welche behalten werden sollen oder nochmal gewürfelt werden. Hat
-einen Buttons. Der Scoreboard-Button führt zur Table Activity.
+#### RollTheDice-Activity
+Zeigt an, welcher Spieler an der Reihe ist und wie oft dieser noch würfeln darf.Zeigt vor dem ersten Schütteln keine Würfel an, danach fünf Würfel, die ausgewählt werden können, je nachdem welche behalten werden sollen oder nochmal gewürfelt werden. Hat einen Buttons. Der Scoreboard-Button führt zur Table Activity.
 
-Table-Activity: Hier kann der Spieler sich aussuchen in welches Feld er seine Augen
-eintragen will. Das angeklickte Feld wird grün hinterlegt. Felder, in denen schon ein Eintrag
-steht, sind nicht mehr anwählbar genauso wie Felder der Kontrahenten. In dem angeklickten
-Feld wird im Optimalfall direkt das Ergebnis angezeigt oder ein Strich falls die gewürfelten
-Augen einen Eintrag nach den Regeln nicht zulassen. Mit dem Würfel-Button kommt man in
-die Dice Activity zurück und kann, falls man noch einen Wurf zur Verfügung hat, nochmal
-würfeln. Danach kann der Eintrag über den eintragen Button bestätigt werden. Daraufhin
-kehrt man in die Dice Activity zurück und der nächste Spieler ist dran. Wenn der letzte
-Spieler sein letztes Feld gefüllt hat man in die GameOver-Activity.
+#### Table-Activity
+Hier kann der Spieler sich aussuchen in welches Feld er seine Augen eintragen will. Das angeklickte Feld wird grün hinterlegt. Felder, in denen schon ein Eintrag steht, sind nicht mehr anwählbar genauso wie Felder der Kontrahenten. In dem angeklickten Feld wird im Optimalfall direkt das Ergebnis angezeigt oder ein Strich falls die gewürfelten Augen einen Eintrag nach den Regeln nicht zulassen. Mit dem Würfel-Button kommt man in die Dice Activity zurück und kann, falls man noch einen Wurf zur Verfügung hat, nochmal würfeln. Danach kann der Eintrag über den eintragen Button bestätigt werden. Daraufhin kehrt man in die Dice Activity zurück und der nächste Spieler ist dran. Wenn der letzte Spieler sein letztes Feld gefüllt hat man in die GameOver-Activity.
 
-GameOver-Activity: Hier wurde das Ergebnis der Table Activity ausgerechnet und
-angezeigt wer gewonnen hat. Mit dem Button „Scoreboard“ lässt sich das finale Scoreboard
-nochmal anzeigen und mit dem Button „Main Menu“ kehrt man in die Start-Activity zurück.
-Highscore-Activity: Eine simple Liste, die Name, Datum und Score der 10 besten Spieler
-Ergebnisse anzeigt.
+#### GameOver-Activity
+Hier wurde das Ergebnis der Table Activity ausgerechnet und angezeigt wer gewonnen hat. Mit dem Button „Scoreboard“ lässt sich das finale Scoreboard nochmal anzeigen und mit dem Button „Main Menu“ kehrt man in die Start-Activity zurück. Highscore-Activity: Eine simple Liste, die Name, Datum und Score der 10 besten Spieler Ergebnisse anzeigt.
 
-Tutorial-Activity: ViewPager mit LayoutScreens die je einen Screenshot, einen Titel und eine Beschreibung enthalten. Durch wischen kann zu einem anderen LayoutScreen gelangt werden. Am Ende des Tutorials kan das Spiel gestartet werden. 
+#### Tutorial-Activity
+ViewPager mit LayoutScreens die je einen Screenshot, einen Titel und eine Beschreibung enthalten. Durch wischen kann zu einem anderen LayoutScreen gelangt werden. Am Ende des Tutorials kan das Spiel gestartet werden. 
 
-PlayingRules-Activity: Scrollbare Auflistung der Spielregeln
+#### PlayingRules-Activity
+Scrollbare Auflistung der Spielregeln
 
 [Beschreiben Sie hier in einer kurzen Zusammenfassung Hintergrund, Ziele und Funktionen Ihrer Anwendung. Fügen Sie mehrere sinnvollen Screenshot ein, die den Funktionsumfang der Anwendungdemonstrieren. Verlinken Sie zum Abschluss des Projekts ein kurzes Video, in dem Sie die wesentlichen Nutzungsszenarien Ihrer Anwendung demonstrieren.]
 
