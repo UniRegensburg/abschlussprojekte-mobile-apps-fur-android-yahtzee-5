@@ -14,6 +14,7 @@ digitale Kniffeln genauso viel Spaß macht wie das Analoge.
 Ist zum Start der App zu sehen, und nach der Game Over Activity. Hier kann ausgewählt werden mit wie vielen Spielern das Spiel gestartet werden soll. Das Burger Menu ist hier wie in allen anderen Activities aufrufbar. Über die Buttons der Spieleranzahl gelangt man zur Insert PlayersNames Activity.
 
 #### InsertName-Activity
+![InsertNameActivity](https://user-images.githubusercontent.com/69957145/95484410-bade3f00-0990-11eb-9f07-9690502cbb08.png)
 
 Zum Eintragen der Spielernamen. Leitet nach der Eingabe alle Namen zur Dice-Activity.
 
