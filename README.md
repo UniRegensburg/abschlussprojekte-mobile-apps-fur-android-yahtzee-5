@@ -14,6 +14,8 @@ digitale Kniffeln genauso viel Spaß macht wie das Analoge.
 Ist zum Start der App zu sehen, und nach der Game Over Activity. Hier kann ausgewählt werden mit wie vielen Spielern das Spiel gestartet werden soll. Das Burger Menu ist hier wie in allen anderen Activities aufrufbar. Über die Buttons der Spieleranzahl gelangt man zur Insert PlayersNames Activity.
 
 #### Burgermenü
+![Burgermenu](https://user-images.githubusercontent.com/69957145/95485795-810e3800-0992-11eb-97aa-449fda511a17.png)
+
 Das Burgermenü ermöglicht die Navigation in verschieden Teilbereiche der App und ist in einigen Activities zu finden, in denen eine Navigtion in andere Bereiche sinnvoll ist.  
 
 #### InsertName-Activity
