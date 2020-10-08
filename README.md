@@ -29,6 +29,8 @@ Zum Eintragen der Spielernamen. Leitet nach der Eingabe alle Namen zur Dice-Acti
 Zeigt an, welcher Spieler an der Reihe ist und wie oft dieser noch würfeln darf. Es werden fünf Würfel angzeigt, die ausgewählt werden können, je nachdem welche behalten oder nochmal gewürfelt werden sollen. Mit einem Button können alle beispielsweise falsch ausgewählte Würfel in den "Becher"z  zurückgelegt werden. Gewürfelt wird indem man das Gerät schüttelt, wodurch zudem ein Vibrationseffekt ausgelöst wird. Der Button "Eintragen" ruft die TableActivity auf, in der Ergebnisse angeschaut und eingetragen werden können.
 
 #### Table-Activity
+![TableActivity](https://user-images.githubusercontent.com/69957145/95485984-badf3e80-0992-11eb-8180-ebf8bc80a6ef.png)
+
 Hier kann der Spieler sich aussuchen in welches Feld er seine Würfelaugen eintragen will. Felder, in denen schon ein Eintrag steht, sind nicht mehr anwählbar genauso wie Felder der Kontrahenten. In dem angeklickten Feld wird im Optimalfall direkt das Ergebnis angezeigt oder ein Strich falls die gewürfelten Augen einen Eintrag nach den Regeln nicht zulassen. Mit dem Würfel-Button kommt man in die Dice Activity zurück und kann, falls man noch einen Wurf zur Verfügung hat, nochmal würfeln. Danach kann der Eintrag über den "Eintragen"-Button bestätigt werden. Daraufhin kehrt man in die Dice Activity zurück und der nächste Spieler ist an der Reihe. Wenn der letzte Spieler sein letztes Feld gefüllt hat, wird die GameOver-Activity aufgerufen, die die Endergebnisse auflistet.
 
 #### GameOver-Activity
