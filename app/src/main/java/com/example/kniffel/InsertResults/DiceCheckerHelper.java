@@ -32,7 +32,8 @@ public class DiceCheckerHelper {
                 counter++;
             }
         }
-        return counter;
+        int result = counter*countParameter;
+        return result;
     }
 
     /**
