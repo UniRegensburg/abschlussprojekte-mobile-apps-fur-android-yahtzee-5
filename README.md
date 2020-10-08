@@ -13,6 +13,9 @@ digitale Kniffeln genauso viel Spaß macht wie das Analoge.
 
 Ist zum Start der App zu sehen, und nach der Game Over Activity. Hier kann ausgewählt werden mit wie vielen Spielern das Spiel gestartet werden soll. Das Burger Menu ist hier wie in allen anderen Activities aufrufbar. Über die Buttons der Spieleranzahl gelangt man zur Insert PlayersNames Activity.
 
+#### Burgermenü
+Das Burgermenü ermöglicht die Navigation in verschieden Teilbereiche der App und ist in einigen Activities zu finden, in denen eine Navigtion in andere Bereiche sinnvoll ist.  
+
 #### InsertName-Activity
 ![InsertNameActivity](https://user-images.githubusercontent.com/69957145/95484410-bade3f00-0990-11eb-9f07-9690502cbb08.png)
 
@@ -29,7 +32,7 @@ Hier kann der Spieler sich aussuchen in welches Feld er seine Würfelaugen eintr
 #### GameOver-Activity
 Hier wird das aus der Table Activity errechnete Endergebnis für jeden Spieler angezeigt.. Mit dem Button „Scoreboard“ lässt sich das finale Scoreboard nochmal anzeigen und mit dem Button „Main Menu“ kehrt man in die Start-Activity zurück. 
 
-### Highscore-Activity
+#### Highscore-Activity
 Eine simple Liste, die Name, Datum und Score der 10 besten Spieler Ergebnisse anzeigt.
 
 #### Tutorial-Activity
