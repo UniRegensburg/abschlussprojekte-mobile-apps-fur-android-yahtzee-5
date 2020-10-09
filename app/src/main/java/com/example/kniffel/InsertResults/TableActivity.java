@@ -143,16 +143,17 @@ public class TableActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if(players.get(currentPlayer).getHasInsertedAValue()){
                     if(roundCounter == numbersOfRoundsThatHasToBePlayed){
-                        //Intent to start GamesOver Activity
+                        //TODO: Intent to start GamesOver Activity
                         // dabei wird entweder die Spieler Arraylist als Extra mitgegeben oder die Finalen Ergebnisse
                     }
                     roundCounter++;
                     //damit in der nächsten Runde nicht das letzte Item wieder gelöscht wird
                     players.get(currentPlayer).resetLastItemFlag();
-                    // Methode im Player aufrufen, die checkt ob man schon den oberen teil zusammenrechnen kann
+                    // TODO: Methode im Player aufrufen, die checkt ob man schon den oberen teil zusammenrechnen kann
                     //der derzeitige Spieler wird nonClickable gesetzt sodass ein Error mit einer ToastMessage im Adapter aufgerufen werden kann
                     players.get(currentPlayer).setClickable(false);
                     rollsLeft = 3;
+                    //setzt den currentPlayer auf den nächsten
                     if (currentPlayer == playerNames.length-1) {
                         currentPlayer = 0;
                     } else {

@@ -6,10 +6,12 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Vibrator;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -19,6 +21,7 @@ import com.example.kniffel.R;
 import com.example.kniffel.RollTheDice.ShakeSensor.ShakeSensor;
 import com.example.kniffel.RollTheDice.ShakeSensor.ShakeSensorListener;
 
+import java.util.Arrays;
 import java.util.Random;
 
 public class RollTheDiceActivity extends AppCompatActivity implements ShakeSensorListener {
@@ -27,6 +30,8 @@ public class RollTheDiceActivity extends AppCompatActivity implements ShakeSenso
      * Extra Key um der Table Activity das gewürfelte Array als Intent für das Result mitzugeben
      */
     public static final String EXTRA_KEY_ROLLED_DICE_EYE_NUMBERS = "EYE_NUMBERS";
+    public static final String EXTRA_KEY_ROLLS_LEFT = "ROLLS_LEFT";
+
     private static final int MAX_DICE_DIGIT = 6;
     /** ImageViews mit den Würfeln*/
     private ImageView diceOne;
@@ -43,8 +48,12 @@ public class RollTheDiceActivity extends AppCompatActivity implements ShakeSenso
     private int[] diceEyeNumber;
     /** Buttons*/
     private Button scoreboardButton, clearSelectedDicesButton;
-    /** Array in dem die SpielerNamen stehen */
+    /** aktueller SpielerName */
     private String currentPlayer;
+    /** übrige Würfe die von der TableActivity als Extra übergeben werden */
+    private int rollsLeft;
+    /** boolean Array in dem gespeichter wird welche Würfel gewürfelt werden dürfen bei true: dieser Würfel wird nicht gewürfelt */
+    private boolean[] diceLocked = new boolean[5];
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,11 +61,13 @@ public class RollTheDiceActivity extends AppCompatActivity implements ShakeSenso
         initUi();
         initSensor();
         setupDices();
+        Arrays.fill(diceLocked, false);
     }
 
     private void getExtrasFromIntent() {
         Bundle extras = getIntent().getExtras();
         currentPlayer = extras.getString(TableActivity.EXTRA_KEY_CURRENT_PLAYER);
+        rollsLeft = extras.getInt(TableActivity.EXTRA_KEY_ROLLS_LEFT);
     }
 
 
@@ -74,47 +85,75 @@ public class RollTheDiceActivity extends AppCompatActivity implements ShakeSenso
         diceOne.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(diceOne.isClickable()) {
-                    diceOne.setClickable(false);
-                    diceOne.setBackgroundResource(R.drawable.custom_button3);
-                    //damit kann der Würfel zurücklegen Button entfernt werden und ich finde es intuitiver
-                    //funktioniert aber natürlich nicht weil er ja nicht mehr Clickable ist und so onClick nicht aufgerufen
-                    //werden kann. Problem kann mit fünf boolean Variablen für die fünf Würfel gelöst werden
-                    // z.B. boolean rollableDice1 = true
-                } else {
-                    diceOne.setClickable(true);
-                    diceOne.setBackgroundColor(Color.TRANSPARENT);
+                if (rollsLeft != 3) {
+                    if (diceLocked[0]) {
+                        diceOne.setBackgroundColor(Color.TRANSPARENT);
+                        diceLocked[0] = false;
+                    } else {
+                        diceOne.setBackgroundResource(R.drawable.custom_button3);
+                        diceLocked[0] = true;
+                    }
                 }
             }
         });
+
         diceTwo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                diceTwo.setClickable(false);
-                diceTwo.setBackgroundResource(R.drawable.custom_button3);
+                if (rollsLeft != 3) {
+                    if (diceLocked[1]) {
+                        diceTwo.setBackgroundColor(Color.TRANSPARENT);
+                        diceLocked[1] = false;
+                    } else {
+                        diceTwo.setBackgroundResource(R.drawable.custom_button3);
+                        diceLocked[1] = true;
+                    }
+                }
             }
         });
+
         diceThree.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                diceThree.setClickable(false);
-                diceThree.setBackgroundResource(R.drawable.custom_button3);
+                if (rollsLeft != 3) {
+                    if (diceLocked[2]) {
+                        diceThree.setBackgroundColor(Color.TRANSPARENT);
+                        diceLocked[2] = false;
+                    } else {
+                        diceThree.setBackgroundResource(R.drawable.custom_button3);
+                        diceLocked[2] = true;
+                    }
+                }
             }
         });
 
         diceFour.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               diceFour.setClickable(false);
-                diceFour.setBackgroundResource(R.drawable.custom_button3);
+                if (rollsLeft != 3) {
+                    if (diceLocked[3]) {
+                        diceFour.setBackgroundColor(Color.TRANSPARENT);
+                        diceLocked[3] = false;
+                    } else {
+                        diceFour.setBackgroundResource(R.drawable.custom_button3);
+                        diceLocked[3] = true;
+                    }
+                }
             }
         });
 
         diceFive.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               diceFive.setClickable(false);
-               diceFive.setBackgroundResource(R.drawable.custom_button3);
+                if (rollsLeft != 3) {
+                    if (diceLocked[4]) {
+                        diceFive.setBackgroundColor(Color.TRANSPARENT);
+                        diceLocked[4] = false;
+                    } else {
+                        diceFive.setBackgroundResource(R.drawable.custom_button3);
+                        diceLocked[4] = true;
+                    }
+                }
             }
         });
     }
@@ -138,24 +177,22 @@ public class RollTheDiceActivity extends AppCompatActivity implements ShakeSenso
         playerNameView.setText(currentPlayer);
 
         scoreboardButton = findViewById(R.id.button_scoreboard);
+
         /**
          * "Eintragen" ermöglicht den Wechsel zurück zur TableActivity bekommt das WürfelArray mitgegeben
          */
         scoreboardButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent resultIntent = new Intent();
-                resultIntent.putExtra(EXTRA_KEY_ROLLED_DICE_EYE_NUMBERS, diceEyeNumber);
-                setResult(RESULT_OK, resultIntent);
-                finish();
-            }
-        });
-        clearSelectedDicesButton = findViewById(R.id.button_clear_selected_dices);
-        /** Ausgewählte bzw. gesperrte Würfel werden wieder entsperrt, soddass sie beim nächsten Schütteln mit verändert werden*/
-        clearSelectedDicesButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                unlockDices();
+                if (rollsLeft != 3) {
+                    Intent resultIntent = new Intent();
+                    resultIntent.putExtra(EXTRA_KEY_ROLLED_DICE_EYE_NUMBERS, diceEyeNumber);
+                    resultIntent.putExtra(EXTRA_KEY_ROLLS_LEFT, rollsLeft);
+                    setResult(RESULT_OK, resultIntent);
+                    finish();
+                } else {
+                    Toast.makeText(RollTheDiceActivity.this, R.string.error_message_not_rolled_the_dices, Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }
@@ -164,54 +201,40 @@ public class RollTheDiceActivity extends AppCompatActivity implements ShakeSenso
      * Würfel werden geworfen und den ImageViews werden neue Würfel zufällig zugewiesen
      * */
     private void throwDices() {
-        int counterThrows = Integer.parseInt(countdownDiceThrows.getText().toString());
-        if (counterThrows > 0) {
-            counterThrows--;
-            countdownDiceThrows.setText(Integer.toString(counterThrows));
+        if (rollsLeft > 0) {
+            rollsLeft--;
+            countdownDiceThrows.setText(String.valueOf(rollsLeft));
+            Log.d("Testen", "throwDices aufgerufen");
             shakeDices();
             vibrate();
         }
     }
     /** Wird das Handy geschüttelt, werden den ImageViews der Würfel neue WürfelBilder zugeordnet*/
     private void shakeDices() {
-        if (diceOne.isClickable()) {
+        if (!diceLocked[0]) {
             /** randomIndex() berechnet einen Zufalleswert zwischen 0 und 5 der dann aus dem diceDrawablePath das entsprechende Bild hervorholt*/
+            Log.d("Testen", "if diceLocked[0] wurde aufgerufen");
             diceOne.setImageResource(diceDrawablePath[diceEyeNumber[0] = randomIndex()]);
             /** speichert die aktuelle Augenzahl der angezeigten Würfel ++ weil der 0te Würfel die Augenzahl 1 hat usw...*/
             diceEyeNumber[0]++;
+            Log.d("Testen", "diceEyeNumber[0] ist" + diceEyeNumber);
         }
-        if (diceTwo.isClickable()) {
+        if (!diceLocked[1]) {
             diceTwo.setImageResource(diceDrawablePath[diceEyeNumber[1] = randomIndex()]);
             diceEyeNumber[1]++;
         }
-        if (diceThree.isClickable()) {
+        if (!diceLocked[2]) {
             diceThree.setImageResource(diceDrawablePath[diceEyeNumber[2] = randomIndex()]);
             diceEyeNumber[2]++;
         }
-        if (diceFour.isClickable()) {
+        if (!diceLocked[3]) {
             diceFour.setImageResource(diceDrawablePath[diceEyeNumber[3] = randomIndex()]);
             diceEyeNumber[3]++;
         }
-        if (diceFive.isClickable()) {
+        if (!diceLocked[4]) {
             diceFive.setImageResource(diceDrawablePath[diceEyeNumber[4] = randomIndex()]);
             diceEyeNumber[4]++;
         }
-        /** Nach dem Schütteln werden die gesperrten Würfel automatisch wieder entsperrt*/
-        unlockDices();
-
-    }
-    /** ImageViews werden wieder clickable gestetzt sowie der Hintergrund transparent*/
-    private void unlockDices() {
-        diceOne.setClickable(true);
-        diceOne.setBackgroundColor(Color.TRANSPARENT);
-        diceTwo.setClickable(true);
-        diceTwo.setBackgroundColor(Color.TRANSPARENT);
-        diceThree.setClickable(true);
-        diceThree.setBackgroundColor(Color.TRANSPARENT);
-        diceFour.setClickable(true);
-        diceFour.setBackgroundColor(Color.TRANSPARENT);
-        diceFive.setClickable(true);
-        diceFive.setBackgroundColor(Color.TRANSPARENT);
     }
 
     @SuppressLint("MissingPermission")
