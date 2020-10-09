@@ -15,7 +15,6 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.kniffel.InsertName.InsertNameActivity;
 import com.example.kniffel.InsertResults.TableActivity;
 import com.example.kniffel.R;
 import com.example.kniffel.RollTheDice.ShakeSensor.ShakeSensor;
@@ -47,7 +46,7 @@ public class RollTheDiceActivity extends AppCompatActivity implements ShakeSenso
     /** Array, dass die Augenzahl der aktuell angezeigten Würfel speichert*/
     private int[] diceEyeNumber;
     /** Buttons*/
-    private Button scoreboardButton, clearSelectedDicesButton;
+    private Button scoreboardButton;
     /** aktueller SpielerName */
     private String currentPlayer;
     /** übrige Würfe die von der TableActivity als Extra übergeben werden */
@@ -58,6 +57,7 @@ public class RollTheDiceActivity extends AppCompatActivity implements ShakeSenso
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getExtrasFromIntent();
+        //diceEyeNumber = new int[]{1, 2, 3, 4, 5};
         initUi();
         initSensor();
         setupDices();
@@ -68,19 +68,28 @@ public class RollTheDiceActivity extends AppCompatActivity implements ShakeSenso
         Bundle extras = getIntent().getExtras();
         currentPlayer = extras.getString(TableActivity.EXTRA_KEY_CURRENT_PLAYER);
         rollsLeft = extras.getInt(TableActivity.EXTRA_KEY_ROLLS_LEFT);
+
+        if (extras.getIntArray(TableActivity.EXTRA_KEY_DICE_EYE_NUMBER) != null) {
+            diceEyeNumber = extras.getIntArray(TableActivity.EXTRA_KEY_DICE_EYE_NUMBER);
+        } else {
+            diceEyeNumber = new int[]{1, 2, 3, 4, 5};
+        }
     }
 
 
     private void setupDices() {
         /** Array mit Speicheradresse der Würfel*/
         diceDrawablePath = new int[]{R.drawable.dice_throw_1, R.drawable.dice_throw_2, R.drawable.dice_throw_3, R.drawable.dice_throw_4, R.drawable.dice_throw_5, R.drawable.dice_throw_6};
-        /** Array mit den aktuellen Würfelzahlen*/
-        diceEyeNumber = new int[]{1, 2, 3, 4, 5};
-        lockDices();
+        diceOne.setImageResource(diceDrawablePath[diceEyeNumber[0]-1]);
+        diceTwo.setImageResource(diceDrawablePath[diceEyeNumber[1]-1]);
+        diceThree.setImageResource(diceDrawablePath[diceEyeNumber[2]-1]);
+        diceFour.setImageResource(diceDrawablePath[diceEyeNumber[3]-1]);
+        diceFive.setImageResource(diceDrawablePath[diceEyeNumber[4]-1]);
+        setListenersToLockDices();
     }
 
     /** Würfel werden umrandet und deaktiviert und pink umrandet, sodass sie sich beim nächsten Schütteln nicht mitverändern */
-    private void lockDices() {
+    private void setListenersToLockDices() {
 
         diceOne.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -172,6 +181,8 @@ public class RollTheDiceActivity extends AppCompatActivity implements ShakeSenso
         diceFour = findViewById(R.id.dice_4);
         diceFive = findViewById(R.id.dice_5);
         countdownDiceThrows = findViewById(R.id.countdown_rolling_the_dice);
+        countdownDiceThrows.setText(String.valueOf(rollsLeft));
+
 
         playerNameView = findViewById(R.id.player_name_roll_the_dice);
         playerNameView.setText(currentPlayer);
@@ -204,7 +215,6 @@ public class RollTheDiceActivity extends AppCompatActivity implements ShakeSenso
         if (rollsLeft > 0) {
             rollsLeft--;
             countdownDiceThrows.setText(String.valueOf(rollsLeft));
-            Log.d("Testen", "throwDices aufgerufen");
             shakeDices();
             vibrate();
         }
@@ -213,11 +223,10 @@ public class RollTheDiceActivity extends AppCompatActivity implements ShakeSenso
     private void shakeDices() {
         if (!diceLocked[0]) {
             /** randomIndex() berechnet einen Zufalleswert zwischen 0 und 5 der dann aus dem diceDrawablePath das entsprechende Bild hervorholt*/
-            Log.d("Testen", "if diceLocked[0] wurde aufgerufen");
+
             diceOne.setImageResource(diceDrawablePath[diceEyeNumber[0] = randomIndex()]);
             /** speichert die aktuelle Augenzahl der angezeigten Würfel ++ weil der 0te Würfel die Augenzahl 1 hat usw...*/
             diceEyeNumber[0]++;
-            Log.d("Testen", "diceEyeNumber[0] ist" + diceEyeNumber);
         }
         if (!diceLocked[1]) {
             diceTwo.setImageResource(diceDrawablePath[diceEyeNumber[1] = randomIndex()]);

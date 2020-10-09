@@ -12,32 +12,36 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".MainActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Tutorial.Tutorial">
-
-        </activity>
+        <activity android:name=".Tutorial.Tutorial"
+            android:screenOrientation="portrait"/>
         <activity android:name=".InsertNumberOfPlayers.InsertNumberOfPlayers"
-            android:theme="@style/AppTheme.ActionBar.Transparent"/>
+            android:theme="@style/AppTheme.ActionBar.Transparent"
+            android:screenOrientation="portrait"/>
         <activity android:name=".InsertName.InsertNameActivity"
-            android:theme="@style/AppTheme.ActionBar.Transparent"/>
-        <activity
-            android:name=".RollTheDice.RollTheDiceActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar" />
-        <activity
-            android:name=".InsertResults.TableActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar" />
+            android:theme="@style/AppTheme.ActionBar.Transparent"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".RollTheDice.RollTheDiceActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".InsertResults.TableActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar"
+            android:screenOrientation="portrait"/>
         <activity android:name=".Highscore.HighscoreActivity"
-            android:theme="@style/AppTheme.ActionBar.Transparent"/>
+            android:theme="@style/AppTheme.ActionBar.Transparent"
+            android:screenOrientation="portrait"/>
         <activity android:name=".Rules.Rules"
-            android:theme="@style/AppTheme.ActionBar.Transparent"/>
+            android:theme="@style/AppTheme.ActionBar.Transparent"
+            android:screenOrientation="portrait"/>
         <activity android:name=".GameOver.GameFinishedActivity"
-            android:theme="@style/AppTheme.ActionBar.Transparent"/>
+            android:theme="@style/AppTheme.ActionBar.Transparent"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

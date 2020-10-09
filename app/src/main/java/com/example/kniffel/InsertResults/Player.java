@@ -230,16 +230,40 @@ public class Player {
         return subtotals;
     }
 
-    public void setSubtotals(String subtotals) {
-        this.subtotals = subtotals;
+    /**
+     * counter ist der zähler der die einzelnen Werte zusammenzählt, oneBoxStillEmpty ist erst false. Sobald eine Stelle ohne einen
+     * Wert gefunden wird, wird oneBoxStillEmpty auf true gesetzt und somit auch das subtotals und der Bonus nicht gesetzt
+     */
+    public void setSubtotals() {
+        int counter = 0;
+        boolean oneBoxStillEmty = false;
+        for (int i = 0; i < 5 ; i++){
+            if (clickableValues[i].equals("")){
+                oneBoxStillEmty = true;
+            } else {
+                counter = counter + Integer.parseInt(clickableValues[i]);
+            }
+        }
+        if (!oneBoxStillEmty){
+            this.subtotals = String.valueOf(counter);
+            if (counter >= 63){
+                setBonus(true);
+            } else {
+                setBonus(false);
+            }
+        }
     }
 
     public String getBonus() {
         return bonus;
     }
 
-    public void setBonus(String bonus) {
-        this.bonus = bonus;
+    public void setBonus(boolean flagIfReachedBonus) {
+        if (flagIfReachedBonus) {
+            this.bonus = "35";
+        } else {
+            this.bonus = "0";
+        }
     }
 
     public String getTotalSum() {

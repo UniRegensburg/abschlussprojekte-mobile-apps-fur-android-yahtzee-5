@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.kniffel.GameOver.GameFinishedActivity;
 import com.example.kniffel.InsertName.InsertNameActivity;
 import com.example.kniffel.R;
 import com.example.kniffel.RollTheDice.RollTheDiceActivity;
@@ -27,7 +28,7 @@ import java.util.ArrayList;
 public class TableActivity extends AppCompatActivity {
 
     private String[] playerNames;
-    private int[] diceEyeNumber;
+    private int[] diceEyeNumber = new int[]{1, 2, 3, 4, 5};
     private ArrayList<Player> players;
     private TableEntryAdapter entryAdapter;
     private RecyclerView tablePlayerList;
@@ -50,10 +51,19 @@ public class TableActivity extends AppCompatActivity {
     private int numbersOfRoundsThatHasToBePlayed;
 
     /**
-     * Key um den aktuellen SpielerNamen an die RollTheDiceActivity weiterzugeben sowie die verbleibenden Würfe
+     * Key um den aktuellen SpielerNamen an die RollTheDiceActivity weiterzugeben sowie die verbleibenden Würfe und die letzten
+     * WürfelAugen. Final Points_KEY um die Endergebnisse an die Game Over Activity weiter zu geben
      */
     public static final String EXTRA_KEY_CURRENT_PLAYER = "CURRENT_PLAYER";
     public static final String EXTRA_KEY_ROLLS_LEFT = "ROLLS_LEFT";
+    public static final String EXTRA_KEY_DICE_EYE_NUMBER = "DICE_EYE_NUMBERS";
+
+    /**
+     * Final Points_KEY um die Endergebnisse an die Game Over Activity weiter zu geben
+     */
+    public static final String EXTRA_KEY_FINAL_POINTS = "FINAL_POINTS";
+    private static final String EXTRA_KEY_PLAYER_NAMES = "PLAYER_NAMES_STRING_ARRAY";
+
 
     /**
      * Request Code für den Acitivity for Result Intent von der ROllTheDiceActivity
@@ -92,6 +102,7 @@ public class TableActivity extends AppCompatActivity {
         Intent intentToGetRollTheDiceActivityOnStack = new Intent(this, RollTheDiceActivity.class);
         intentToGetRollTheDiceActivityOnStack.putExtra(EXTRA_KEY_CURRENT_PLAYER, playerNames[currentPlayer]);
         intentToGetRollTheDiceActivityOnStack.putExtra(EXTRA_KEY_ROLLS_LEFT, rollsLeft);
+        intentToGetRollTheDiceActivityOnStack.putExtra(EXTRA_KEY_DICE_EYE_NUMBER, diceEyeNumber);
         startActivityForResult(intentToGetRollTheDiceActivityOnStack, REQUEST_CODE_FOR_ACTIVITY_FOR_RESULT);
     }
 
@@ -105,7 +116,9 @@ public class TableActivity extends AppCompatActivity {
         if (requestCode == REQUEST_CODE_FOR_ACTIVITY_FOR_RESULT) {
             if (resultCode == RESULT_OK) {
                 diceEyeNumber = data.getIntArrayExtra(RollTheDiceActivity.EXTRA_KEY_ROLLED_DICE_EYE_NUMBERS);
-                //get Extra: rollsLeft
+                //default Value Zahl die angezeigt wird falls keine Zahl aus dem Extra ankommt so whatever
+                rollsLeft = data.getIntExtra(RollTheDiceActivity.EXTRA_KEY_ROLLS_LEFT, 3);
+                Log.d("Testen", "TableA" +rollsLeft);
                 players.get(currentPlayer).setDiceEyeNumber(diceEyeNumber);
                 players.get(currentPlayer).setClickable(true);
                 entryAdapter.notifyDataSetChanged();
@@ -143,13 +156,20 @@ public class TableActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if(players.get(currentPlayer).getHasInsertedAValue()){
                     if(roundCounter == numbersOfRoundsThatHasToBePlayed){
-                        //TODO: Intent to start GamesOver Activity
-                        // dabei wird entweder die Spieler Arraylist als Extra mitgegeben oder die Finalen Ergebnisse
+                        int[] playerFinalPoints = new int[playerNames.length];
+                        for (int i = 0; i < playerNames.length; i++) {
+                            playerFinalPoints[i] = Integer.parseInt(players.get(i).getTotalSum());
+                        }
+                        Intent intentToStartGameOverActivity = new Intent(TableActivity.this, GameFinishedActivity.class);
+                        intentToStartGameOverActivity.putExtra(EXTRA_KEY_FINAL_POINTS,playerFinalPoints);
+                        intentToStartGameOverActivity.putExtra(EXTRA_KEY_PLAYER_NAMES, playerNames);
+                        startActivity(intentToStartGameOverActivity);
                     }
                     roundCounter++;
                     //damit in der nächsten Runde nicht das letzte Item wieder gelöscht wird
                     players.get(currentPlayer).resetLastItemFlag();
-                    // TODO: Methode im Player aufrufen, die checkt ob man schon den oberen teil zusammenrechnen kann
+                    // Methode wird im Player aufrufen, die checkt ob man schon den oberen teil zusammenrechnen kann
+                    players.get(currentPlayer).setSubtotals();
                     //der derzeitige Spieler wird nonClickable gesetzt sodass ein Error mit einer ToastMessage im Adapter aufgerufen werden kann
                     players.get(currentPlayer).setClickable(false);
                     rollsLeft = 3;
@@ -159,6 +179,8 @@ public class TableActivity extends AppCompatActivity {
                     } else {
                         currentPlayer++;
                     }
+                    // damit nicht das Array vom letzten Spieler mitgegeben wird
+                    diceEyeNumber = null;
                     createIntentToCallRollTheDiceActivity();
                 } else {
                     Toast.makeText(TableActivity.this, R.string.error_message_no_value_inserted, Toast.LENGTH_SHORT).show();
@@ -166,7 +188,6 @@ public class TableActivity extends AppCompatActivity {
             }
         });
     }
-
 
     /**
      * -ArrayList wird initialisiert
