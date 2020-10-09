@@ -194,9 +194,6 @@ public class InsertNumberOfPlayers extends AppCompatActivity implements Navigati
                 Intent intentToStartRulesActivity = new Intent(this, Rules.class);
                 startActivity(intentToStartRulesActivity);
                 break;
-            case R.id.settings_burgermenu_item:
-                //
-                break;
             case R.id.end_game_burgermenu_item:
                 Intent intentToGameFinishedActivity = new Intent(this, GameFinishedActivity.class);
                 startActivity(intentToGameFinishedActivity);

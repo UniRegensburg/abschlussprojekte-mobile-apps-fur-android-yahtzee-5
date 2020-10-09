@@ -127,9 +127,6 @@ public class Rules extends AppCompatActivity implements NavigationView.OnNavigat
                 Intent intentToStartRulesActivity = new Intent(this, Rules.class);
                 startActivity(intentToStartRulesActivity);
                 break;
-            case R.id.settings_burgermenu_item:
-                //
-                break;
             case R.id.end_game_burgermenu_item:
                 //
                 break;
