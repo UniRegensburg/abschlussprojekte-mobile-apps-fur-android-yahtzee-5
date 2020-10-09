@@ -1,17 +1,12 @@
 # Kniffel
 
-Die App soll es ermöglichen am Handy Kniffel zu spielen. Die App ermöglicht es jederzeit und
-überall zu kniffeln, da Würfel, Würfelbecher und Block in der App integriert sind. Da sich
-Kniffel nicht an eine bestimmte Zielgruppe richtet, kann auch jeder mit einem Handy
-(Android-Betriebssystem) diese App herunterladen und Kniffel spielen. Der Vorteil des
-digitalen Spiels ist es, dass man das Spiel praktisch immer bei sich hat und spontan mit
-seinen Freunden spielen kann. Das Ziel ist, dass die Spieler eine gute Zeit haben und das
-digitale Kniffeln genauso viel Spaß macht wie das Analoge.
+Die App soll es ermöglichen am Handy Kniffel zu spielen. Die App ermöglicht es jederzeit und überall zu kniffeln, da Würfel, Würfelbecher und Block in der App integriert sind. Da sich Kniffel nicht an eine bestimmte Zielgruppe richtet, kann auch jeder mit einem Handy (Android-Betriebssystem) diese App herunterladen und Kniffel spielen. Der Vorteil des
+digitalen Spiels ist es, dass man das Spiel praktisch immer bei sich hat und spontan mit seinen Freunden spielen kann. Das Ziel ist, dass die Spieler eine gute Zeit haben und das digitale Kniffeln genauso viel Spaß macht wie das Analoge.
 
 #### Start-Activity
 ![MainActivity_small](https://user-images.githubusercontent.com/69957145/95483812-faf0f200-098f-11eb-828b-bd62e905e075.png)
 
-Ist zum Start der App zu sehen, und nach der Game Over Activity. Hier kann ausgewählt werden mit wie vielen Spielern das Spiel gestartet werden soll. Das Burger Menu ist hier wie in allen anderen Activities aufrufbar. Über die Buttons der Spieleranzahl gelangt man zur Insert PlayersNames Activity.
+Hier kann ausgewählt werden mit wie vielen Spielern das Spiel gestartet werden soll. Das Burger Menu ist hier wie in allen einigen anderen Activities aufrufbar. Über die Buttons der Spieleranzahl gelangt man zur InsertPlayersNamesActivity.
 
 #### Burgermenü
 ![Burgermenu](https://user-images.githubusercontent.com/69957145/95485795-810e3800-0992-11eb-97aa-449fda511a17.png)
@@ -21,7 +16,7 @@ Das Burgermenü ermöglicht die Navigation in verschieden Teilbereiche der App u
 #### InsertName-Activity
 ![InsertNameActivity](https://user-images.githubusercontent.com/69957145/95484410-bade3f00-0990-11eb-9f07-9690502cbb08.png)
 
-Zum Eintragen der Spielernamen. Leitet nach der Eingabe alle Namen zur Dice-Activity.
+Hier können die Namen der Spieler eingetragen werden. Nach der Eingabe werden alle Namen zur Dice-Activity weitergeleitet.
 
 #### RollTheDice-Activity
 ![DiceActivity](https://user-images.githubusercontent.com/69957145/95484650-04c72500-0991-11eb-907a-c3986784e23b.png)
@@ -34,7 +29,7 @@ Zeigt an, welcher Spieler an der Reihe ist und wie oft dieser noch würfeln darf
 Hier kann der Spieler sich aussuchen in welches Feld er seine Würfelaugen eintragen will. Felder, in denen schon ein Eintrag steht, sind nicht mehr anwählbar genauso wie Felder der Kontrahenten. In dem angeklickten Feld wird im Optimalfall direkt das Ergebnis angezeigt oder ein Strich falls die gewürfelten Augen einen Eintrag nach den Regeln nicht zulassen. Mit dem Würfel-Button kommt man in die Dice Activity zurück und kann, falls man noch einen Wurf zur Verfügung hat, nochmal würfeln. Danach kann der Eintrag über den "Eintragen"-Button bestätigt werden. Daraufhin kehrt man in die Dice Activity zurück und der nächste Spieler ist an der Reihe. Wenn der letzte Spieler sein letztes Feld gefüllt hat, wird die GameOver-Activity aufgerufen, die die Endergebnisse auflistet.
 
 #### GameOver-Activity
-Hier wird das aus der Table Activity errechnete Endergebnis für jeden Spieler angezeigt.. Mit dem Button „Scoreboard“ lässt sich das finale Scoreboard nochmal anzeigen und mit dem Button „Main Menu“ kehrt man in die Start-Activity zurück. 
+Hier wird das aus der Table Activity errechnete Endergebnis für jeden Spieler angezeigt. Die Activity enthält zwei Buttons "nochmal spielen" und "Highscores", welche den Spielern zu den entsprechenden Activities leiten.
 
 #### Highscore-Activity
 Eine simple Liste, die Name, Datum und Score der 10 besten Spieler Ergebnisse anzeigt.
