@@ -48,7 +48,7 @@ public class TableActivity extends AppCompatActivity {
      * wenn so oft eintragen gedrückt wurde dann ist das Spiel vorbei und die GameOverActivity wird aufgerufen.
      */
     private int roundCounter = 0;
-    private int numbersOfRoundsThatHasToBePlayed;
+    private int numbersOfRoundsThatHaveToBePlayed;
 
     /**
      * Key um den aktuellen SpielerNamen an die RollTheDiceActivity weiterzugeben sowie die verbleibenden Würfe und die letzten
@@ -62,7 +62,7 @@ public class TableActivity extends AppCompatActivity {
      * Final Points_KEY um die Endergebnisse an die Game Over Activity weiter zu geben
      */
     public static final String EXTRA_KEY_FINAL_POINTS = "FINAL_POINTS";
-    private static final String EXTRA_KEY_PLAYER_NAMES = "PLAYER_NAMES_STRING_ARRAY";
+    public static final String EXTRA_KEY_PLAYER_NAMES = "PLAYER_NAMES_STRING_ARRAY";
 
 
     /**
@@ -85,7 +85,7 @@ public class TableActivity extends AppCompatActivity {
     private void getExtrasFromIntent() {
         Bundle extras = getIntent().getExtras();
         playerNames = extras.getStringArray(InsertNameActivity.EXTRA_KEY_PLAYER_NAMES_ARRAY);
-        numbersOfRoundsThatHasToBePlayed = 13* playerNames.length;
+        numbersOfRoundsThatHaveToBePlayed = 13* playerNames.length;
     }
 
     /**
@@ -118,7 +118,6 @@ public class TableActivity extends AppCompatActivity {
                 diceEyeNumber = data.getIntArrayExtra(RollTheDiceActivity.EXTRA_KEY_ROLLED_DICE_EYE_NUMBERS);
                 //default Value Zahl die angezeigt wird falls keine Zahl aus dem Extra ankommt so whatever
                 rollsLeft = data.getIntExtra(RollTheDiceActivity.EXTRA_KEY_ROLLS_LEFT, 3);
-                Log.d("Testen", "TableA" +rollsLeft);
                 players.get(currentPlayer).setDiceEyeNumber(diceEyeNumber);
                 players.get(currentPlayer).setClickable(true);
                 entryAdapter.notifyDataSetChanged();
@@ -146,47 +145,66 @@ public class TableActivity extends AppCompatActivity {
 
         /**
          * weißt den Eintragen Button zu hier wird dann gecheckt ob etwas diese Runde eingetraen wurde, wenn ja wird gecheckt ob
-         * das Spiel vorbei ist und die Game Over Activity aufgerufen werden soll (roundsCounter ist der Zähler dazu). Danach
-         * setzt die übrigen Würfe auf 3 und setzt den currentPlayer auf +1 oder wenn der letzte dran war wieder auf 0 für den
-         * ersten Spieler und startet dann mit diesem Spieler die RollTheDiceActivity
+         * das Spiel vorbei ist und die Game Over Activity aufgerufen werden soll (roundCounter ist der Zähler dazu).
+         * Wenn das Spiel nicht vorbei ist, wird alles für den nächsten Spieler vorbereitet
          */
         submitPointsButton = findViewById(R.id.submit_button_player_table);
         submitPointsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if(players.get(currentPlayer).getHasInsertedAValue()){
-                    if(roundCounter == numbersOfRoundsThatHasToBePlayed){
-                        int[] playerFinalPoints = new int[playerNames.length];
-                        for (int i = 0; i < playerNames.length; i++) {
-                            playerFinalPoints[i] = Integer.parseInt(players.get(i).getTotalSum());
-                        }
-                        Intent intentToStartGameOverActivity = new Intent(TableActivity.this, GameFinishedActivity.class);
-                        intentToStartGameOverActivity.putExtra(EXTRA_KEY_FINAL_POINTS,playerFinalPoints);
-                        intentToStartGameOverActivity.putExtra(EXTRA_KEY_PLAYER_NAMES, playerNames);
-                        startActivity(intentToStartGameOverActivity);
-                    }
+                    // roundCounter++ damit das Spiel rechzeitig beendet werden kann hier kann dann die Game Over Activity aufgerufen
+                    // werden weil wenn das Spiel vorbei ist, muss nichts für den nächsten Spieler vorbereitet werden
                     roundCounter++;
-                    //damit in der nächsten Runde nicht das letzte Item wieder gelöscht wird
-                    players.get(currentPlayer).resetLastItemFlag();
                     // Methode wird im Player aufrufen, die checkt ob man schon den oberen teil zusammenrechnen kann
                     players.get(currentPlayer).setSubtotals();
-                    //der derzeitige Spieler wird nonClickable gesetzt sodass ein Error mit einer ToastMessage im Adapter aufgerufen werden kann
-                    players.get(currentPlayer).setClickable(false);
-                    rollsLeft = 3;
-                    //setzt den currentPlayer auf den nächsten
-                    if (currentPlayer == playerNames.length-1) {
-                        currentPlayer = 0;
-                    } else {
-                        currentPlayer++;
+                    if(roundCounter == numbersOfRoundsThatHaveToBePlayed){
+                        createIntentToCallGameOverActivity();
                     }
-                    // damit nicht das Array vom letzten Spieler mitgegeben wird
-                    diceEyeNumber = null;
-                    createIntentToCallRollTheDiceActivity();
+                    prepareTableActivityForNextPlayer();
                 } else {
                     Toast.makeText(TableActivity.this, R.string.error_message_no_value_inserted, Toast.LENGTH_SHORT).show();
                 }
             }
         });
+    }
+
+    /**
+     * setzt den roundCounter 1 nach oben
+     * setzt die übrigen Würfe auf 3 und setzt den currentPlayer auf +1 oder wenn der letzte dran war wieder auf 0 für den
+     * ersten Spieler und startet dann mit diesem Spieler die RollTheDiceActivity
+     */
+    private void prepareTableActivityForNextPlayer() {
+        //damit in der nächsten Runde nicht das letzte Item wieder gelöscht wird
+        players.get(currentPlayer).resetLastItemFlag();
+        //der derzeitige Spieler wird nonClickable gesetzt sodass ein Error mit einer ToastMessage im Adapter aufgerufen werden kann
+        players.get(currentPlayer).setClickable(false);
+        rollsLeft = 3;
+        //setzt den currentPlayer auf den nächsten
+        if (currentPlayer == playerNames.length-1) {
+            currentPlayer = 0;
+        } else {
+            currentPlayer++;
+        }
+        // damit nicht das Array vom letzten Spieler mitgegeben wird
+        diceEyeNumber = null;
+        createIntentToCallRollTheDiceActivity();
+    }
+
+    /**
+     * wird aufgerufen wenn das Spiel vorbei ist, in der playerFinalPoints werden die Endpunkte der Spieler gespeichert an
+     * 0ter Stelle stehen die Punkte des Spielers, dessen Name an 0ter stelle des playerNames Array steht
+     * danach wird ein Intent zur Game Over Activity erstellt, der das playerNames String Array und das Integer Array mit dem Endpunktestand übergeben wird
+     */
+    private void createIntentToCallGameOverActivity() {
+        int[] playerFinalPoints = new int[playerNames.length];
+        for (int i = 0; i < playerNames.length; i++) {
+            playerFinalPoints[i] = players.get(i).getTotalSum();
+        }
+        Intent intentToStartGameOverActivity = new Intent(TableActivity.this, GameFinishedActivity.class);
+        intentToStartGameOverActivity.putExtra(EXTRA_KEY_FINAL_POINTS, playerFinalPoints);
+        intentToStartGameOverActivity.putExtra(EXTRA_KEY_PLAYER_NAMES, playerNames);
+        startActivity(intentToStartGameOverActivity);
     }
 
     /**

@@ -266,8 +266,19 @@ public class Player {
         }
     }
 
-    public String getTotalSum() {
-        return totalSum;
+    /**
+     * i ist der zähler auf den Immer Addiert wird die For-Schleife durchläuft das String Array mit den Werten und zäht die zusammen,
+     * die nicht einen Strich "/" haben. Und Addiert am ende noch den Bonus dazu
+     * @return gibt die Endsumme des Spielers zurück
+     */
+    public int getTotalSum() {
+        int i = 0;
+        for (String s:clickableValues) {
+            if (!s.equals("/")) {
+                i = i + Integer.parseInt(s);
+            }
+        }
+        return i + Integer.parseInt(bonus);
     }
 
     public void setTotalSum(String totalSum) {

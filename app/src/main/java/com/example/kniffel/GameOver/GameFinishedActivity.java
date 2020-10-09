@@ -17,6 +17,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.example.kniffel.Highscore.HighscoreActivity;
 import com.example.kniffel.InsertNumberOfPlayers.InsertNumberOfPlayers;
+import com.example.kniffel.InsertResults.TableActivity;
 import com.example.kniffel.R;
 import com.example.kniffel.Rules.Rules;
 import com.example.kniffel.Tutorial.Tutorial;
@@ -30,6 +31,7 @@ public class GameFinishedActivity extends AppCompatActivity implements Navigatio
 
     /**
      * Alle Views und Layouts für das Burgermenu
+     * sind die public oder private? -Q
      */
     DrawerLayout drawerLayout;
     ConstraintLayout contentView;
@@ -38,18 +40,34 @@ public class GameFinishedActivity extends AppCompatActivity implements Navigatio
     /**
      * Views für GameFinished
      */
-    Button btnNewGame,
-            btnHighscores;
+    private Button btnNewGame, btnHighscores;
+
+    /**
+     * playerNames enthält die Namen der Spieler, in endScore stehen die finalen Punktzahlen drin playerNames[0] gehört
+     * zu endScores[0] die Werte werden aus dem Intent der TableActivity zugewiesen
+     */
+    private String[] playerNames;
+    private int[] endScores;
 
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_over);
+        getExtrasFromIntent();
         initViews();
         initUi();
         initMenu();
         initNavigationDrawer();
+    }
+
+    /**
+     * weißt playerNames, endScores aus den Daten des Intents zu
+     */
+    private void getExtrasFromIntent() {
+        Bundle extra = getIntent().getExtras();
+        playerNames = extra.getStringArray(TableActivity.EXTRA_KEY_PLAYER_NAMES);
+        endScores = extra.getIntArray(TableActivity.EXTRA_KEY_FINAL_POINTS);
     }
 
     /**
