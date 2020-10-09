@@ -4,13 +4,19 @@ import java.util.Arrays;
 
 public class Player {
 
+    /**
+     * das Integer Array mit den gewürfelten Augen bekommt dieses von der TableActivity übergeben
+     */
     private int[] diceEyeNumber;
+    /**
+     * Name des Spielers
+     */
     private String name;
     /**
      * die 13 anklickbaren Felder
      */
     private String[] clickableValues = new String[13];
-    private String subtotals,bonus, totalSum;
+    private String subtotals, bonus, totalSum;
     /**
      * boolean flag ob dieser Player im Moment angeklickt werden darf
      */
@@ -18,7 +24,12 @@ public class Player {
     /**
      * boolean flag ob dieser Spieler in dieser Runde etwas eingetragen hat
      */
-    private boolean hasInsertetAValue = false;
+    private boolean hasInsertedAValue = false;
+    /**
+     * laufindex aus dem clickableValues String Array das am Anfang immer -1 ist weil ja immer nur das letzte Item gelöscht werden
+     * soll und beim ersten aufrufen gibt es kein "letztes" Item. Der wert wird immer gesetzt sobald ein Wert eingetragen wurde
+     * und von der TableActivity wieder auf -1 gesetzt wenn eine Zahl bestätigt wurde
+     */
     private int runningIndexOfLastItemChanged = -1;
 
 
@@ -32,13 +43,17 @@ public class Player {
         totalSum ="";
     }
 
+    /**
+     * wird vor jedem neuen Eintrag aufgerufen, wenn ein Item davor angeklickt wurde (ist der Fall wenn runningIndex... != -1 ist
+     * wird das Entsprechende Feld im String Array auf "" gesetzt.
+     */
     public void clearLastItem () {
         if (runningIndexOfLastItemChanged != -1)
             clickableValues[runningIndexOfLastItemChanged] = "";
     }
 
-    public boolean getHasInsertetAValue () {
-        return hasInsertetAValue;
+    public boolean getHasInsertedAValue() {
+        return hasInsertedAValue;
     }
 
     /**
@@ -67,13 +82,16 @@ public class Player {
     }
 
     /**
-     *   die ones werden auf die Anzahl der gezählten einser gesetzt
+     *   die folgenden Methoden löschen zuerst das letzte Feld setzen dann das angeklickte Feld auf den richtigen Wert mithilfe
+     *   des DiceCheckerHelper setzen dann den runningIndexOfLastItemChanged auf Ihre Stelle im clickableValues String Array
+     *   und setzten dann die hasInsertedAValue flag auf true sodass die Table Activity einen Fehler ausgeben kann falls in dieser
+     *   Runde kein Wert eingetragen wurde
      */
     public void setOnes() {
         clearLastItem();
         this.clickableValues[0] = String.valueOf(DiceCheckerHelper.countSingleDiceEyeNumbers(diceEyeNumber,1));
         runningIndexOfLastItemChanged = 0;
-        hasInsertetAValue = true;
+        hasInsertedAValue = true;
     }
 
     public String getTwosome() {
@@ -84,7 +102,7 @@ public class Player {
         clearLastItem();
         this.clickableValues[1] = String.valueOf(DiceCheckerHelper.countSingleDiceEyeNumbers(diceEyeNumber,2));
         runningIndexOfLastItemChanged = 1;
-        hasInsertetAValue = true;
+        hasInsertedAValue = true;
     }
 
     public String getThreesome() {
@@ -95,7 +113,7 @@ public class Player {
         clearLastItem();
         this.clickableValues[2] = String.valueOf(DiceCheckerHelper.countSingleDiceEyeNumbers(diceEyeNumber,3));
         runningIndexOfLastItemChanged = 2;
-        hasInsertetAValue = true;
+        hasInsertedAValue = true;
     }
 
     public String getFoursome() {
@@ -106,7 +124,7 @@ public class Player {
         clearLastItem();
         this.clickableValues[3] = String.valueOf(DiceCheckerHelper.countSingleDiceEyeNumbers(diceEyeNumber,4));
         runningIndexOfLastItemChanged = 3;
-        hasInsertetAValue = true;
+        hasInsertedAValue = true;
     }
 
     public String getFivesome() {
@@ -117,7 +135,7 @@ public class Player {
         clearLastItem();
         this.clickableValues[4]= String.valueOf(DiceCheckerHelper.countSingleDiceEyeNumbers(diceEyeNumber,5));
         runningIndexOfLastItemChanged = 4;
-        hasInsertetAValue = true;
+        hasInsertedAValue = true;
     }
 
     public String getSixsome() {
@@ -128,7 +146,84 @@ public class Player {
         clearLastItem();
         this.clickableValues[5] = String.valueOf(DiceCheckerHelper.countSingleDiceEyeNumbers(diceEyeNumber,6));
         runningIndexOfLastItemChanged = 5;
-        hasInsertetAValue = true;
+        hasInsertedAValue = true;
+    }
+
+    public String getThreeDoubles() {
+        return clickableValues[6];
+    }
+
+    public void setThreeDoubles() {
+        clearLastItem();
+        this.clickableValues[6] = DiceCheckerHelper.check3ErPasch(diceEyeNumber);
+        runningIndexOfLastItemChanged = 6;
+        hasInsertedAValue = true;
+    }
+
+    public String getFourDoubles() {
+        return clickableValues[7];
+    }
+
+    public void setFourDoubles() {
+        clearLastItem();
+        this.clickableValues[7] = DiceCheckerHelper.check4ErPasch(diceEyeNumber);
+        runningIndexOfLastItemChanged = 7;
+        hasInsertedAValue = true;
+    }
+
+    public String getFullHouse() {
+        return clickableValues[8];
+    }
+
+    public void setFullHouse() {
+        clearLastItem();
+        this.clickableValues[8] = DiceCheckerHelper.checkFullHouse(diceEyeNumber);
+        runningIndexOfLastItemChanged = 8;
+        hasInsertedAValue = true;
+    }
+
+    public String getSmallStreet() {
+        return clickableValues[9];
+    }
+
+    public void setSmallStreet() {
+        clearLastItem();
+        this.clickableValues[9] = DiceCheckerHelper.checkSmallStreet(diceEyeNumber);
+        runningIndexOfLastItemChanged = 9;
+        hasInsertedAValue = true;
+    }
+
+    public String getBigStreet() {
+        return clickableValues[10];
+    }
+
+    public void setBigStreet() {
+        clearLastItem();
+        this.clickableValues[10] = DiceCheckerHelper.checkGreatStreet(diceEyeNumber);
+        runningIndexOfLastItemChanged = 10;
+        hasInsertedAValue = true;
+    }
+
+    public String getKniffel() {
+        return clickableValues[11];
+    }
+
+    public void setKniffel() {
+        clearLastItem();
+        this.clickableValues[11] = DiceCheckerHelper.checkKniffel(diceEyeNumber);
+        runningIndexOfLastItemChanged = 11;
+        hasInsertedAValue = true;
+    }
+
+    public String getChance() {
+        return clickableValues[12];
+    }
+
+    public void setChance() {
+        clearLastItem();
+        this.clickableValues[12] = String.valueOf(DiceCheckerHelper.countDiceEyeNumberTogether(diceEyeNumber));
+        runningIndexOfLastItemChanged = 12;
+        hasInsertedAValue = true;
     }
 
     public String getSubtotals() {
@@ -145,83 +240,6 @@ public class Player {
 
     public void setBonus(String bonus) {
         this.bonus = bonus;
-    }
-
-    public String getThreeDoubles() {
-        return clickableValues[6];
-    }
-
-    public void setThreeDoubles() {
-        clearLastItem();
-        this.clickableValues[6] = DiceCheckerHelper.check3ErPasch(diceEyeNumber);
-        runningIndexOfLastItemChanged = 6;
-        hasInsertetAValue = true;
-    }
-
-    public String getFourDoubles() {
-        return clickableValues[7];
-    }
-
-    public void setFourDoubles() {
-        clearLastItem();
-        this.clickableValues[7] = DiceCheckerHelper.check4ErPasch(diceEyeNumber);
-        runningIndexOfLastItemChanged = 7;
-        hasInsertetAValue = true;
-    }
-
-    public String getFullHouse() {
-        return clickableValues[8];
-    }
-
-    public void setFullHouse() {
-        clearLastItem();
-        this.clickableValues[8] = DiceCheckerHelper.checkFullHouse(diceEyeNumber);
-        runningIndexOfLastItemChanged = 8;
-        hasInsertetAValue = true;
-    }
-
-    public String getSmallStreet() {
-        return clickableValues[9];
-    }
-
-    public void setSmallStreet() {
-        clearLastItem();
-        this.clickableValues[9] = DiceCheckerHelper.checkSmallStreet(diceEyeNumber);
-        runningIndexOfLastItemChanged = 9;
-        hasInsertetAValue = true;
-    }
-
-    public String getBigStreet() {
-        return clickableValues[10];
-    }
-
-    public void setBigStreet() {
-        clearLastItem();
-        this.clickableValues[10] = DiceCheckerHelper.checkGreatStreet(diceEyeNumber);
-        runningIndexOfLastItemChanged = 10;
-        hasInsertetAValue = true;
-    }
-
-    public String getKniffel() {
-        return clickableValues[11];
-    }
-
-    public void setKniffel() {
-        clearLastItem();
-        this.clickableValues[11] = DiceCheckerHelper.checkKniffel(diceEyeNumber);
-        runningIndexOfLastItemChanged = 11;
-        hasInsertetAValue = true;
-    }
-
-    public String getChance() {
-        return clickableValues[12];
-    }
-
-    public void setChance() {
-        clearLastItem();
-        this.clickableValues[12] = String.valueOf(DiceCheckerHelper.countDiceEyeNumberTogether(diceEyeNumber));
-        runningIndexOfLastItemChanged = 12;
-        hasInsertetAValue = true;
     }
 
     public String getTotalSum() {

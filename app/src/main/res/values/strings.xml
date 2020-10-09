@@ -103,9 +103,13 @@
     //Spielerauswahl
     <string name="slogan_number_of_players">Wähle die Anzahl der Spieler aus</string>
 
-    <string name="ValueKniffel">50</string>
+    <string name="value_kniffel">50</string>
     <string name="play_again">nochmal spielen</string>
     <string name="highscores">Highscores</string>
+    <string name="next_player_hint">next Player</string>
+    <string name="error_message_no_value_inserted">Du musst ein Feld anklicken</string>
+    <string name="error_message_clicked_on_false_player">Du ein Feld in DEINER Spalte anklicken</string>
+    <string name="error_message_clicked_on_value_that_has_been_entered">Du musst auf ein leeres Feld klicken</string>
 
 </resources>
 

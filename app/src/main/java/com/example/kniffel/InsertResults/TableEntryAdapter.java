@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -90,7 +91,10 @@ public class TableEntryAdapter extends RecyclerView.Adapter<TableEntryAdapter.Ta
 
         /**
          * Trägt bei Bedarf die Informationen (Spielername und die geworfenen Ergebnisse) eines Spielers
-         * in den vorbereiteten Viewholder ein
+         * in den vorbereiteten Viewholder mit setText ein
+         * danach wird auf jedes Element ein Clicklistener registriert. Wenn der Spieler nicht clickable ist (player.getClickable)
+         * dann ist dies die falsche Spalte und eine Fehler meldung wird als Toast ausgegeben. Falls das angeklickte Feld noch leer
+         * ist (getOnes().equals("")) wird ein Wert eingetragen ansonsten gibt es eine Fehlermeldung an den User als Toast
          */
         @Override
         public void onBindViewHolder(TableEntryAdapter.TableEntryViewHolder holder, int position) {
@@ -100,149 +104,200 @@ public class TableEntryAdapter extends RecyclerView.Adapter<TableEntryAdapter.Ta
                 holderItem.name.setText(player.getName());
 
                 holderItem.ones.setText(player.getOnes());
-                if (player.getClickable() && player.getOnes().equals("")) {
-                    holderItem.ones.setOnClickListener(new View.OnClickListener() {
+                holderItem.ones.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
-                            player.setOnes();
-                            setPlayerEntries(players);
+                            if (!player.getClickable()) {
+                                Toast.makeText(context, R.string.error_message_clicked_on_false_player, Toast.LENGTH_SHORT).show();
+                            } else if (player.getOnes().equals("")) {
+                                player.setOnes();
+                                setPlayerEntries(players);
+                            } else {
+                                Toast.makeText(context, R.string.error_message_clicked_on_value_that_has_been_entered, Toast.LENGTH_SHORT).show();
+                            }
                         }
                     });
-                }
 
                 holderItem.twosome.setText(player.getTwosome());
-                if (player.getClickable() && player.getTwosome().equals("")) {
-                    holderItem.twosome.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            Log.d("Testen", "onItemClick in Adapter Aufgerufen");
+                holderItem.twosome.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        if (!player.getClickable()) {
+                            Toast.makeText(context, R.string.error_message_clicked_on_false_player, Toast.LENGTH_SHORT).show();
+                        } else if (player.getTwosome().equals("")) {
                             player.setTwosome();
                             setPlayerEntries(players);
+                        } else {
+                            Toast.makeText(context, R.string.error_message_clicked_on_value_that_has_been_entered, Toast.LENGTH_SHORT).show();
                         }
-                    });
-                }
+                    }
+                });
 
                 holderItem.threesome.setText(player.getThreesome());
-                if (player.getClickable() && player.getThreesome().equals("")) {
-                    holderItem.threesome.setOnClickListener(new View.OnClickListener() {
+                holderItem.threesome.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
-                            player.setThreesome();
-                            setPlayerEntries(players);
+                            if (!player.getClickable()) {
+                                Toast.makeText(context, R.string.error_message_clicked_on_false_player, Toast.LENGTH_SHORT).show();
+                            } else if (player.getThreesome().equals("")) {
+                                player.setThreesome();
+                                setPlayerEntries(players);
+                            } else {
+                                Toast.makeText(context, R.string.error_message_clicked_on_value_that_has_been_entered, Toast.LENGTH_SHORT).show();
+                            }
                         }
-                    });
-                }
+                });
+
 
                 holderItem.foursome.setText(player.getFoursome());
-                if (player.getClickable() && player.getFoursome().equals("")) {
-                    holderItem.foursome.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
+                holderItem.foursome.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        if (!player.getClickable()) {
+                            Toast.makeText(context, R.string.error_message_clicked_on_false_player, Toast.LENGTH_SHORT).show();
+                        } else if (player.getFoursome().equals("")) {
                             player.setFoursome();
                             setPlayerEntries(players);
+                        } else {
+                            Toast.makeText(context, R.string.error_message_clicked_on_value_that_has_been_entered, Toast.LENGTH_SHORT).show();
                         }
-                    });
-                }
+                    }
+                });
 
                 holderItem.fivesome.setText(player.getFivesome());
-                if (player.getClickable() && player.getFivesome().equals("")) {
-                    holderItem.fivesome.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
+                holderItem.fivesome.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        if (!player.getClickable()) {
+                            Toast.makeText(context, R.string.error_message_clicked_on_false_player, Toast.LENGTH_SHORT).show();
+                        } else if (player.getFivesome().equals("")) {
                             player.setFivesome();
                             setPlayerEntries(players);
+                        } else {
+                            Toast.makeText(context, R.string.error_message_clicked_on_value_that_has_been_entered, Toast.LENGTH_SHORT).show();
                         }
-                    });
-                }
+                    }
+                });
 
                 holderItem.sixsome.setText(player.getSixsome());
-                if (player.getClickable() && player.getSixsome().equals("")) {
-                    holderItem.sixsome.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
+                holderItem.sixsome.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        if (!player.getClickable()) {
+                            Toast.makeText(context, R.string.error_message_clicked_on_false_player, Toast.LENGTH_SHORT).show();
+                        } else if (player.getSixsome().equals("")) {
                             player.setSixsome();
                             setPlayerEntries(players);
+                        } else {
+                            Toast.makeText(context, R.string.error_message_clicked_on_value_that_has_been_entered, Toast.LENGTH_SHORT).show();
                         }
-                    });
-                }
+                    }
+                });
 
                 holderItem.threeDoubles.setText(player.getThreeDoubles());
-                if (player.getClickable() && player.getThreeDoubles().equals("")) {
-                    holderItem.threeDoubles.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
+                holderItem.threeDoubles.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        if (!player.getClickable()) {
+                            Toast.makeText(context, R.string.error_message_clicked_on_false_player, Toast.LENGTH_SHORT).show();
+                        } else if (player.getThreeDoubles().equals("")) {
                             player.setThreeDoubles();
                             setPlayerEntries(players);
+                        } else {
+                            Toast.makeText(context, R.string.error_message_clicked_on_value_that_has_been_entered, Toast.LENGTH_SHORT).show();
                         }
-                    });
-                }
+                    }
+                });
 
                 holderItem.fourDoubles.setText(player.getFourDoubles());
-                if (player.getClickable() && player.getFourDoubles().equals("")) {
-                    holderItem.fourDoubles.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
+                holderItem.fourDoubles.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        if (!player.getClickable()) {
+                            Toast.makeText(context, R.string.error_message_clicked_on_false_player, Toast.LENGTH_SHORT).show();
+                        } else if (player.getFourDoubles().equals("")) {
                             player.setFourDoubles();
                             setPlayerEntries(players);
+                        } else {
+                            Toast.makeText(context, R.string.error_message_clicked_on_value_that_has_been_entered, Toast.LENGTH_SHORT).show();
                         }
-                    });
-                }
+                    }
+                });
 
                 holderItem.fullHouse.setText(player.getFullHouse());
-                if (player.getClickable() && player.getFullHouse().equals("")) {
-                    holderItem.fullHouse.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
+                holderItem.fullHouse.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        if (!player.getClickable()) {
+                            Toast.makeText(context, R.string.error_message_clicked_on_false_player, Toast.LENGTH_SHORT).show();
+                        } else if (player.getFullHouse().equals("")) {
                             player.setFullHouse();
                             setPlayerEntries(players);
+                        } else {
+                            Toast.makeText(context, R.string.error_message_clicked_on_value_that_has_been_entered, Toast.LENGTH_SHORT).show();
                         }
-                    });
-                }
+                    }
+                });
 
                 holderItem.smallStreet.setText(player.getSmallStreet());
-                if (player.getClickable() && player.getSmallStreet().equals("")) {
-                    holderItem.smallStreet.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
+                holderItem.smallStreet.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        if (!player.getClickable()) {
+                            Toast.makeText(context, R.string.error_message_clicked_on_false_player, Toast.LENGTH_SHORT).show();
+                        } else if (player.getSmallStreet().equals("")) {
                             player.setSmallStreet();
                             setPlayerEntries(players);
+                        } else {
+                            Toast.makeText(context, R.string.error_message_clicked_on_value_that_has_been_entered, Toast.LENGTH_SHORT).show();
                         }
-                    });
-                }
+                    }
+                });
 
                 holderItem.bigStreet.setText(player.getBigStreet());
-                if (player.getClickable() && player.getBigStreet().equals("")) {
-                    holderItem.bigStreet.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
+                holderItem.bigStreet.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        if (!player.getClickable()) {
+                            Toast.makeText(context, R.string.error_message_clicked_on_false_player, Toast.LENGTH_SHORT).show();
+                        } else if (player.getBigStreet().equals("")) {
                             player.setBigStreet();
                             setPlayerEntries(players);
+                        } else {
+                            Toast.makeText(context, R.string.error_message_clicked_on_value_that_has_been_entered, Toast.LENGTH_SHORT).show();
                         }
-                    });
-                }
+                    }
+                });
 
                 holderItem.kniffel.setText(player.getKniffel());
-                if (player.getClickable() && player.getKniffel().equals("")) {
-                    holderItem.kniffel.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
+                holderItem.kniffel.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        if (!player.getClickable()) {
+                            Toast.makeText(context, R.string.error_message_clicked_on_false_player, Toast.LENGTH_SHORT).show();
+                        } else if (player.getKniffel().equals("")) {
                             player.setKniffel();
                             setPlayerEntries(players);
+                        } else {
+                            Toast.makeText(context, R.string.error_message_clicked_on_value_that_has_been_entered, Toast.LENGTH_SHORT).show();
                         }
-                    });
-                }
+                    }
+                });
 
                 holderItem.chance.setText(player.getChance());
-                if (player.getClickable() && player.getChance().equals("")) {
-                    holderItem.chance.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
+                holderItem.chance.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        if (!player.getClickable()) {
+                            Toast.makeText(context, R.string.error_message_clicked_on_false_player, Toast.LENGTH_SHORT).show();
+                        } else if (player.getChance().equals("")) {
                             player.setChance();
                             setPlayerEntries(players);
+                        } else {
+                            Toast.makeText(context, R.string.error_message_clicked_on_value_that_has_been_entered, Toast.LENGTH_SHORT).show();
                         }
-                    });
-                }
-
+                    }
+                });
 
                 holderItem.subtotals.setText(player.getSubtotals());
                 holderItem.bonus.setText(player.getBonus());

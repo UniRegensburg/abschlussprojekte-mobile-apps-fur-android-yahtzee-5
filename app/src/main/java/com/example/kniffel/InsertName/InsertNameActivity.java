@@ -124,8 +124,7 @@ public class InsertNameActivity extends AppCompatActivity implements NavigationV
         String currentName = editTextForPlayerNames.getText().toString();
         playerNames[counterHowMuchNamesAlreadyEntered] = currentName;
         editTextForPlayerNames.setText("");
-        // warum kann ich hier keinen String aus der xml Datei benutzen? -Q
-        editTextForPlayerNames.setHint("nextPlayer");
+        editTextForPlayerNames.setHint(R.string.next_player_hint);
         counterHowMuchNamesAlreadyEntered++;
 
         if (counterHowMuchNamesAlreadyEntered == playerNames.length) {
