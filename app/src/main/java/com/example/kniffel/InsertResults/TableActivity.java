@@ -35,6 +35,7 @@ public class TableActivity extends AppCompatActivity {
     private int currentPlayer = 0;
     private int rollsLeft = 3;
     private Button rollAgainButton, submitPointsButton;
+    // counter Spieler*13 (felder) wenn so oft eintragen gedrückt wurde dann ist das Spiel vorbei
 
 
     /**
@@ -130,6 +131,9 @@ public class TableActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if(players.get(currentPlayer).getHasInsertetAValue()){
                     players.get(currentPlayer).resetLastItemFlag();
+                    // Methode im Player aufrufen, die checkt ob man schon den oberen teil zusammenrechnen kann
+                    // abfrage ob der letzte Spiler seine letzte Zahl eingetragen hat wenn ja -> Intent zu game over activity
+                    // dabei wird entweder die Spieler Arraylist als Extra mitgegeben oder die Finalen Ergebnisse
                     players.get(currentPlayer).setClickable(false);
                     rollsLeft = 3;
                     if (currentPlayer == playerNames.length-1) {
