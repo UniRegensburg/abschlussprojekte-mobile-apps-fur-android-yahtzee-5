@@ -271,18 +271,19 @@ public class Player {
      * die nicht einen Strich "/" haben. Und Addiert am ende noch den Bonus dazu
      * @return gibt die Endsumme des Spielers zurück
      */
-    public int getTotalSum() {
+    public String getTotalSum() {
+        return totalSum;
+    }
+
+    public void setTotalSum() {
         int i = 0;
         for (String s:clickableValues) {
             if (!s.equals("/")) {
                 i = i + Integer.parseInt(s);
             }
         }
-        return i + Integer.parseInt(bonus);
-    }
-
-    public void setTotalSum(String totalSum) {
-        this.totalSum = totalSum;
+        i = i + Integer.parseInt(bonus);
+        this.totalSum = String.valueOf(i);
     }
 
 

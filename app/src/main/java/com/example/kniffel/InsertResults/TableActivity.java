@@ -199,7 +199,8 @@ public class TableActivity extends AppCompatActivity {
     private void createIntentToCallGameOverActivity() {
         int[] playerFinalPoints = new int[playerNames.length];
         for (int i = 0; i < playerNames.length; i++) {
-            playerFinalPoints[i] = players.get(i).getTotalSum();
+            players.get(i).setTotalSum();
+            playerFinalPoints[i] = Integer.parseInt(players.get(i).getTotalSum());
         }
         Intent intentToStartGameOverActivity = new Intent(TableActivity.this, GameFinishedActivity.class);
         intentToStartGameOverActivity.putExtra(EXTRA_KEY_FINAL_POINTS, playerFinalPoints);
