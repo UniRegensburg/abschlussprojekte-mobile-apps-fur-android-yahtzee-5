@@ -9,22 +9,35 @@ seinen Freunden spielen kann. Das Ziel ist, dass die Spieler eine gute Zeit habe
 digitale Kniffeln genauso viel Spaß macht wie das Analoge.
 
 #### Start-Activity
-Ist zum Start der App zu sehen, und nach der Game Over Activity. Hier kann
-ausgewählt werden mit wie vielen Spielern das Spiel gestartet werden soll. Das Burger Menu
-ist hier wie in allen anderen Activities aufrufbar. Über die Buttons der Spieleranzahl gelangt
-man zur Insert PlayersNames Activity.
+![MainActivity_small](https://user-images.githubusercontent.com/69957145/95483812-faf0f200-098f-11eb-828b-bd62e905e075.png)
+
+Ist zum Start der App zu sehen, und nach der Game Over Activity. Hier kann ausgewählt werden mit wie vielen Spielern das Spiel gestartet werden soll. Das Burger Menu ist hier wie in allen anderen Activities aufrufbar. Über die Buttons der Spieleranzahl gelangt man zur Insert PlayersNames Activity.
+
+#### Burgermenü
+![Burgermenu](https://user-images.githubusercontent.com/69957145/95485795-810e3800-0992-11eb-97aa-449fda511a17.png)
+
+Das Burgermenü ermöglicht die Navigation in verschieden Teilbereiche der App und ist in einigen Activities zu finden, in denen eine Navigtion in andere Bereiche sinnvoll ist.  
 
 #### InsertName-Activity
+![InsertNameActivity](https://user-images.githubusercontent.com/69957145/95484410-bade3f00-0990-11eb-9f07-9690502cbb08.png)
+
 Zum Eintragen der Spielernamen. Leitet nach der Eingabe alle Namen zur Dice-Activity.
 
 #### RollTheDice-Activity
-Zeigt an, welcher Spieler an der Reihe ist und wie oft dieser noch würfeln darf.Zeigt vor dem ersten Schütteln keine Würfel an, danach fünf Würfel, die ausgewählt werden können, je nachdem welche behalten werden sollen oder nochmal gewürfelt werden. Hat einen Buttons. Der Scoreboard-Button führt zur Table Activity.
+![DiceActivity](https://user-images.githubusercontent.com/69957145/95484650-04c72500-0991-11eb-907a-c3986784e23b.png)
+
+Zeigt an, welcher Spieler an der Reihe ist und wie oft dieser noch würfeln darf. Es werden fünf Würfel angzeigt, die ausgewählt werden können, je nachdem welche behalten oder nochmal gewürfelt werden sollen. Mit einem Button können alle beispielsweise falsch ausgewählte Würfel in den "Becher"z  zurückgelegt werden. Gewürfelt wird indem man das Gerät schüttelt, wodurch zudem ein Vibrationseffekt ausgelöst wird. Der Button "Eintragen" ruft die TableActivity auf, in der Ergebnisse angeschaut und eingetragen werden können.
 
 #### Table-Activity
-Hier kann der Spieler sich aussuchen in welches Feld er seine Augen eintragen will. Das angeklickte Feld wird grün hinterlegt. Felder, in denen schon ein Eintrag steht, sind nicht mehr anwählbar genauso wie Felder der Kontrahenten. In dem angeklickten Feld wird im Optimalfall direkt das Ergebnis angezeigt oder ein Strich falls die gewürfelten Augen einen Eintrag nach den Regeln nicht zulassen. Mit dem Würfel-Button kommt man in die Dice Activity zurück und kann, falls man noch einen Wurf zur Verfügung hat, nochmal würfeln. Danach kann der Eintrag über den eintragen Button bestätigt werden. Daraufhin kehrt man in die Dice Activity zurück und der nächste Spieler ist dran. Wenn der letzte Spieler sein letztes Feld gefüllt hat man in die GameOver-Activity.
+![TableActivity](https://user-images.githubusercontent.com/69957145/95485984-badf3e80-0992-11eb-8180-ebf8bc80a6ef.png)
+
+Hier kann der Spieler sich aussuchen in welches Feld er seine Würfelaugen eintragen will. Felder, in denen schon ein Eintrag steht, sind nicht mehr anwählbar genauso wie Felder der Kontrahenten. In dem angeklickten Feld wird im Optimalfall direkt das Ergebnis angezeigt oder ein Strich falls die gewürfelten Augen einen Eintrag nach den Regeln nicht zulassen. Mit dem Würfel-Button kommt man in die Dice Activity zurück und kann, falls man noch einen Wurf zur Verfügung hat, nochmal würfeln. Danach kann der Eintrag über den "Eintragen"-Button bestätigt werden. Daraufhin kehrt man in die Dice Activity zurück und der nächste Spieler ist an der Reihe. Wenn der letzte Spieler sein letztes Feld gefüllt hat, wird die GameOver-Activity aufgerufen, die die Endergebnisse auflistet.
 
 #### GameOver-Activity
-Hier wurde das Ergebnis der Table Activity ausgerechnet und angezeigt wer gewonnen hat. Mit dem Button „Scoreboard“ lässt sich das finale Scoreboard nochmal anzeigen und mit dem Button „Main Menu“ kehrt man in die Start-Activity zurück. Highscore-Activity: Eine simple Liste, die Name, Datum und Score der 10 besten Spieler Ergebnisse anzeigt.
+Hier wird das aus der Table Activity errechnete Endergebnis für jeden Spieler angezeigt.. Mit dem Button „Scoreboard“ lässt sich das finale Scoreboard nochmal anzeigen und mit dem Button „Main Menu“ kehrt man in die Start-Activity zurück. 
+
+#### Highscore-Activity
+Eine simple Liste, die Name, Datum und Score der 10 besten Spieler Ergebnisse anzeigt.
 
 #### Tutorial-Activity
 ViewPager mit LayoutScreens die je einen Screenshot, einen Titel und eine Beschreibung enthalten. Durch wischen kann zu einem anderen LayoutScreen gelangt werden. Am Ende des Tutorials kan das Spiel gestartet werden. 
