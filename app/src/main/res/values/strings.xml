@@ -110,7 +110,11 @@
     <string name="error_message_no_value_inserted">Du musst ein Feld anklicken</string>
     <string name="error_message_clicked_on_false_player">Du ein Feld in DEINER Spalte anklicken</string>
     <string name="error_message_clicked_on_value_that_has_been_entered">Du musst auf ein leeres Feld klicken</string>
+
     <string name="error_message_not_rolled_the_dices">Du musst zuerst würfeln</string>
+
+    <string name="rules_second_title">So wird gespielt:</string>
+
 
 </resources>
 
