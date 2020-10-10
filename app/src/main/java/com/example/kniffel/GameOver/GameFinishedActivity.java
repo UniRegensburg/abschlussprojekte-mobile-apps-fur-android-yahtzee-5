@@ -18,7 +18,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
-import com.example.kniffel.BuildConfig;
+import com.example.kniffel.Highscore.Database.HighscoreDatabaseHelper;
 import com.example.kniffel.Highscore.HighscoreActivity;
 import com.example.kniffel.Highscore.HighscoreItem;
 import com.example.kniffel.Highscore.HighscoreListAdapter;
@@ -36,16 +36,29 @@ import java.util.Objects;
 public class GameFinishedActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     public final float END_SCALE = 0.7f;
 
+    /**
+     * Views für Adapter und Liste in der GameOverActivity
+     */
     private ListView gameOverListView;
     private GameOverListAdapter adapter;
     private ArrayList<Player> gameOverList;
+    private ArrayList<Player> players;
+
+    /**
+     * Views für Adapter und Liste in den Highscores
+     */
+    private HighscoreDatabaseHelper dbHelper;
+    private Button btnStoreWinner;
+    private ListView highscoreListView;
+    private HighscoreListAdapter adapterDB;
+    private ArrayList<HighscoreItem> highscoreList;
     /**
      * Alle Views und Layouts für das Burgermenu
-     * sind die public oder private? -Q
      */
-    DrawerLayout drawerLayout;
-    ConstraintLayout contentView;
-    NavigationView navigationView;
+    private DrawerLayout drawerLayout;
+    private ConstraintLayout contentView;
+    private NavigationView navigationView;
+
 
     /**
      * Views für GameFinished
@@ -59,6 +72,9 @@ public class GameFinishedActivity extends AppCompatActivity implements Navigatio
     private String[] playerNames;
     private int[] endScores;
 
+    /**
+     * Deklaration eines einzelnen Spielers
+     */
     Player player;
 
 
@@ -69,9 +85,11 @@ public class GameFinishedActivity extends AppCompatActivity implements Navigatio
         getExtrasFromIntent();
         initViews();
         initUi();
+        //setupDatabaseAndAdapterForHighscore();
         initMenu();
         initNavigationDrawer();
-        showGameOverList();
+        //showGameOverList();
+        saveWinnerData();
     }
 
     /**
@@ -83,7 +101,6 @@ public class GameFinishedActivity extends AppCompatActivity implements Navigatio
         playerNames = extra.getStringArray(TableActivity.EXTRA_KEY_PLAYER_NAMES);
         endScores = extra.getIntArray(TableActivity.EXTRA_KEY_FINAL_POINTS);
     }
-
 
 
     /**
@@ -115,6 +132,7 @@ public class GameFinishedActivity extends AppCompatActivity implements Navigatio
     private void initViews() {
         btnHighscores = findViewById(R.id.buttonToHighscores);
         btnNewGame = findViewById(R.id.buttonNewGame);
+        btnStoreWinner = findViewById(R.id.addWinnerToHighscores);
         gameOverListView = findViewById(R.id.player_lv);
         gameOverList = new ArrayList<>();
         adapter = new GameOverListAdapter(this, gameOverList);
@@ -136,6 +154,15 @@ public class GameFinishedActivity extends AppCompatActivity implements Navigatio
             }
         });
     }
+    private void startNewGame() {
+        Intent startNewGame = new Intent(this, InsertNumberOfPlayers.class);
+        startActivity(startNewGame);
+    }
+
+    private void showHighscores() {
+        Intent showHighscores = new Intent(this, HighscoreActivity.class);
+        startActivity(showHighscores);
+    }
 
     /**
      * Es wird eine Liste mit allen Spielern erstellt
@@ -144,8 +171,8 @@ public class GameFinishedActivity extends AppCompatActivity implements Navigatio
      * @return eine Arraylist vom Typen Spieler, jeder Spieler erhält einen Namen und die
      * dazugehörige Punktzahl aus dem Spiel
      */
-    private ArrayList<Player> getPlayerList(String[] playerNames,int[] endScores) {
-        ArrayList<Player> players = new ArrayList<Player>();
+    private ArrayList<Player> getPlayerList(String[] playerNames, int[] endScores) {
+        players = new ArrayList<Player>();
         for (int i = 0; i < playerNames.length; i++) {
             player = new Player(playerNames[i], endScores[i]);
             players.add(player);
@@ -159,26 +186,57 @@ public class GameFinishedActivity extends AppCompatActivity implements Navigatio
         adapter.notifyDataSetChanged();
     }
 
-    /**private int getHighestScore(){
+    //Übertragung der Daten in die Datenbank
+    private void setupDatabaseAndAdapterForHighscore() {
+        dbHelper = new HighscoreDatabaseHelper(this);
+        highscoreListView = findViewById(R.id.highscore_list);
+        highscoreList = new ArrayList<>();
+        adapterDB = new HighscoreListAdapter(this, highscoreList);
+        View v = ((LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE)).inflate(R.layout.highscore_list_item, null);
+        highscoreListView.setAdapter(adapter);
+    }
+    /**Der höchste Punktestand des Spiels wird ermittelt*/
+    private int getHighestScore() {
         int highestScore = 0; //größte Zahl
-        for(int i = 0; i < endScores.length; i++) {
-            if(endScores[i] > highestScore) {
+        for (int i = 0; i < endScores.length; i++) {
+            if (endScores[i] > highestScore) {
                 highestScore = endScores[i];
             }
         }
         return highestScore;
-    }*/
-
-    private void startNewGame() {
-        Intent startNewGame = new Intent(this, InsertNumberOfPlayers.class);
-        startActivity(startNewGame);
     }
 
-    private void showHighscores() {
-        Intent showHighscores = new Intent(this, HighscoreActivity.class);
-        startActivity(showHighscores);
+    private void saveWinnerData() {
+        btnStoreWinner.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //getPlayerForDatabase();
+                setIntentToHighscoreActivity();
+            }
+        });
     }
 
+    /** Beim Klicken auf den Button, um den Sieger zu speichern, wird die HighscoreActivity durch diesen Intent gestartet*/
+    private void setIntentToHighscoreActivity(){
+        Intent intentToHighscoreActivity = new Intent(this, HighscoreActivity.class);
+        startActivity(intentToHighscoreActivity);
+    }
+
+
+    /**bester Spieler wird vorbereitet in die Datenbank gespeichert zu werden*/
+    private void getPlayerForDatabase() {
+        for (int i = 0; i < players.size(); i++) {
+            if (players.get(i).getScore() == getHighestScore()) {
+                String name = players.get(i).getName();
+                int score = players.get(i).getScore();
+                HighscoreItem highscoreItem = new HighscoreItem(name, score);
+                highscoreList.add(highscoreItem);
+                dbHelper.addHighscoreToDatabase(highscoreItem);
+                adapterDB.notifyDataSetChanged();
+            }
+        }
+
+    }
 
     //Funktionalität des Burgermenüs
 

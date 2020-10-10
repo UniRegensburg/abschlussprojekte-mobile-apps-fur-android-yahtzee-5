@@ -102,6 +102,7 @@
     <string name="error_message_not_rolled_the_dices">Du musst zuerst würfeln</string>
 
     <string name="rules_second_title">So wird gespielt:</string>
+    <string name="addWinnerToHighscores">Sieger speichern</string>
 
 
 </resources>

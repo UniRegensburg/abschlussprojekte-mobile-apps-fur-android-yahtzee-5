@@ -34,7 +34,22 @@
             android:layout_marginTop="50dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/game_over_tv"/>
+            app:layout_constraintTop_toBottomOf="@id/game_over_tv" />
+
+        <Button
+            android:id="@+id/addWinnerToHighscores"
+            android:layout_width="250dp"
+            android:layout_height="60dp"
+            android:layout_marginBottom="60sp"
+            android:background="@drawable/custom_button4"
+            android:text="@string/addWinnerToHighscores"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/player_lv" />
 
         <Button
             android:id="@+id/buttonNewGame"
@@ -45,12 +60,11 @@
             android:text="@string/play_again"
             android:textAllCaps="false"
             android:textColor="#FFFFFF"
-
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/player_lv" />
+            app:layout_constraintTop_toBottomOf="@+id/addWinnerToHighscores" />
 
         <Button
             android:id="@+id/buttonToHighscores"
@@ -61,7 +75,6 @@
             android:text="@string/highscores"
             android:textAllCaps="false"
             android:textColor="#FFFFFF"
-
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

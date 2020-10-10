@@ -36,9 +36,6 @@ public class HighscoreActivity extends AppCompatActivity implements NavigationVi
 
     public final float END_SCALE = 0.7f;
 
-    private ListView highscoreListView;
-    private HighscoreListAdapter adapter;
-    private ArrayList<HighscoreItem> highscoreList;
 
     /**
      * Alle Views und Layouts für das Burgermenu
@@ -52,17 +49,11 @@ public class HighscoreActivity extends AppCompatActivity implements NavigationVi
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.highscore_list_layout);
-        setupUI();
         initMenu();
         initNavigationDrawer();
     }
 
-    private void setupUI() {
-        highscoreListView = findViewById(R.id.highscore_list);
-        highscoreList = new ArrayList<>();
-        adapter = new HighscoreListAdapter(this, highscoreList);
-        highscoreListView.setAdapter(adapter);
-    }
+
 
     /**
      * Actionbar wird mit Icon erstellt, rechts oben allerdings noch sehr dunkel

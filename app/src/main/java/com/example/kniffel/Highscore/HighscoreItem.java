@@ -6,6 +6,7 @@ import androidx.room.PrimaryKey;
 
 import java.text.DateFormat;
 import java.text.ParseException;
+import java.util.Calendar;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -41,9 +42,9 @@ public class HighscoreItem {
         }
     };
 
-    public HighscoreItem(String playerName, Date date, int score) {
+    public HighscoreItem(String playerName, int score) {
         this.playerName = playerName;
-        this.date = date;
+        this.date = Calendar.getInstance().getTime();
         this.score = score;
     }
 
