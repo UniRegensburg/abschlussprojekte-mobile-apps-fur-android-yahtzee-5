@@ -1,12 +1,16 @@
 package com.example.kniffel.Highscore;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -15,13 +19,18 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import com.example.kniffel.GameOver.GameFinishedActivity;
+import com.example.kniffel.Highscore.Database.HighscoreDatabaseHelper;
 import com.example.kniffel.InsertNumberOfPlayers.InsertNumberOfPlayers;
+import com.example.kniffel.InsertResults.TableActivity;
 import com.example.kniffel.R;
 import com.example.kniffel.Rules.Rules;
 import com.example.kniffel.Tutorial.Tutorial;
 import com.google.android.material.navigation.NavigationView;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Objects;
 
 /**
@@ -35,7 +44,20 @@ import java.util.Objects;
 public class HighscoreActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     public final float END_SCALE = 0.7f;
+    /**
+     * Views für Adapter und Liste in den Highscores
+     */
+    private HighscoreDatabaseHelper dbHelper;
+    private ArrayList<HighscoreItem> highscoreList;
+    private HighscoreListAdapter adapterDB;
+    private ListView highscoreListView;
+    private TextView sortModeStatus;
 
+    private String playerName;
+    private int playerScore;
+
+    private Button sortByName;
+    private Button sortByScore;
 
     /**
      * Alle Views und Layouts für das Burgermenu
@@ -50,8 +72,98 @@ public class HighscoreActivity extends AppCompatActivity implements NavigationVi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.highscore_list_layout);
         initMenu();
+        initUI();
+        initDB();
+        initHighscoreItem();
+        addHighscoreItemFromIntent();
         initNavigationDrawer();
+        sortHighscoresByName();
+        sortHighscoresByScore();
     }
+
+    private void initDB() {
+        dbHelper = new HighscoreDatabaseHelper(this);
+    }
+
+    private void initHighscoreItem() {
+        highscoreList = new ArrayList<>();
+        adapterDB = new HighscoreListAdapter(this, highscoreList);
+        highscoreListView.setAdapter(adapterDB);
+    }
+
+    private void initUI() {
+        highscoreListView = findViewById(R.id.highscore_list);
+        sortModeStatus = findViewById(R.id.sort_mode_status);
+        sortModeStatus.setText("Score");
+        sortByName = findViewById(R.id.buttonSortHighscoresByName);
+        sortByScore = findViewById(R.id.buttonSortHighscoresByScore);
+    }
+
+    private void getExtrasFromIntent() {
+        Bundle extras = getIntent().getExtras();
+        playerName = extras.getString(GameFinishedActivity.EXTRA_KEY_PLAYER_NAME);
+        playerScore = extras.getInt(GameFinishedActivity.EXTRA_KEY_PLAYER_SCORE);
+    }
+
+    private void addHighscoreItemFromIntent(){
+        getExtrasFromIntent();
+        HighscoreItem player = new HighscoreItem(playerName, playerScore);
+        highscoreList.add(player);
+        dbHelper.addHighscoreToDatabase(player);
+        adapterDB.notifyDataSetChanged();
+    }
+
+    private void sortHighscoresByName(){
+        sortByName.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Collections.sort(highscoreList);
+                adapterDB.notifyDataSetChanged();
+            }
+        });
+    }
+
+    private void sortHighscoresByScore(){
+        sortByScore.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Collections.sort(highscoreList, new Comparator<HighscoreItem>() {
+                    @Override
+                    public int compare(HighscoreItem highscoreItem, HighscoreItem t1) {
+                        return highscoreItem.getScore() - t1.getScore();
+                    }
+                });
+                adapterDB.notifyDataSetChanged();
+            }
+        });
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

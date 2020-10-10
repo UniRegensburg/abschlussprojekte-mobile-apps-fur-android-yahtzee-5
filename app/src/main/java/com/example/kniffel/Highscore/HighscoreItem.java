@@ -19,7 +19,7 @@ import java.util.Objects;
  */
 
 @Entity
-public class HighscoreItem {
+public class HighscoreItem implements Comparable<HighscoreItem>{
     @PrimaryKey(autoGenerate = true)
     private Integer uid;
     @ColumnInfo(name = "playerName")
@@ -29,18 +29,7 @@ public class HighscoreItem {
     @ColumnInfo(name = "score")
     private int score;
 
-    /**
-     * Vorgefertigter Comparator, mit dessen Hilfe HighscoreItem-Objekte anhand des erspielten Scores
-     * mit anderen HighscoreItem-Objekten verglichen werden können. Höhre Scores werden vor niedrigere
-     * einsortiert.
-     */
-    public static final Comparator<HighscoreItem> SCORE_COMPARATOR = new Comparator<HighscoreItem>() {
-        @Override
-        public int compare(HighscoreItem o1, HighscoreItem o2) {
-            float scoreDelta = o1.score - o2.score;
-            return scoreDelta > 0 ? -1 : 1;
-        }
-    };
+
 
     public HighscoreItem(String playerName, int score) {
         this.playerName = playerName;
@@ -75,20 +64,24 @@ public class HighscoreItem {
     public void setScore(int score) {
         this.score = score;
     }
+
+
+    /**
+     * Vorgefertigter Comparator, mit dessen Hilfe HighscoreItem-Objekte anhand des erspielten Scores
+     * mit anderen HighscoreItem-Objekten verglichen werden können. Höhre Scores werden vor niedrigere
+     * einsortiert.
+     */
+    public static final Comparator<HighscoreItem> SCORE_COMPARATOR = new Comparator<HighscoreItem>() {
+        @Override
+        public int compare(HighscoreItem o1, HighscoreItem o2) {
+            float scoreDelta = o1.score - o2.score;
+            return scoreDelta > 0 ? -1 : 1;
+        }
+    };
+
+    @Override
+    public int compareTo(HighscoreItem highscoreItem) {
+        return this.getPlayerName().compareTo(highscoreItem.getPlayerName());
+    }
 }
 
-//wird wahrscheinlich doch nicht gebraucht
-/**
- * private GregorianCalendar getDateFromString(String date) {
- * GregorianCalendar cal = new GregorianCalendar();
- * <p>
- * try {
- * DateFormat df = DateFormat.getDateInstance(DateFormat.SHORT, Locale.GERMANY);
- * cal.setTime(Objects.requireNonNull(df.parse(date)));
- * } catch (ParseException e) {
- * //Wenn parsing fehlschlägt benutzt der erstellte GregCalender automatisch das aktuelle Datum
- * e.printStackTrace();
- * }
- * return cal;
- * }
- */

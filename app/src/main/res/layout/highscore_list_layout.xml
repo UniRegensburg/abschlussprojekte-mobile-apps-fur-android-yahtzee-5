@@ -8,9 +8,9 @@
     tools:openDrawer="start">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraint_highscores"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/constraint_highscores"
         android:background="@color/white">
 
         <TextView
@@ -23,8 +23,53 @@
             android:textSize="70sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            />
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/sort_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/sort_mode_hint"
+            android:textAlignment="textEnd"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/highscore_text" />
+
+        <TextView
+            android:id="@+id/sort_mode_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/sort_tv"
+            app:layout_constraintTop_toBottomOf="@+id/highscore_text" />
+        <Button
+            android:id="@+id/buttonSortHighscoresByName"
+            android:layout_width="250dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/custom_button4"
+            android:text="@string/button_sort_by_name"
+            android:textAllCaps="true"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/sort_mode_status" />
+
+        <Button
+            android:id="@+id/buttonSortHighscoresByScore"
+            android:layout_width="250dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/custom_button4"
+            android:text="@string/button_sort_by_score"
+            android:textAllCaps="true"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/buttonSortHighscoresByName" />
 
         <ListView
             android:id="@+id/highscore_list"
@@ -32,20 +77,19 @@
             android:layout_height="0dp"
             android:layout_margin="16dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/highscore_text"
-            />
+            app:layout_constraintTop_toBottomOf="@+id/buttonSortHighscoresByScore" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/navigation_view"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:background="@drawable/background"
-        android:theme="@style/navigationTheme"
         android:layout_gravity="start"
+        android:background="@drawable/background"
         android:fitsSystemWindows="true"
+        android:theme="@style/navigationTheme"
         app:headerLayout="@layout/burgermenu_header"
-        app:menu="@menu/burgermenu_menu"/>
+        app:menu="@menu/burgermenu_menu" />
 
 </androidx.drawerlayout.widget.DrawerLayout>
 
