@@ -15,6 +15,7 @@ import com.example.kniffel.InsertResults.Player;
 import com.example.kniffel.R;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class GameOverListAdapter extends ArrayAdapter<Player> {
     private ArrayList<Player> gameOverList;
@@ -29,20 +30,22 @@ public class GameOverListAdapter extends ArrayAdapter<Player> {
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-        //return super.getView(position, convertView, parent);
         View v = convertView;
 
         if (v == null) {
-            v = LayoutInflater.from(context).inflate(R.layout.game_over_list_item, null);
-        }
-        Player player = gameOverList.get(position);
-        if (player != null) {
-            TextView tvGameOverPlayerName = v.findViewById(R.id.game_over_player_name);
-            TextView tvGameOverScore = v.findViewById(R.id.game_over_score);
+            LayoutInflater vi = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            v = vi.inflate(R.layout.game_over_list_item, null);
 
-            tvGameOverPlayerName.setText(player.getName());
-            tvGameOverScore.setText(player.getScore());
         }
+        TextView tvGameOverPlayerName = v.findViewById(R.id.game_over_player_name);
+        TextView tvGameOverScore = v.findViewById(R.id.game_over_score);
+
+        Player player = gameOverList.get(position);
+
+        tvGameOverPlayerName.setText(player.getName());
+        tvGameOverScore.setText(String.valueOf(player.getScore()));
         return v;
     }
+
+
 }
