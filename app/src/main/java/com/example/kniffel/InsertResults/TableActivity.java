@@ -160,8 +160,9 @@ public class TableActivity extends AppCompatActivity {
                     players.get(currentPlayer).setSubtotals();
                     if(roundCounter == numbersOfRoundsThatHaveToBePlayed){
                         createIntentToCallGameOverActivity();
+                    } else {
+                        prepareTableActivityForNextPlayer();
                     }
-                    prepareTableActivityForNextPlayer();
                 } else {
                     Toast.makeText(TableActivity.this, R.string.error_message_no_value_inserted, Toast.LENGTH_SHORT).show();
                 }
