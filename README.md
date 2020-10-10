@@ -4,27 +4,27 @@ Die App soll es ermöglichen am Handy Kniffel zu spielen. Die App ermöglicht es
 digitalen Spiels ist es, dass man das Spiel praktisch immer bei sich hat und spontan mit seinen Freunden spielen kann. Das Ziel ist, dass die Spieler eine gute Zeit haben und das digitale Kniffeln genauso viel Spaß macht wie das Analoge.
 
 #### Start-Activity
-![MainActivity_small](https://user-images.githubusercontent.com/69957145/95483812-faf0f200-098f-11eb-828b-bd62e905e075.png)
+![MainActivity](https://user-images.githubusercontent.com/69957145/95654465-6d80df80-0b00-11eb-83c4-865ce869da7c.png)
 
 Hier kann ausgewählt werden mit wie vielen Spielern das Spiel gestartet werden soll. Das Burger Menu ist hier wie in allen einigen anderen Activities aufrufbar. Über die Buttons der Spieleranzahl gelangt man zur InsertPlayersNamesActivity.
 
 #### Burgermenü
-![Burgermenu](https://user-images.githubusercontent.com/69957145/95485795-810e3800-0992-11eb-97aa-449fda511a17.png)
+![Burgermenü](https://user-images.githubusercontent.com/69957145/95654360-cb60f780-0aff-11eb-9177-f564133e329f.png)
 
 Das Burgermenü ermöglicht die Navigation in verschieden Teilbereiche der App und ist in einigen Activities zu finden, in denen eine Navigtion in andere Bereiche sinnvoll ist.  
 
 #### InsertName-Activity
-![InsertNameActivity](https://user-images.githubusercontent.com/69957145/95484410-bade3f00-0990-11eb-9f07-9690502cbb08.png)
+![InsertName](https://user-images.githubusercontent.com/69957145/95654404-0ebb6600-0b00-11eb-8ffe-fc987a2929b2.png)
 
 Hier können die Namen der Spieler eingetragen werden. Nach der Eingabe werden alle Namen zur Dice-Activity weitergeleitet.
 
 #### RollTheDice-Activity
-![DiceActivity](https://user-images.githubusercontent.com/69957145/95484650-04c72500-0991-11eb-907a-c3986784e23b.png)
+![DiceActivitySelected](https://user-images.githubusercontent.com/69957145/95654429-34486f80-0b00-11eb-9621-e50e3a991f33.png
 
 Zeigt an, welcher Spieler an der Reihe ist und wie oft dieser noch würfeln darf. Es werden fünf Würfel angzeigt, die ausgewählt werden können, je nachdem welche behalten oder nochmal gewürfelt werden sollen. Mit einem Button können alle beispielsweise falsch ausgewählte Würfel in den "Becher"z  zurückgelegt werden. Gewürfelt wird indem man das Gerät schüttelt, wodurch zudem ein Vibrationseffekt ausgelöst wird. Der Button "Eintragen" ruft die TableActivity auf, in der Ergebnisse angeschaut und eingetragen werden können.
 
 #### Table-Activity
-![TableActivity](https://user-images.githubusercontent.com/69957145/95485984-badf3e80-0992-11eb-8180-ebf8bc80a6ef.png)
+![TableResults](https://user-images.githubusercontent.com/69957145/95654384-ef243d80-0aff-11eb-9fd9-76b75a42e2f6.png)
 
 Hier kann der Spieler sich aussuchen in welches Feld er seine Würfelaugen eintragen will. Felder, in denen schon ein Eintrag steht, sind nicht mehr anwählbar genauso wie Felder der Kontrahenten. In dem angeklickten Feld wird im Optimalfall direkt das Ergebnis angezeigt oder ein Strich falls die gewürfelten Augen einen Eintrag nach den Regeln nicht zulassen. Mit dem Würfel-Button kommt man in die Dice Activity zurück und kann, falls man noch einen Wurf zur Verfügung hat, nochmal würfeln. Danach kann der Eintrag über den "Eintragen"-Button bestätigt werden. Daraufhin kehrt man in die Dice Activity zurück und der nächste Spieler ist an der Reihe. Wenn der letzte Spieler sein letztes Feld gefüllt hat, wird die GameOver-Activity aufgerufen, die die Endergebnisse auflistet.
 
@@ -35,12 +35,14 @@ Hier wird das aus der Table Activity errechnete Endergebnis für jeden Spieler a
 Eine simple Liste, die Name, Datum und Score der 10 besten Spieler Ergebnisse anzeigt.
 
 #### Tutorial-Activity
+![Tutorial](https://user-images.githubusercontent.com/69957145/95654509-ae78f400-0b00-11eb-9c5a-635e2b5238dd.png)
 ViewPager mit LayoutScreens die je einen Screenshot, einen Titel und eine Beschreibung enthalten. Durch wischen kann zu einem anderen LayoutScreen gelangt werden. Am Ende des Tutorials kan das Spiel gestartet werden. 
 
 #### PlayingRules-Activity
+![Rules](https://user-images.githubusercontent.com/69957145/95654448-50e4a780-0b00-11eb-93c6-eb6a3e98cf8a.png)
+
 Scrollbare Auflistung der Spielregeln
 
-[Beschreiben Sie hier in einer kurzen Zusammenfassung Hintergrund, Ziele und Funktionen Ihrer Anwendung. Fügen Sie mehrere sinnvollen Screenshot ein, die den Funktionsumfang der Anwendungdemonstrieren. Verlinken Sie zum Abschluss des Projekts ein kurzes Video, in dem Sie die wesentlichen Nutzungsszenarien Ihrer Anwendung demonstrieren.]
 
 ## Team
 
@@ -62,7 +64,6 @@ Quentin Vijverberg – quentin-vijverberg@gmx.de
 - Spiellogik 
 - Anzeigen + Eintragen der Ergebnisse in TableActivity
 
-[Beschreiben Sie hier die einzelnen Teammitglieder mit Namen, E-Mail-Adresse, Github-Nutzer und Foto. Nennen Sie mindestens eine Komponenten der Anwendung, die in wesentlichen Teilen vom jeweiligen Teammitglied entwickelt wurde.]
 
 ## Guidelines zur Nutzung dieses Repositorys
 
