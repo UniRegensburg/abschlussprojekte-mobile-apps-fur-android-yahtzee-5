@@ -16,6 +16,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import com.example.kniffel.GameOver.GameFinishedActivity;
 import com.example.kniffel.Highscore.HighscoreActivity;
 import com.example.kniffel.InsertNumberOfPlayers.InsertNumberOfPlayers;
 import com.example.kniffel.InsertResults.TableActivity;
@@ -205,7 +206,8 @@ public class InsertNameActivity extends AppCompatActivity implements NavigationV
                 startActivity(intentToStartRulesActivity);
                 break;
             case R.id.end_game_burgermenu_item:
-                //
+                Intent intentToGameOverActivity = new Intent(this, GameFinishedActivity.class);
+                startActivity(intentToGameOverActivity);
                 break;
             case R.id.start_new_game_burgermenu_item:
                 Intent intentToStartNewGame = new Intent(this, InsertNumberOfPlayers.class);

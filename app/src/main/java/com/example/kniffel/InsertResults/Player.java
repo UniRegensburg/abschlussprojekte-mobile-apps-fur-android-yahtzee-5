@@ -32,6 +32,11 @@ public class Player {
      */
     private int runningIndexOfLastItemChanged = -1;
 
+    /**
+    Punkteanzahl am Ende eines Spiels
+     */
+    private int score;
+
 
     public Player(String name){
         this.name = name;
@@ -41,6 +46,10 @@ public class Player {
         subtotals ="";
         bonus ="";
         totalSum ="";
+    }
+    public Player(String name, int score){
+        this.name = name;
+        this.score = score;
     }
 
     /**
@@ -286,5 +295,11 @@ public class Player {
         this.totalSum = String.valueOf(i);
     }
 
+    public int getScore() {
+        return score;
+    }
 
+    public void setScore(int score) {
+        this.score = score;
+    }
 }

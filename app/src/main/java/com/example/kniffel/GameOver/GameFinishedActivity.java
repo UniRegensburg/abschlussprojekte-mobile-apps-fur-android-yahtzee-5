@@ -1,12 +1,15 @@
 package com.example.kniffel.GameOver;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ListView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -15,20 +18,27 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import com.example.kniffel.BuildConfig;
 import com.example.kniffel.Highscore.HighscoreActivity;
+import com.example.kniffel.Highscore.HighscoreItem;
+import com.example.kniffel.Highscore.HighscoreListAdapter;
 import com.example.kniffel.InsertNumberOfPlayers.InsertNumberOfPlayers;
+import com.example.kniffel.InsertResults.Player;
 import com.example.kniffel.InsertResults.TableActivity;
 import com.example.kniffel.R;
 import com.example.kniffel.Rules.Rules;
 import com.example.kniffel.Tutorial.Tutorial;
 import com.google.android.material.navigation.NavigationView;
 
+import java.util.ArrayList;
 import java.util.Objects;
 
 public class GameFinishedActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     public final float END_SCALE = 0.7f;
 
-
+    private ListView gameOverListView;
+    private GameOverListAdapter adapter;
+    private ArrayList<Player> gameOverList;
     /**
      * Alle Views und Layouts für das Burgermenu
      * sind die public oder private? -Q
@@ -49,6 +59,8 @@ public class GameFinishedActivity extends AppCompatActivity implements Navigatio
     private String[] playerNames;
     private int[] endScores;
 
+    Player player;
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -59,6 +71,7 @@ public class GameFinishedActivity extends AppCompatActivity implements Navigatio
         initUi();
         initMenu();
         initNavigationDrawer();
+        showGameOverList();
     }
 
     /**
@@ -66,9 +79,12 @@ public class GameFinishedActivity extends AppCompatActivity implements Navigatio
      */
     private void getExtrasFromIntent() {
         Bundle extra = getIntent().getExtras();
+        assert extra != null;
         playerNames = extra.getStringArray(TableActivity.EXTRA_KEY_PLAYER_NAMES);
         endScores = extra.getIntArray(TableActivity.EXTRA_KEY_FINAL_POINTS);
     }
+
+
 
     /**
      * Actionbar wird mit Icon erstellt, rechts oben allerdings noch sehr dunkel
@@ -99,6 +115,11 @@ public class GameFinishedActivity extends AppCompatActivity implements Navigatio
     private void initViews() {
         btnHighscores = findViewById(R.id.buttonToHighscores);
         btnNewGame = findViewById(R.id.buttonNewGame);
+        gameOverListView = findViewById(R.id.player_lv);
+        gameOverList = new ArrayList<>();
+        adapter = new GameOverListAdapter(this, gameOverList);
+        View v = ((LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE)).inflate(R.layout.game_over_list_item, null);
+        gameOverListView.setAdapter(adapter);
     }
 
     private void initUi() {
@@ -115,6 +136,38 @@ public class GameFinishedActivity extends AppCompatActivity implements Navigatio
             }
         });
     }
+
+    /**
+     * Es wird eine Liste mit allen Spielern erstellt
+     *
+     * @param playerNames ist das String Array aus dem Intent
+     * @return eine Arraylist vom Typen Spieler, jeder Spieler erhält einen Namen und die
+     * dazugehörige Punktzahl aus dem Spiel
+     */
+    private ArrayList<Player> getPlayerList(String[] playerNames,int[] endScores) {
+        ArrayList<Player> players = new ArrayList<Player>();
+        for (int i = 0; i < playerNames.length; i++) {
+            player = new Player(playerNames[i], endScores[i]);
+            players.add(player);
+        }
+        return players;
+    }
+
+    private void showGameOverList() {
+        ArrayList<Player> players = getPlayerList(playerNames, endScores);
+        gameOverList.addAll(players);
+        adapter.notifyDataSetChanged();
+    }
+
+    /**private int getHighestScore(){
+        int highestScore = 0; //größte Zahl
+        for(int i = 0; i < endScores.length; i++) {
+            if(endScores[i] > highestScore) {
+                highestScore = endScores[i];
+            }
+        }
+        return highestScore;
+    }*/
 
     private void startNewGame() {
         Intent startNewGame = new Intent(this, InsertNumberOfPlayers.class);
