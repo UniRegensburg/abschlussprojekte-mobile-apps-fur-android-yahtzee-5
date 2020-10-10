@@ -70,12 +70,12 @@ public class Tutorial extends AppCompatActivity {
      * ListScreen befüllen
      */
     private void fillScreenList() {
-        mList.add(new ScreenItem(R.string.tutorial_title_menu_player, R.string.tutorial_description_menu_player, R.drawable.tutorial_main));
-        mList.add(new ScreenItem(R.string.tutorial_title_burger_menu, R.string.tutorial_description_burger_menu, R.drawable.tutorial_burger_menu));
-        mList.add(new ScreenItem(R.string.tutorial_title_player_name, R.string.tutorial_description_player_name, R.drawable.tutorial_insert_name));
-        mList.add(new ScreenItem(R.string.tutorial_title_dice_activity, R.string.tutorial_description_dice_activity, R.drawable.tutorial_dice_activity));
-        mList.add(new ScreenItem(R.string.tutorial_title_dice_activity_selected, R.string.tutorial_description_dice_activity_selected, R.drawable.tutorial_dice_acrtivity_selected));
-        mList.add(new ScreenItem(R.string.tutorial_table_results, R.string.tutorial_description_table_results, R.drawable.tutorial_table_results));
+        mList.add(new ScreenItem( R.drawable.tutorial_main));
+        mList.add(new ScreenItem( R.drawable.tutorial_burger_menu));
+        mList.add(new ScreenItem( R.drawable.tutorial_insert_name));
+        mList.add(new ScreenItem(R.drawable.tutorial_dice_activity));
+        mList.add(new ScreenItem( R.drawable.tutorial_dice_acrtivity_selected));
+        mList.add(new ScreenItem( R.drawable.tutorial_table_results));
     }
 
     private void initButton() {
