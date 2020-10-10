@@ -66,10 +66,10 @@ public class DiceCheckerHelper {
         if (diceEyeNumber[1] == diceEyeNumber[2] && diceEyeNumber[1] == diceEyeNumber[4]) {
             return valueOf(countDiceEyeNumberTogether(diceEyeNumber));
         }
-        if (diceEyeNumber[1] == diceEyeNumber[3] && diceEyeNumber[2] == diceEyeNumber[4]) {
+        if (diceEyeNumber[1] == diceEyeNumber[3] && diceEyeNumber[1] == diceEyeNumber[4]) {
             return valueOf(countDiceEyeNumberTogether(diceEyeNumber));
         }
-        if (diceEyeNumber[2] == diceEyeNumber[3] && diceEyeNumber[1] == diceEyeNumber[4]) {
+        if (diceEyeNumber[2] == diceEyeNumber[3] && diceEyeNumber[2] == diceEyeNumber[4]) {
             return valueOf(countDiceEyeNumberTogether(diceEyeNumber));
         }
         return "/";
@@ -90,7 +90,7 @@ public class DiceCheckerHelper {
         if (diceEyeNumber[0] == diceEyeNumber[1] && diceEyeNumber[0] == diceEyeNumber[3] && diceEyeNumber[0] == diceEyeNumber[4]) {
             return valueOf(countDiceEyeNumberTogether(diceEyeNumber));
         }
-        if (diceEyeNumber[0] == diceEyeNumber[2] && diceEyeNumber[1] == diceEyeNumber[3] && diceEyeNumber[1] == diceEyeNumber[4]) {
+        if (diceEyeNumber[0] == diceEyeNumber[2] && diceEyeNumber[0] == diceEyeNumber[3] && diceEyeNumber[0] == diceEyeNumber[4]) {
             return valueOf(countDiceEyeNumberTogether(diceEyeNumber));
         }
         if (diceEyeNumber[1] == diceEyeNumber[2] && diceEyeNumber[1] == diceEyeNumber[3] && diceEyeNumber[1] == diceEyeNumber[4]) {
