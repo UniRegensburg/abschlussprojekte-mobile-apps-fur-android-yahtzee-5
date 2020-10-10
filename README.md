@@ -19,7 +19,7 @@ Das Burgermenü ermöglicht die Navigation in verschieden Teilbereiche der App u
 Hier können die Namen der Spieler eingetragen werden. Nach der Eingabe werden alle Namen zur Dice-Activity weitergeleitet.
 
 #### RollTheDice-Activity
-![DiceActivitySelected](https://user-images.githubusercontent.com/69957145/95654429-34486f80-0b00-11eb-9621-e50e3a991f33.png
+![DiceActivitySelected](https://user-images.githubusercontent.com/69957145/95654560-0b74aa00-0b01-11eb-9253-8e8a738ce1cb.png)
 
 Zeigt an, welcher Spieler an der Reihe ist und wie oft dieser noch würfeln darf. Es werden fünf Würfel angzeigt, die ausgewählt werden können, je nachdem welche behalten oder nochmal gewürfelt werden sollen. Mit einem Button können alle beispielsweise falsch ausgewählte Würfel in den "Becher"z  zurückgelegt werden. Gewürfelt wird indem man das Gerät schüttelt, wodurch zudem ein Vibrationseffekt ausgelöst wird. Der Button "Eintragen" ruft die TableActivity auf, in der Ergebnisse angeschaut und eingetragen werden können.
 
@@ -36,6 +36,7 @@ Eine simple Liste, die Name, Datum und Score der 10 besten Spieler Ergebnisse an
 
 #### Tutorial-Activity
 ![Tutorial](https://user-images.githubusercontent.com/69957145/95654509-ae78f400-0b00-11eb-9c5a-635e2b5238dd.png)
+
 ViewPager mit LayoutScreens die je einen Screenshot, einen Titel und eine Beschreibung enthalten. Durch wischen kann zu einem anderen LayoutScreen gelangt werden. Am Ende des Tutorials kan das Spiel gestartet werden. 
 
 #### PlayingRules-Activity
