@@ -30,11 +30,7 @@ public class TutorialViewPagerAdapter extends PagerAdapter {
         View layoutScreen = inflater.inflate(R.layout.layout_screen_tutorial, null);
 
         ImageView imgSlide = layoutScreen.findViewById(R.id.tutorial_image);
-        TextView title = layoutScreen.findViewById(R.id.tutorial_title);
-        TextView description = layoutScreen.findViewById(R.id.tutorial_description);
 
-        title.setText(mListScreen.get(position).getTitle());
-        description.setText(mListScreen.get(position).getDescription());
         imgSlide.setImageResource(mListScreen.get(position).getScreenImage());
 
         container.addView(layoutScreen);
