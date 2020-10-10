@@ -237,7 +237,7 @@ public class Player {
     public void setSubtotals() {
         int counter = 0;
         boolean oneBoxStillEmty = false;
-        for (int i = 0; i < 5 ; i++){
+        for (int i = 0; i < 6 ; i++){
             if (clickableValues[i].equals("")){
                 oneBoxStillEmty = true;
             } else {

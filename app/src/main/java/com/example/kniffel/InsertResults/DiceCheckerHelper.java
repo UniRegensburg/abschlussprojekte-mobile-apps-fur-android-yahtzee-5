@@ -157,6 +157,7 @@ public class DiceCheckerHelper {
      * (1,1,2,3,4) an Stelle zwei oder drei eine 2 stehen usw. Falls eine 2 an der ersten Stelle steht, muss an Stelle zwei
      * oder drei eine 3 stehen usw. (1,2,3,4,5) ist die einzige Möglichkeit für eine 2,3,4,5 Kombination mit einer 1 vorne
      * und diese muss nicht von der zweiten Abfrage erkannt werden, da diese in der ersten schon als kleine Straße erkannt wird.
+     * letzte if Abfrage für (1,3,4,5,6) oder (3,3,4,5,6) oder ähmliche kleine Straßen
      *
      * @param diceEyeNumber ist das Integer Array in dem die fünf aktuellen Würfelaugen stehen
      * @return ist 30, wenn eine kleine Straße gewürfelt wurde sonst ein Strich
@@ -176,6 +177,15 @@ public class DiceCheckerHelper {
             if (diceEyeNumber[1] == 3 || diceEyeNumber[2] == 3) {
                 if (diceEyeNumber[2] == 4 || diceEyeNumber[3] == 4) {
                     if (diceEyeNumber[3] == 5 || diceEyeNumber[4] == 5) {
+                        return "30";
+                    }
+                }
+            }
+        }
+        if (diceEyeNumber[0] == 3 || diceEyeNumber[1] == 3) {
+            if (diceEyeNumber[1] ==  4 || diceEyeNumber[2] == 4) {
+                if (diceEyeNumber[2] == 5 || diceEyeNumber[3] == 5) {
+                    if (diceEyeNumber[4] == 6) {
                         return "30";
                     }
                 }
