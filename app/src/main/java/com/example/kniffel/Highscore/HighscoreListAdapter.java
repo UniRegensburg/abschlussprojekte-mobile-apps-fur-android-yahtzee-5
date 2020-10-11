@@ -35,7 +35,9 @@ public class HighscoreListAdapter extends ArrayAdapter<HighscoreItem> {
         View v = convertView;
 
         if (v == null) {
-            v = LayoutInflater.from(context).inflate(R.layout.highscore_list_item, null);
+            LayoutInflater vi = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            v = vi.inflate(R.layout.highscore_list_item, null);
+
         }
         HighscoreItem highscoreItem = highscoreList.get(position);
         if (highscoreItem != null) {
@@ -45,7 +47,7 @@ public class HighscoreListAdapter extends ArrayAdapter<HighscoreItem> {
 
             tvHighscoreItemPlayerName.setText(highscoreItem.getPlayerName());
             tvHighscoreItemDate.setText(highscoreItem.getFormattedDate());
-            tvHighscoreItemScore.setText(highscoreItem.getScore());
+            tvHighscoreItemScore.setText(String.valueOf(highscoreItem.getScore()));
         }
         return v;
     }
