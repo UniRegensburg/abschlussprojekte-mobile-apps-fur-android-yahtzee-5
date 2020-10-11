@@ -45,7 +45,7 @@ public class HighscoreDatabaseHelper {
      * Datenbank zu speichern.
      */
     public void addHighscoreToDatabase(HighscoreItem highscoreItem) {
-        AddHighscoreItem item = new AddHighscoreItem(highscoreItem);
+        AddHighscoreItem item = new AddHighscoreItem(db, highscoreItem);
         Executors.newSingleThreadExecutor().submit(item);
 
     }
@@ -55,9 +55,11 @@ public class HighscoreDatabaseHelper {
      * Datenbankeintrags. Das zuspeichernde Objekt wird dem Task im Konstruktor übergeben.
      */
     private class AddHighscoreItem implements Runnable {
+        private HighscoreDatabase db;
         private HighscoreItem highscoreItem;
 
-        public AddHighscoreItem(HighscoreItem highscoreItem) {
+        public AddHighscoreItem(HighscoreDatabase db, HighscoreItem highscoreItem) {
+            this.db = db;
             this.highscoreItem = highscoreItem;
         }
 

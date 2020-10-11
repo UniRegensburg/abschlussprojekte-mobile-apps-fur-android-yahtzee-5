@@ -68,11 +68,12 @@ public class GameFinishedActivity extends AppCompatActivity implements Navigatio
      */
     private String[] playerNames;
     private int[] endScores;
-
+    private Bundle extra;
     /**
      * Deklaration eines einzelnen Spielers
      */
-    Player player;
+    private Player player;
+    private int endedGame = 0;
 
 
     @Override
@@ -92,10 +93,15 @@ public class GameFinishedActivity extends AppCompatActivity implements Navigatio
      * weißt playerNames, endScores aus den Daten des Intents zu
      */
     private void getExtrasFromIntent() {
-        Bundle extra = getIntent().getExtras();
-        assert extra != null;
-        playerNames = extra.getStringArray(TableActivity.EXTRA_KEY_PLAYER_NAMES);
-        endScores = extra.getIntArray(TableActivity.EXTRA_KEY_FINAL_POINTS);
+        extra = getIntent().getExtras();
+        if(extra != null){
+            playerNames = extra.getStringArray(TableActivity.EXTRA_KEY_PLAYER_NAMES);
+            endScores = extra.getIntArray(TableActivity.EXTRA_KEY_FINAL_POINTS);
+        }else{
+            btnStoreWinner = findViewById(R.id.addWinnerToHighscores);
+            btnStoreWinner.setEnabled(false);
+        }
+
     }
 
 
@@ -177,21 +183,31 @@ public class GameFinishedActivity extends AppCompatActivity implements Navigatio
     }
 
     private void showGameOverList() {
-        ArrayList<Player> players = getPlayerList(playerNames, endScores);
-        gameOverList.addAll(players);
-        adapter.notifyDataSetChanged();
+        if(extra != null){
+            ArrayList<Player> players = getPlayerList(playerNames, endScores);
+            gameOverList.addAll(players);
+            adapter.notifyDataSetChanged();
+        }else{
+            Player player = new Player ("Das Spiel wurde leider abgebrochen :", endedGame);
+            gameOverList.add(player);
+            adapter.notifyDataSetChanged();
+        }
+
     }
 
 
     /**Der höchste Punktestand des Spiels wird ermittelt*/
     private int getHighestScore() {
-        int highestScore = 0; //größte Zahl
-        for (int i = 0; i < endScores.length; i++) {
-            if (endScores[i] > highestScore) {
-                highestScore = endScores[i];
+        if(extra != null){
+            int highestScore = 0; //größte Zahl
+            for (int i = 0; i < endScores.length; i++) {
+                if (endScores[i] > highestScore) {
+                    highestScore = endScores[i];
+                }
             }
+            return highestScore;
         }
-        return highestScore;
+       return endedGame;
     }
 
     /**bester Spieler wird vorbereitet in die Datenbank gespeichert zu werden*/

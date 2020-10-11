@@ -75,7 +75,7 @@ public class HighscoreActivity extends AppCompatActivity implements NavigationVi
         initUI();
         initDB();
         initHighscoreItem();
-        addHighscoreItemFromIntent();
+        getExtrasFromIntent();
         initNavigationDrawer();
         sortHighscoresByName();
         sortHighscoresByScore();
@@ -101,12 +101,14 @@ public class HighscoreActivity extends AppCompatActivity implements NavigationVi
 
     private void getExtrasFromIntent() {
         Bundle extras = getIntent().getExtras();
-        playerName = extras.getString(GameFinishedActivity.EXTRA_KEY_PLAYER_NAME);
-        playerScore = extras.getInt(GameFinishedActivity.EXTRA_KEY_PLAYER_SCORE);
+        if(extras != null) {
+            playerName = extras.getString(GameFinishedActivity.EXTRA_KEY_PLAYER_NAME);
+            playerScore = extras.getInt(GameFinishedActivity.EXTRA_KEY_PLAYER_SCORE);
+            addHighscoreItemFromIntent();
+        }
     }
 
     private void addHighscoreItemFromIntent(){
-        getExtrasFromIntent();
         HighscoreItem player = new HighscoreItem(playerName, playerScore);
         highscoreList.add(player);
         dbHelper.addHighscoreToDatabase(player);
@@ -133,6 +135,7 @@ public class HighscoreActivity extends AppCompatActivity implements NavigationVi
                         return highscoreItem.getScore() - t1.getScore();
                     }
                 });
+                sortModeStatus.setText("Alphabet");
                 adapterDB.notifyDataSetChanged();
             }
         });
