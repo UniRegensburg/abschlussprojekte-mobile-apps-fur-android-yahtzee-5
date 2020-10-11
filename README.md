@@ -49,8 +49,8 @@ Scrollbare Auflistung der Spielregeln
 
 Franka Heinlein – Franka-Heinlein@stud.uni-regensburg.de
 - Datenbank 
-- Burger-Menü
-- Highscore-Liste mit eigenem Adapter
+- Burger-Menü + Splashscreen
+- Highscore-Liste mit eigenem Adapter + eigener Adapter In GameFinishedActivity
 - responsives Layout mittels ContraintLayout
 
 Lena Germiller – Lena-Germiller@stud.uni-regensburg.de
