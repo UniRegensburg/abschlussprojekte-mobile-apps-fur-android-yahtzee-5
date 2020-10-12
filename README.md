@@ -31,9 +31,13 @@ Zeigt an, welcher Spieler an der Reihe ist und wie oft dieser noch würfeln darf
 Hier kann der Spieler sich aussuchen in welches Feld er seine Würfelaugen eintragen will. Felder, in denen schon ein Eintrag steht, sind nicht mehr anwählbar genauso wie Felder der Kontrahenten. In dem angeklickten Feld wird im Optimalfall direkt das Ergebnis angezeigt oder ein Strich falls die gewürfelten Augen einen Eintrag nach den Regeln nicht zulassen. Mit dem Würfel-Button kommt man in die Dice Activity zurück und kann, falls man noch einen Wurf zur Verfügung hat, nochmal würfeln. Danach kann der Eintrag über den "Eintragen"-Button bestätigt werden. Daraufhin kehrt man in die Dice Activity zurück und der nächste Spieler ist an der Reihe. Wenn der letzte Spieler sein letztes Feld gefüllt hat, wird die GameOver-Activity aufgerufen, die die Endergebnisse auflistet.
 
 #### GameOver-Activity
+![GameOverActivity](https://user-images.githubusercontent.com/69957145/95774862-8ab0dc00-0cc1-11eb-943d-b8a14b383fd5.png)
+
 Hier wird das aus der Table Activity errechnete Endergebnis für jeden Spieler angezeigt. Die Activity enthält zwei Buttons "nochmal spielen" und "Highscores", welche den Spielern zu den entsprechenden Activities leiten.
 
 #### Highscore-Activity
+![HighscoreActivity](https://user-images.githubusercontent.com/69957145/95775071-f2672700-0cc1-11eb-875d-047e5b78f68e.png)
+
 Eine simple Liste, die Name, Datum und Score der 10 besten Spieler Ergebnisse anzeigt.
 
 #### Tutorial-Activity
