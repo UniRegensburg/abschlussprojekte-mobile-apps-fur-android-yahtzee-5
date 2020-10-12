@@ -2,6 +2,7 @@
 
 Die App soll es ermöglichen am Handy Kniffel zu spielen. Die App ermöglicht es jederzeit und überall zu kniffeln, da Würfel, Würfelbecher und Block in der App integriert sind. Da sich Kniffel nicht an eine bestimmte Zielgruppe richtet, kann auch jeder mit einem Handy (Android-Betriebssystem) diese App herunterladen und Kniffel spielen. Der Vorteil des
 digitalen Spiels ist es, dass man das Spiel praktisch immer bei sich hat und spontan mit seinen Freunden spielen kann. Das Ziel ist, dass die Spieler eine gute Zeit haben und das digitale Kniffeln genauso viel Spaß macht wie das Analoge.
+
 Einen Überblick über Funktionalitäten und Umfang der App erhalten Sie in folgenden Demo-Video: https://drive.google.com/file/d/1XjE4knr07Mx0Xlu9wu_31rcLq53yZ5Ro/view?usp=sharing
 
 #### Start-Activity
