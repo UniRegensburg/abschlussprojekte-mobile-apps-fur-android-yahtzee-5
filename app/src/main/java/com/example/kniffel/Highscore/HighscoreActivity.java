@@ -98,7 +98,17 @@ public class HighscoreActivity extends AppCompatActivity implements NavigationVi
 
     @Override
     public void onHighscoreQueryResult(List<HighscoreItem> highscoreList) {
-        this.highscoreList.addAll(highscoreList);
+        for (HighscoreItem a: highscoreList){
+            boolean flag = true;
+            for (HighscoreItem b: this.highscoreList){
+                if (b == a) {
+                    flag = false;
+                    break;
+                }
+            } if (flag) {
+                this.highscoreList.add(a);
+            }
+        }
         adapterDB.notifyDataSetChanged();
         sortHighscoresByScore();
 
