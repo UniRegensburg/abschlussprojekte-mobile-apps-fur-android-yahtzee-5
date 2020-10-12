@@ -2,11 +2,21 @@ package com.example.kniffel.Highscore.Database;
 
 import android.app.Activity;
 
+import androidx.room.Delete;
 import androidx.room.Room;
 
 import com.example.kniffel.Highscore.HighscoreItem;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeoutException;
 
 /**
  * Diese Hilfsklasse unterstützt den Zugriff auf die Datenbank möglichst gut vom Rest
@@ -32,6 +42,7 @@ public class HighscoreDatabaseHelper {
         initDatabase();
     }
 
+
     /**
      * Dem Konstruktor der Hilfsklasse wird eine Activity als Parameter übergeben, damit deren
      * Kontext für die Erstellung bzw. Bereitstellung der Datenbank verwendet werden kann.
@@ -40,32 +51,76 @@ public class HighscoreDatabaseHelper {
         db = Room.databaseBuilder(activityContext, HighscoreDatabase.class, DATABASE_NAME).build();
     }
 
-    /**
-     * Wird von anderen Teilen der Anwendung aufgerufen, um das übergebene HighscoreItem-Objekt in der
-     * Datenbank zu speichern.
-     */
-    public void addHighscoreToDatabase(HighscoreItem highscoreItem) {
-        AddHighscoreItem item = new AddHighscoreItem(db, highscoreItem);
-        Executors.newSingleThreadExecutor().submit(item);
+    public void addHighscoreItem(HighscoreItem highscoreItem) {
+        AddHighscoreItem task = new AddHighscoreItem(highscoreItem);
+        task.start();
+    }
+
+    public void fetchAllHighscoreItems(HighscoreQueryListener listener) {
+        GetAllHighscoreItems task = new GetAllHighscoreItems(listener);
+        task.start();
+    }
+
+    public void deleteHighscoreItem(HighscoreItem highscoreItem){
+        DeleteHighscoreItem task = new DeleteHighscoreItem(highscoreItem);
+        task.start();
+    }
+
+    private static abstract class DBTask implements Runnable {
+
+        void start() {
+            Executors.newSingleThreadExecutor().submit(this);
+        }
 
     }
 
-    /**
-     * Diese Runnable kapselt den, nebenläufig durchzuführenden, Vorgang des Hinzufügens eines neuen
-     * Datenbankeintrags. Das zuspeichernde Objekt wird dem Task im Konstruktor übergeben.
-     */
-    private class AddHighscoreItem implements Runnable {
-        private HighscoreDatabase db;
-        private HighscoreItem highscoreItem;
+    private class AddHighscoreItem extends DBTask {
 
-        public AddHighscoreItem(HighscoreDatabase db, HighscoreItem highscoreItem) {
-            this.db = db;
+        HighscoreItem highscoreItem;
+
+        public AddHighscoreItem(HighscoreItem highscoreItem) {
             this.highscoreItem = highscoreItem;
         }
 
         @Override
         public void run() {
             db.highscoreItems().addHighscoreItem(highscoreItem);
+        }
+    }
+
+    private class GetAllHighscoreItems extends DBTask {
+
+        HighscoreQueryListener listener;
+
+        public GetAllHighscoreItems(HighscoreQueryListener listener) {
+            this.listener = listener;
+        }
+
+        @Override
+        public void run() {
+            final List<HighscoreItem> highscoreList = db.highscoreItems().getAll();
+
+            activityContext.runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    listener.onHighscoreQueryResult(highscoreList);
+                }
+            });
+
+        }
+    }
+
+    private class DeleteHighscoreItem extends DBTask {
+        private HighscoreItem highscoreItem;
+
+        public DeleteHighscoreItem(HighscoreItem highscoreItem){
+            this.highscoreItem = highscoreItem;
+        }
+
+        @Override
+        public void run() {
+            db.highscoreItems().delete(highscoreItem);
+
         }
     }
 }

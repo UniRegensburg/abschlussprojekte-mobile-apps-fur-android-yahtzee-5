@@ -21,11 +21,11 @@ import java.util.Objects;
 @Entity
 public class HighscoreItem implements Comparable<HighscoreItem>{
     @PrimaryKey(autoGenerate = true)
-    private Integer uid;
+    private int uid;
     @ColumnInfo(name = "playerName")
     private String playerName;
     @ColumnInfo(name = "date")
-    public final Date date;
+    public  Date date;
     @ColumnInfo(name = "score")
     private int score;
 
@@ -44,7 +44,7 @@ public class HighscoreItem implements Comparable<HighscoreItem>{
         return df.format(date.getTime());
     }
 
-    public Integer getUid() { return uid; }
+    public int getUid() { return uid; }
 
     public void setUid(int uid) {this.uid = uid;}
 
