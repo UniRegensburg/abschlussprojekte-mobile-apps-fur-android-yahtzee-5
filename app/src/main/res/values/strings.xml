@@ -105,7 +105,10 @@
     <string name="addWinnerToHighscores">Sieger speichern</string>
     <string name="sort_mode_hint">Sortierung</string>
     <string name="button_sort_by_name">alphabetisch sortieren</string>
-    <string name="button_sort_by_score">Sortieren nach Score</string>
+    <string name="button_sort_by_score">nummerisch sortieren</string>
+
+    <string name="sort_by_score"> Score</string>
+    <string name="sort_by_name"> Alphabet</string>
 
 
 </resources>

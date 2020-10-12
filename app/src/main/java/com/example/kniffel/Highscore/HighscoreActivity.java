@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -21,6 +22,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.example.kniffel.GameOver.GameFinishedActivity;
 import com.example.kniffel.Highscore.Database.HighscoreDatabaseHelper;
+import com.example.kniffel.Highscore.Database.HighscoreQueryListener;
 import com.example.kniffel.InsertNumberOfPlayers.InsertNumberOfPlayers;
 import com.example.kniffel.InsertResults.TableActivity;
 import com.example.kniffel.R;
@@ -31,6 +33,7 @@ import com.google.android.material.navigation.NavigationView;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.List;
 import java.util.Objects;
 
 /**
@@ -41,7 +44,7 @@ import java.util.Objects;
  * In dieser Activity werden alle Highscore Einträge in einer Liste angezeigt.
  */
 
-public class HighscoreActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class HighscoreActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, HighscoreQueryListener {
 
     public final float END_SCALE = 0.7f;
     /**
@@ -79,11 +82,28 @@ public class HighscoreActivity extends AppCompatActivity implements NavigationVi
         initNavigationDrawer();
         sortHighscoresByName();
         sortHighscoresByScore();
+        deleteHighscoreItem();
     }
 
     private void initDB() {
+
         dbHelper = new HighscoreDatabaseHelper(this);
+        try {
+            dbHelper.fetchAllHighscoreItems(this);
+            adapterDB.notifyDataSetChanged();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
+
+    @Override
+    public void onHighscoreQueryResult(List<HighscoreItem> highscoreList) {
+        this.highscoreList.addAll(highscoreList);
+        adapterDB.notifyDataSetChanged();
+        sortHighscoresByScore();
+
+    }
+
 
     private void initHighscoreItem() {
         highscoreList = new ArrayList<>();
@@ -94,81 +114,68 @@ public class HighscoreActivity extends AppCompatActivity implements NavigationVi
     private void initUI() {
         highscoreListView = findViewById(R.id.highscore_list);
         sortModeStatus = findViewById(R.id.sort_mode_status);
-        sortModeStatus.setText("Score");
+        sortModeStatus.setText(R.string.sort_by_score);
         sortByName = findViewById(R.id.buttonSortHighscoresByName);
         sortByScore = findViewById(R.id.buttonSortHighscoresByScore);
     }
 
     private void getExtrasFromIntent() {
         Bundle extras = getIntent().getExtras();
-        if(extras != null) {
+        if (extras != null) {
             playerName = extras.getString(GameFinishedActivity.EXTRA_KEY_PLAYER_NAME);
             playerScore = extras.getInt(GameFinishedActivity.EXTRA_KEY_PLAYER_SCORE);
             addHighscoreItemFromIntent();
         }
     }
 
-    private void addHighscoreItemFromIntent(){
+    private void addHighscoreItemFromIntent() {
         HighscoreItem player = new HighscoreItem(playerName, playerScore);
         highscoreList.add(player);
-        dbHelper.addHighscoreToDatabase(player);
         adapterDB.notifyDataSetChanged();
+        dbHelper.addHighscoreItem(player);
+
     }
 
-    private void sortHighscoresByName(){
-        sortByName.setOnClickListener(new View.OnClickListener() {
+    private void deleteHighscoreItem() {
+        highscoreListView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
-            public void onClick(View view) {
-                Collections.sort(highscoreList);
+            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
+                HighscoreItem highscoreItem = highscoreList.get(i);
+                dbHelper.deleteHighscoreItem(highscoreItem);
+                highscoreList.remove(i);
                 adapterDB.notifyDataSetChanged();
+                return true;
             }
         });
     }
 
-    private void sortHighscoresByScore(){
+    private void sortHighscoresByName() {
+        sortByName.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Collections.sort(highscoreList);
+                sortModeStatus.setText(R.string.sort_by_name);
+                adapterDB.notifyDataSetChanged();
+
+            }
+        });
+    }
+
+    private void sortHighscoresByScore() {
         sortByScore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Collections.sort(highscoreList, new Comparator<HighscoreItem>() {
                     @Override
                     public int compare(HighscoreItem highscoreItem, HighscoreItem t1) {
-                        return highscoreItem.getScore() - t1.getScore();
+                        return t1.getScore() - highscoreItem.getScore();
                     }
                 });
-                sortModeStatus.setText("Alphabet");
+                sortModeStatus.setText(R.string.sort_by_score);
                 adapterDB.notifyDataSetChanged();
             }
         });
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     /**
      * Actionbar wird mit Icon erstellt, rechts oben allerdings noch sehr dunkel
@@ -274,27 +281,7 @@ public class HighscoreActivity extends AppCompatActivity implements NavigationVi
             drawerLayout.closeDrawer(GravityCompat.START);
         } else super.onBackPressed();
     }
-}
 
-/**
- * Das muss am besten passieren, sobald das Spiel beendet wird. Das heißt wenn auf den "Game-Over-Button"
- * geklickt wird, muss überprüft werden ob einer der Spieler einen neuen Highscore erreicht hat, nur
- * dann wird ein Datenbankaufruf benötigt.
- * <p>
- * GameFinishedButton.setOnClickListener(new View.OnClickListener(){
- *
- * @Override public void onClick(View v) {
- * String playerName = muss ausgelesen werden
- * int score = muss aus einem Feld in der TabellenActivity geholt werden
- * date = ?
- * if(!task.isEmpty() && !date.isEmpty() && !score.isEmpty(){
- * HighscoreItem highscoreItem = new HighscoreItem(task, date, score);
- * highscoreList.add(highscoreItem);
- * adapter.notifyDataSetChanged();
- * <p>
- * }
- * dbHelper.addHighscoreToDatabase(highscoreItem);
- * }
- * });
- */
+
+}
 
