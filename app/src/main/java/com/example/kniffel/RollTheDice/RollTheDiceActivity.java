@@ -14,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.Lifecycle;
 
 import com.example.kniffel.InsertResults.TableActivity;
 import com.example.kniffel.R;
@@ -248,11 +249,13 @@ public class RollTheDiceActivity extends AppCompatActivity implements ShakeSenso
 
     @SuppressLint("MissingPermission")
     private void vibrate(){
-        /** Instanz von Vibrator im aktuellen Kontext holen*/
-        Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
-
-        /** Vibriert die Zahl in Klammern in ms*/
-        v.vibrate(500);
+        if(getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED)) {
+            /** Instanz von Vibrator im aktuellen Kontext holen*/
+            Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+            Log.d("VIBRATE", "Vibration");
+            /** Vibriert die Zahl in Klammern in ms*/
+            v.vibrate(500);
+        }
     }
 
     /** berechnet eine Zufallszahl zwischen 0 und 5*/
